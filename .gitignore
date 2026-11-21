@@ -77,3 +77,4 @@ mobile-builds/*.keystore
 .DS_Store
 Thumbs.db
 .neon
+salon_booking_backend/staticfiles/
