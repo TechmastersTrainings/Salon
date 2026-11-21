@@ -46,7 +46,7 @@ const MobileBottomBar = () => {
   return (
     <nav 
       aria-label="Mobile Navigation"
-      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#0B3048]/95 backdrop-blur-md border-t border-[rgba(242,240,233,0.12)] shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pb-[max(env(safe-area-inset-bottom),8px)] pt-2"
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#292966]/95 backdrop-blur-md border-t border-[rgba(163,163,204,0.12)] shadow-[0_-4px_20px_rgba(0,0,0,0.3)] pb-[max(env(safe-area-inset-bottom),8px)] pt-2"
     >
       <div className="flex items-center justify-around max-w-md mx-auto px-3">
         {tabs.map((tab) => {
@@ -58,17 +58,17 @@ const MobileBottomBar = () => {
               to={tab.path}
               onClick={() => triggerHaptic()}
               className={`flex-1 flex flex-col items-center justify-center py-1 transition-all active:scale-95 relative ${
-                isActive ? 'text-[#B9F12F]' : 'text-[#F2F0E9]/55 hover:text-[#F2F0E9]'
+                isActive ? 'text-[#CCCCFF]' : 'text-white/55 hover:text-white'
               }`}
             >
               <div className="relative">
-                <Icon size={20} strokeWidth={isActive ? 2.4 : 1.8} className={isActive ? 'text-[#B9F12F]' : 'text-[#F2F0E9]/55'} />
+                <Icon size={20} strokeWidth={isActive ? 2.4 : 1.8} className={isActive ? 'text-[#CCCCFF]' : 'text-white/55'} />
                 {isActive && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#B9F12F] shadow-[0_0_8px_#B9F12F]" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#CCCCFF] shadow-[0_0_8px_#CCCCFF]" />
                 )}
               </div>
               <span className={`text-[10px] font-poppins mt-1 tracking-tight ${
-                isActive ? 'font-bold text-[#B9F12F]' : 'font-medium text-[#F2F0E9]/60'
+                isActive ? 'font-bold text-[#CCCCFF]' : 'font-medium text-white/60'
               }`}>
                 {tab.label}
               </span>

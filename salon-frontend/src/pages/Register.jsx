@@ -32,28 +32,28 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#0B3048] text-[#F2F0E9]">
-      <div className="max-w-md w-full bg-[#0e3854] border border-[rgba(242,240,233,0.12)] p-8 sm:p-10 shadow-2xl">
+    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#292966] text-white">
+      <div className="max-w-md w-full bg-[#363675] border border-[rgba(163,163,204,0.12)] p-8 sm:p-10 shadow-2xl">
         
         {/* Header */}
         <div className="text-center mb-6">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-[#072132] border border-[#B9F12F]/40 flex items-center justify-center text-white">
-              <Scissors size={20} className="text-[#B9F12F]" />
+            <div className="w-10 h-10 bg-[#1e1e4f] border border-[#CCCCFF]/40 flex items-center justify-center text-white">
+              <Scissors size={20} className="text-[#CCCCFF]" />
             </div>
-            <span className="font-extrabold text-2xl tracking-tighter text-[#F2F0E9]">
-              MAKEMY<span className="text-[#B9F12F]">HAIR</span>
+            <span className="font-extrabold text-2xl tracking-tighter text-white">
+              MAKEMY<span className="text-[#CCCCFF]">HAIR</span>
             </span>
           </Link>
-          <h2 className="text-2xl font-bold text-[#F2F0E9]">Create Account</h2>
-          <p className="text-xs text-[#F2F0E9]/70 mt-1">Join the premier salon & grooming network</p>
+          <h2 className="text-2xl font-bold text-white">Create Account</h2>
+          <p className="text-xs text-white/70 mt-1">Join the premier salon & grooming network</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           
           {/* Role Tabs */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1.5">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
               Account Type
             </label>
             <div className="grid grid-cols-2 gap-2">
@@ -62,8 +62,8 @@ const Register = () => {
                 onClick={() => setRole('customer')}
                 className={`py-2.5 text-xs font-bold uppercase tracking-wider border flex items-center justify-center gap-1.5 transition-colors ${
                   role === 'customer'
-                    ? 'bg-[#B9F12F] text-[#0B3048] border-[#B9F12F] font-bold'
-                    : 'bg-[#072132] text-[#F2F0E9]/70 border-[rgba(242,240,233,0.15)] hover:border-[#B9F12F]'
+                    ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
+                    : 'bg-[#1e1e4f] text-white/70 border-[rgba(163,163,204,0.15)] hover:border-[#CCCCFF]'
                 }`}
               >
                 <UserCheck size={14} />
@@ -74,8 +74,8 @@ const Register = () => {
                 onClick={() => setRole('owner')}
                 className={`py-2.5 text-xs font-bold uppercase tracking-wider border flex items-center justify-center gap-1.5 transition-colors ${
                   role === 'owner'
-                    ? 'bg-[#B9F12F] text-[#0B3048] border-[#B9F12F] font-bold'
-                    : 'bg-[#072132] text-[#F2F0E9]/70 border-[rgba(242,240,233,0.15)] hover:border-[#B9F12F]'
+                    ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
+                    : 'bg-[#1e1e4f] text-white/70 border-[rgba(163,163,204,0.15)] hover:border-[#CCCCFF]'
                 }`}
               >
                 <Store size={14} />
@@ -86,7 +86,7 @@ const Register = () => {
 
           {/* Email */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
               Email Address
             </label>
             <input
@@ -98,7 +98,7 @@ const Register = () => {
                   message: 'Invalid email address'
                 }
               })}
-              className="w-full px-4 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="you@domain.com"
             />
             {errors.email && (
@@ -108,13 +108,13 @@ const Register = () => {
 
           {/* Phone */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
               Telephone
             </label>
             <input
               type="tel"
               {...register('phone', { required: 'Phone number is required' })}
-              className="w-full px-4 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="+91 98807 68222"
             />
             {errors.phone && (
@@ -124,7 +124,7 @@ const Register = () => {
 
           {/* Password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
               Password
             </label>
             <input
@@ -136,7 +136,7 @@ const Register = () => {
                   message: 'Password must be at least 6 characters'
                 }
               })}
-              className="w-full px-4 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="••••••••"
             />
             {errors.password && (
@@ -146,7 +146,7 @@ const Register = () => {
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
               Confirm Password
             </label>
             <input
@@ -155,7 +155,7 @@ const Register = () => {
                 required: 'Please confirm your password',
                 validate: value => value === password || 'Passwords do not match'
               })}
-              className="w-full px-4 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="••••••••"
             />
             {errors.confirmPassword && (
@@ -166,16 +166,16 @@ const Register = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-4 shadow-lg"
+            className="w-full py-3.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-4 shadow-lg"
           >
             <span>{isLoading ? 'Creating Account...' : 'Complete Registration'}</span>
             <ArrowRight size={14} />
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-[#F2F0E9]/60">
+        <div className="mt-6 text-center text-xs text-white/60">
           Already have an account?{' '}
-          <Link to="/login" className="font-bold text-[#B9F12F] hover:underline">
+          <Link to="/login" className="font-bold text-[#CCCCFF] hover:underline">
             Sign In Here
           </Link>
         </div>

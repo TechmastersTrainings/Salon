@@ -49,19 +49,19 @@ const Reports = () => {
   };
 
   return (
-    <div className="space-y-8 font-sans antialiased text-[#F2F0E9]">
-      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[rgba(242,240,233,0.12)]">
+    <div className="space-y-8 font-sans antialiased text-white">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[rgba(163,163,204,0.12)]">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B9F12F]/10 border border-[#B9F12F]/30 text-[#B9F12F] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-            <Sparkles size={12} className="text-[#B9F12F]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CCCCFF]/10 border border-[#CCCCFF]/30 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+            <Sparkles size={12} className="text-[#CCCCFF]" />
             Business Intelligence
           </div>
-          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-[#F2F0E9] tracking-tight">Reports & Performance Analytics</h1>
-          <p className="text-[#F2F0E9]/60 text-xs font-sans mt-0.5">Evaluate platform transaction volume, active appointments, and user acquisition</p>
+          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">Reports & Performance Analytics</h1>
+          <p className="text-white/60 text-xs font-sans mt-0.5">Evaluate platform transaction volume, active appointments, and user acquisition</p>
         </div>
         <button 
           onClick={handleExport}
-          className="flex items-center space-x-2 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] px-5 py-2.5 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shrink-0 shadow-lg shadow-[#B9F12F]/10 hover:scale-[1.02]"
+          className="flex items-center space-x-2 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] px-5 py-2.5 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shrink-0 shadow-lg shadow-[#CCCCFF]/10 hover:scale-[1.02]"
         >
           <Download className="h-4 w-4" />
           <span>Export Dossier (CSV)</span>
@@ -69,19 +69,19 @@ const Reports = () => {
       </div>
 
       {/* Date Range Selector */}
-      <div className="bg-[#0e3854] rounded-2xl shadow-md border border-[rgba(242,240,233,0.12)] p-5">
+      <div className="bg-[#363675] rounded-2xl shadow-md border border-[rgba(163,163,204,0.12)] p-5">
         <div className="flex items-center space-x-3">
-          <Calendar className="h-4 w-4 text-[#F2F0E9]/40" />
-          <span className="text-xs font-poppins font-semibold uppercase tracking-wider text-[#F2F0E9]/60">Telemetry Horizon:</span>
+          <Calendar className="h-4 w-4 text-white/40" />
+          <span className="text-xs font-poppins font-semibold uppercase tracking-wider text-white/60">Telemetry Horizon:</span>
           <select
             value={dateRange}
             onChange={(e) => setDateRange(e.target.value)}
-            className="px-3.5 py-1.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+            className="px-3.5 py-1.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
           >
-            <option value="week" className="bg-[#072132]">Trailing 7 Days</option>
-            <option value="month" className="bg-[#072132]">Current Month (MTD)</option>
-            <option value="quarter" className="bg-[#072132]">Fiscal Quarter</option>
-            <option value="year" className="bg-[#072132]">Annual Summary</option>
+            <option value="week" className="bg-[#1e1e4f]">Trailing 7 Days</option>
+            <option value="month" className="bg-[#1e1e4f]">Current Month (MTD)</option>
+            <option value="quarter" className="bg-[#1e1e4f]">Fiscal Quarter</option>
+            <option value="year" className="bg-[#1e1e4f]">Annual Summary</option>
           </select>
         </div>
       </div>
@@ -96,15 +96,15 @@ const Reports = () => {
         ].map((stat, index) => {
           const Icon = stat.icon;
           return (
-            <div key={index} className="bg-[#0e3854] rounded-2xl shadow-md border border-[rgba(242,240,233,0.12)] p-6">
+            <div key={index} className="bg-[#363675] rounded-2xl shadow-md border border-[rgba(163,163,204,0.12)] p-6">
               <div className="flex items-center justify-between mb-3">
-                <p className="text-xs font-poppins font-semibold uppercase tracking-wider text-[#F2F0E9]/60">{stat.label}</p>
-                <div className="p-2.5 rounded-xl bg-[#072132] border border-[rgba(242,240,233,0.1)] text-[#B9F12F]">
+                <p className="text-xs font-poppins font-semibold uppercase tracking-wider text-white/60">{stat.label}</p>
+                <div className="p-2.5 rounded-xl bg-[#1e1e4f] border border-[rgba(163,163,204,0.1)] text-[#CCCCFF]">
                   <Icon className="h-4 w-4" />
                 </div>
               </div>
-              <p className="text-2xl font-poppins font-bold text-[#F2F0E9]">{stat.value}</p>
-              <p className="text-[11px] font-sans text-[#B9F12F] mt-2 font-medium">{stat.change}</p>
+              <p className="text-2xl font-poppins font-bold text-white">{stat.value}</p>
+              <p className="text-[11px] font-sans text-[#CCCCFF] mt-2 font-medium">{stat.change}</p>
             </div>
           );
         })}

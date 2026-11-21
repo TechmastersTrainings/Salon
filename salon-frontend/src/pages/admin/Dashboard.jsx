@@ -158,26 +158,26 @@ const AdminDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#0B3048]">
-        <div className="w-10 h-10 border-2 border-[rgba(242,240,233,0.15)] border-t-[#B9F12F] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-[#F2F0E9]">Syncing Administration HQ...</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#292966]">
+        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.15)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
+        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-white">Syncing Administration HQ...</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8 font-sans antialiased text-[#F2F0E9]">
+    <div className="space-y-8 font-sans antialiased text-white">
       {/* Page Title */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[rgba(242,240,233,0.12)]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[rgba(163,163,204,0.12)]">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B9F12F]/10 border border-[#B9F12F]/30 text-[#B9F12F] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-            <Sparkles size={12} className="text-[#B9F12F]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CCCCFF]/10 border border-[#CCCCFF]/30 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+            <Sparkles size={12} className="text-[#CCCCFF]" />
             MAKEMYHAIR Global Administration
           </div>
-          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-[#F2F0E9] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">
             Platform Overview & Operations
           </h1>
-          <p className="text-xs text-[#F2F0E9]/60 font-sans mt-1">Real-time health telemetry across all studio locations</p>
+          <p className="text-xs text-white/60 font-sans mt-1">Real-time health telemetry across all studio locations</p>
         </div>
       </div>
 
@@ -189,33 +189,33 @@ const AdminDashboard = () => {
             <Link
               key={i}
               to={card.link}
-              className="group bg-[#0e3854] p-6 rounded-2xl border border-[rgba(242,240,233,0.12)] hover:border-[#B9F12F]/50 shadow-md hover:shadow-xl transition-all relative overflow-hidden"
+              className="group bg-[#363675] p-6 rounded-2xl border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF]/50 shadow-md hover:shadow-xl transition-all relative overflow-hidden"
             >
               <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-[#072132] text-[#B9F12F] group-hover:bg-[#B9F12F] group-hover:text-[#0B3048] transition-all border border-[rgba(242,240,233,0.1)]">
+                <div className="p-3 rounded-xl bg-[#1e1e4f] text-[#CCCCFF] group-hover:bg-[#CCCCFF] group-hover:text-[#292966] transition-all border border-[rgba(163,163,204,0.1)]">
                   <Icon size={18} />
                 </div>
-                <ArrowUpRight size={16} className="text-[#F2F0E9]/30 group-hover:text-[#B9F12F] transition-colors" />
+                <ArrowUpRight size={16} className="text-white/30 group-hover:text-[#CCCCFF] transition-colors" />
               </div>
 
-              <h3 className="text-3xl font-poppins font-bold text-[#F2F0E9] tracking-tight">{card.value}</h3>
-              <p className="text-xs font-poppins font-semibold uppercase tracking-wider text-[#F2F0E9]/60 mt-1">{card.title}</p>
-              <span className="text-[11px] text-[#B9F12F] mt-3 block font-sans font-medium">{card.change}</span>
+              <h3 className="text-3xl font-poppins font-bold text-white tracking-tight">{card.value}</h3>
+              <p className="text-xs font-poppins font-semibold uppercase tracking-wider text-white/60 mt-1">{card.title}</p>
+              <span className="text-[11px] text-[#CCCCFF] mt-3 block font-sans font-medium">{card.change}</span>
             </Link>
           );
         })}
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-[#0e3854] rounded-2xl p-6 sm:p-8 border border-[rgba(242,240,233,0.12)] shadow-md space-y-4">
-        <div className="flex items-center justify-between pb-4 border-b border-[rgba(242,240,233,0.08)]">
+      <div className="bg-[#363675] rounded-2xl p-6 sm:p-8 border border-[rgba(163,163,204,0.12)] shadow-md space-y-4">
+        <div className="flex items-center justify-between pb-4 border-b border-[rgba(163,163,204,0.08)]">
           <div>
-            <h3 className="text-sm font-poppins font-bold text-[#F2F0E9] uppercase tracking-wider">
+            <h3 className="text-sm font-poppins font-bold text-white uppercase tracking-wider">
               Critical Telemetry & Real-Time Log
             </h3>
-            <p className="text-xs text-[#F2F0E9]/60 mt-0.5 font-sans">Live stream of appointments, applications, and partners</p>
+            <p className="text-xs text-white/60 mt-0.5 font-sans">Live stream of appointments, applications, and partners</p>
           </div>
-          <span className="text-[11px] font-poppins font-bold text-[#B9F12F] bg-[#B9F12F]/10 px-3 py-1 rounded-full border border-[#B9F12F]/30">
+          <span className="text-[11px] font-poppins font-bold text-[#CCCCFF] bg-[#CCCCFF]/10 px-3 py-1 rounded-full border border-[#CCCCFF]/30">
             Live Stream
           </span>
         </div>
@@ -225,22 +225,22 @@ const AdminDashboard = () => {
             recentActivity.map((act) => {
               const Icon = act.icon;
               return (
-                <div key={act.id} className="flex items-center justify-between p-4 rounded-xl bg-[#072132] border border-[rgba(242,240,233,0.1)] hover:border-[#B9F12F]/30 transition-colors">
+                <div key={act.id} className="flex items-center justify-between p-4 rounded-xl bg-[#1e1e4f] border border-[rgba(163,163,204,0.1)] hover:border-[#CCCCFF]/30 transition-colors">
                   <div className="flex items-center gap-4">
-                    <div className="p-2.5 rounded-lg bg-[#0e3854] text-[#B9F12F] shrink-0 border border-[rgba(242,240,233,0.1)]">
+                    <div className="p-2.5 rounded-lg bg-[#363675] text-[#CCCCFF] shrink-0 border border-[rgba(163,163,204,0.1)]">
                       <Icon size={16} />
                     </div>
                     <div>
-                      <h4 className="font-poppins font-semibold text-xs sm:text-sm text-[#F2F0E9]">{act.title}</h4>
-                      <p className="text-xs text-[#F2F0E9]/60 font-sans">{act.description}</p>
+                      <h4 className="font-poppins font-semibold text-xs sm:text-sm text-white">{act.title}</h4>
+                      <p className="text-xs text-white/60 font-sans">{act.description}</p>
                     </div>
                   </div>
-                  <span className="text-xs font-sans text-[#F2F0E9]/40 shrink-0">{act.time}</span>
+                  <span className="text-xs font-sans text-white/40 shrink-0">{act.time}</span>
                 </div>
               );
             })
           ) : (
-            <p className="text-xs text-[#F2F0E9]/40 font-sans py-4 text-center">No recent activity logs.</p>
+            <p className="text-xs text-white/40 font-sans py-4 text-center">No recent activity logs.</p>
           )}
         </div>
       </div>

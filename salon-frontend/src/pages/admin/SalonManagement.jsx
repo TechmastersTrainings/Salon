@@ -175,27 +175,27 @@ const SalonManagement = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#0B3048]">
-        <div className="w-10 h-10 border-2 border-[rgba(242,240,233,0.15)] border-t-[#B9F12F] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-[#F2F0E9]">Loading Studio Registry...</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#292966]">
+        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.15)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
+        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-white">Loading Studio Registry...</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-8 font-sans antialiased text-[#F2F0E9]">
-      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[rgba(242,240,233,0.12)]">
+    <div className="space-y-8 font-sans antialiased text-white">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 pb-6 border-b border-[rgba(163,163,204,0.12)]">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B9F12F]/10 border border-[#B9F12F]/30 text-[#B9F12F] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-            <Sparkles size={12} className="text-[#B9F12F]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CCCCFF]/10 border border-[#CCCCFF]/30 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+            <Sparkles size={12} className="text-[#CCCCFF]" />
             Studio Network
           </div>
-          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-[#F2F0E9] tracking-tight">Salon Management</h1>
-          <p className="text-[#F2F0E9]/60 text-xs font-sans mt-0.5">Manage all registered salons, store locations, and owner assignments</p>
+          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">Salon Management</h1>
+          <p className="text-white/60 text-xs font-sans mt-0.5">Manage all registered salons, store locations, and owner assignments</p>
         </div>
         <button
           onClick={handleCreate}
-          className="flex items-center space-x-2 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] px-5 py-2.5 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shrink-0 shadow-lg shadow-[#B9F12F]/10 hover:scale-[1.02]"
+          className="flex items-center space-x-2 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] px-5 py-2.5 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shrink-0 shadow-lg shadow-[#CCCCFF]/10 hover:scale-[1.02]"
         >
           <Plus className="h-4 w-4" />
           <span>Add Salon</span>
@@ -203,27 +203,27 @@ const SalonManagement = () => {
       </div>
 
       {/* Filters */}
-      <div className="bg-[#0e3854] rounded-2xl shadow-md border border-[rgba(242,240,233,0.12)] p-5">
+      <div className="bg-[#363675] rounded-2xl shadow-md border border-[rgba(163,163,204,0.12)] p-5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative md:col-span-2">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#F2F0E9]/40" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
             <input
               type="text"
               placeholder="Search by salon name, city, or phone..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9] placeholder:text-[#F2F0E9]/40"
+              className="w-full pl-10 pr-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white placeholder:text-white/40"
             />
           </div>
 
           <select
             value={cityFilter}
             onChange={(e) => setCityFilter(e.target.value)}
-            className="px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+            className="px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
           >
-            <option value="all" className="bg-[#072132]">All Cities</option>
+            <option value="all" className="bg-[#1e1e4f]">All Cities</option>
             {cities.map(city => (
-              <option key={city} value={city} className="bg-[#072132]">{city}</option>
+              <option key={city} value={city} className="bg-[#1e1e4f]">{city}</option>
             ))}
           </select>
         </div>
@@ -233,14 +233,14 @@ const SalonManagement = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredSalons.length > 0 ? (
           filteredSalons.map((salon) => (
-            <div key={salon.id} className="bg-[#0e3854] rounded-2xl shadow-md border border-[rgba(242,240,233,0.12)] hover:border-[#B9F12F]/40 transition-all overflow-hidden flex flex-col justify-between group">
+            <div key={salon.id} className="bg-[#363675] rounded-2xl shadow-md border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF]/40 transition-all overflow-hidden flex flex-col justify-between group">
               <div>
-                <div className="h-48 bg-[#072132] relative overflow-hidden">
+                <div className="h-48 bg-[#1e1e4f] relative overflow-hidden">
                   {salon.images && salon.images[0] ? (
                     <img src={salon.images[0].image} alt={salon.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-[#072132]">
-                      <Store className="h-14 w-14 text-[#B9F12F]/30" />
+                    <div className="w-full h-full flex items-center justify-center bg-[#1e1e4f]">
+                      <Store className="h-14 w-14 text-[#CCCCFF]/30" />
                     </div>
                   )}
                   <div className="absolute top-3.5 right-3.5">
@@ -255,23 +255,23 @@ const SalonManagement = () => {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="text-base font-poppins font-bold text-[#F2F0E9] mb-2">{salon.name}</h3>
+                  <h3 className="text-base font-poppins font-bold text-white mb-2">{salon.name}</h3>
                   
-                  <div className="space-y-1.5 mb-4 text-xs text-[#F2F0E9]/70 font-sans">
+                  <div className="space-y-1.5 mb-4 text-xs text-white/70 font-sans">
                     <div className="flex items-center">
-                      <MapPin className="h-3.5 w-3.5 mr-2 text-[#B9F12F] shrink-0" />
+                      <MapPin className="h-3.5 w-3.5 mr-2 text-[#CCCCFF] shrink-0" />
                       <span className="truncate">{salon.address ? `${salon.address.substring(0, 30)}...` : 'N/A'}, {salon.city || 'N/A'}</span>
                     </div>
                     <div className="flex items-center">
-                      <Phone className="h-3.5 w-3.5 mr-2 text-[#F2F0E9]/40 shrink-0" />
+                      <Phone className="h-3.5 w-3.5 mr-2 text-white/40 shrink-0" />
                       <span>{salon.phone || 'N/A'}</span>
                     </div>
                     <div className="flex items-center">
-                      <Clock className="h-3.5 w-3.5 mr-2 text-[#F2F0E9]/40 shrink-0" />
+                      <Clock className="h-3.5 w-3.5 mr-2 text-white/40 shrink-0" />
                       <span>{salon.opening_time} - {salon.closing_time}</span>
                     </div>
                     <div className="flex items-center">
-                      <Users className="h-3.5 w-3.5 mr-2 text-[#F2F0E9]/40 shrink-0" />
+                      <Users className="h-3.5 w-3.5 mr-2 text-white/40 shrink-0" />
                       <span>Owner: {salon.owner_name || 'N/A'}</span>
                     </div>
                   </div>
@@ -279,37 +279,37 @@ const SalonManagement = () => {
               </div>
 
               <div className="p-5 pt-0">
-                <div className="flex items-center justify-between pt-4 border-t border-[rgba(242,240,233,0.08)]">
+                <div className="flex items-center justify-between pt-4 border-t border-[rgba(163,163,204,0.08)]">
                   <div className="flex space-x-4">
                     <div className="text-left">
-                      <span className="text-[10px] font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/40 block">Staff</span>
-                      <span className="text-xs font-poppins font-bold text-[#B9F12F]">{salon.staff_count || 0} specialists</span>
+                      <span className="text-[10px] font-poppins font-medium uppercase tracking-wider text-white/40 block">Staff</span>
+                      <span className="text-xs font-poppins font-bold text-[#CCCCFF]">{salon.staff_count || 0} specialists</span>
                     </div>
                     <div className="text-left">
-                      <span className="text-[10px] font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/40 block">Services</span>
-                      <span className="text-xs font-poppins font-bold text-[#B9F12F]">{salon.service_count || 0} treatments</span>
+                      <span className="text-[10px] font-poppins font-medium uppercase tracking-wider text-white/40 block">Services</span>
+                      <span className="text-xs font-poppins font-bold text-[#CCCCFF]">{salon.service_count || 0} treatments</span>
                     </div>
                   </div>
 
                   <div className="flex space-x-1.5">
                     <button
                       onClick={() => window.open(`/salon/${salon.id}`, '_blank')}
-                      className="p-2 rounded-xl bg-[#072132] text-[#F2F0E9]/70 hover:text-[#B9F12F] border border-[rgba(242,240,233,0.1)] transition-colors"
+                      className="p-2 rounded-xl bg-[#1e1e4f] text-white/70 hover:text-[#CCCCFF] border border-[rgba(163,163,204,0.1)] transition-colors"
                       title="View Public Page"
                     >
                       <Eye className="h-4 w-4" />
                     </button>
                     <button
                       onClick={() => handleEdit(salon)}
-                      className="p-2 rounded-xl bg-[#072132] text-[#F2F0E9]/70 hover:text-[#B9F12F] border border-[rgba(242,240,233,0.1)] transition-colors"
+                      className="p-2 rounded-xl bg-[#1e1e4f] text-white/70 hover:text-[#CCCCFF] border border-[rgba(163,163,204,0.1)] transition-colors"
                       title="Edit Salon"
                     >
                       <Edit className="h-4 w-4" />
                     </button>
                     <button
                       onClick={() => handleToggleSalonStatus(salon.id, salon.is_active)}
-                      className={`p-2 rounded-xl bg-[#072132] border border-[rgba(242,240,233,0.1)] transition-colors ${
-                        salon.is_active ? 'text-amber-400 hover:text-amber-300' : 'text-[#B9F12F] hover:text-[#a6db24]'
+                      className={`p-2 rounded-xl bg-[#1e1e4f] border border-[rgba(163,163,204,0.1)] transition-colors ${
+                        salon.is_active ? 'text-amber-400 hover:text-amber-300' : 'text-[#CCCCFF] hover:text-[#b8b8f5]'
                       }`}
                       title={salon.is_active ? 'Deactivate' : 'Activate'}
                     >
@@ -321,8 +321,8 @@ const SalonManagement = () => {
             </div>
           ))
         ) : (
-          <div className="col-span-3 text-center py-16 text-[#F2F0E9]/40 font-sans text-xs">
-            <Store className="h-10 w-10 mx-auto mb-2 text-[#F2F0E9]/30" />
+          <div className="col-span-3 text-center py-16 text-white/40 font-sans text-xs">
+            <Store className="h-10 w-10 mx-auto mb-2 text-white/30" />
             <p>No salons matching current filters</p>
           </div>
         )}
@@ -330,16 +330,16 @@ const SalonManagement = () => {
 
       {/* Create/Edit Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-[#072132]/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
-          <div className="bg-[#0e3854] rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-[rgba(242,240,233,0.15)]">
-            <div className="p-6 border-b border-[rgba(242,240,233,0.1)] sticky top-0 bg-[#0e3854] flex justify-between items-center z-10">
+        <div className="fixed inset-0 bg-[#1e1e4f]/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-fadeIn">
+          <div className="bg-[#363675] rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-[rgba(163,163,204,0.15)]">
+            <div className="p-6 border-b border-[rgba(163,163,204,0.1)] sticky top-0 bg-[#363675] flex justify-between items-center z-10">
               <div>
-                <span className="text-[10px] font-poppins font-semibold uppercase tracking-wider text-[#B9F12F]">Salon Registry</span>
-                <h2 className="text-lg font-poppins font-bold text-[#F2F0E9]">
+                <span className="text-[10px] font-poppins font-semibold uppercase tracking-wider text-[#CCCCFF]">Salon Registry</span>
+                <h2 className="text-lg font-poppins font-bold text-white">
                   {editingSalon ? 'Edit Salon Details' : 'Establish New Salon'}
                 </h2>
               </div>
-              <button onClick={() => setShowModal(false)} className="p-1.5 text-[#F2F0E9]/60 hover:text-[#F2F0E9] rounded-lg transition-colors">
+              <button onClick={() => setShowModal(false)} className="p-1.5 text-white/60 hover:text-white rounded-lg transition-colors">
                 <X className="h-4 w-4" />
               </button>
             </div>
@@ -347,29 +347,29 @@ const SalonManagement = () => {
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Salon Name *</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Salon Name *</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div className="col-span-2">
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Owner Partner *</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Owner Partner *</label>
                   <select
                     name="owner"
                     value={formData.owner}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   >
-                    <option value="" className="bg-[#072132]">Select Partner Account</option>
+                    <option value="" className="bg-[#1e1e4f]">Select Partner Account</option>
                     {owners.map(owner => (
-                      <option key={owner.id} value={owner.id} className="bg-[#072132]">
+                      <option key={owner.id} value={owner.id} className="bg-[#1e1e4f]">
                         {owner.username || owner.email} {!owner.is_owner_approved ? '(Pending KYC)' : ''}
                       </option>
                     ))}
@@ -377,111 +377,111 @@ const SalonManagement = () => {
                 </div>
 
                 <div className="col-span-2">
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Description</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Description</label>
                   <textarea
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
                     rows="2"
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-sans focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Phone *</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Phone *</label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Email</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div className="col-span-2">
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Address *</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Address *</label>
                   <input
                     type="text"
                     name="address"
                     value={formData.address}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">City *</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">City *</label>
                   <input
                     type="text"
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">State</label>
+                  <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">State</label>
                   <input
                     type="text"
                     name="state"
                     value={formData.state}
                     onChange={handleChange}
-                    className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                    className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 col-span-2">
                   <div>
-                    <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Opening Time *</label>
+                    <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Opening Time *</label>
                     <input
                       type="time"
                       name="opening_time"
                       value={formData.opening_time}
                       onChange={handleChange}
                       required
-                      className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                      className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-[#F2F0E9]/80 mb-1">Closing Time *</label>
+                    <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1">Closing Time *</label>
                     <input
                       type="time"
                       name="closing_time"
                       value={formData.closing_time}
                       onChange={handleChange}
                       required
-                      className="w-full px-3.5 py-2.5 bg-[#072132] border border-[rgba(242,240,233,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#B9F12F] text-[#F2F0E9]"
+                      className="w-full px-3.5 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="flex justify-end space-x-3 pt-4 border-t border-[rgba(242,240,233,0.1)]">
+              <div className="flex justify-end space-x-3 pt-4 border-t border-[rgba(163,163,204,0.1)]">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 border border-[rgba(242,240,233,0.2)] text-[#F2F0E9]/70 rounded-xl text-xs font-poppins font-medium hover:bg-[#072132] transition-colors"
+                  className="px-4 py-2 border border-[rgba(163,163,204,0.2)] text-white/70 rounded-xl text-xs font-poppins font-medium hover:bg-[#1e1e4f] transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shadow-md"
+                  className="px-5 py-2 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all shadow-md"
                 >
                   {editingSalon ? 'Update Salon' : 'Create Salon'}
                 </button>

@@ -48,28 +48,28 @@ const PwaInstallPrompt = () => {
 
   return (
     <div className="fixed top-3 left-4 right-4 z-50 md:hidden animate-slideDown">
-      <div className="bg-[#0e3854] text-[#F2F0E9] p-3.5 shadow-2xl border border-[#B9F12F]/40 flex items-center justify-between gap-3">
+      <div className="bg-[#363675] text-white p-3.5 shadow-2xl border border-[#CCCCFF]/40 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-9 h-9 bg-[#B9F12F] flex items-center justify-center shrink-0">
-            <Download size={18} className="text-[#0B3048]" />
+          <div className="w-9 h-9 bg-[#CCCCFF] flex items-center justify-center shrink-0">
+            <Download size={18} className="text-[#292966]" />
           </div>
           <div className="min-w-0">
             <p className="text-xs font-bold truncate">Install MakeMyHair</p>
-            <p className="text-[10px] text-[#F2F0E9]/70 truncate">Fast appointments right from your home screen</p>
+            <p className="text-[10px] text-white/70 truncate">Fast appointments right from your home screen</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={handleInstall}
-            className="px-3 py-1.5 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-[10px] font-bold uppercase tracking-wider transition-colors active:scale-95"
+            className="px-3 py-1.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-[10px] font-bold uppercase tracking-wider transition-colors active:scale-95"
           >
             Install
           </button>
           <button
             onClick={handleDismiss}
             aria-label="Dismiss install banner"
-            className="p-1 text-[#F2F0E9]/70 hover:text-white"
+            className="p-1 text-white/70 hover:text-white"
           >
             <X size={16} />
           </button>

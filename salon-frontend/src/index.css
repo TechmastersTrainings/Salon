@@ -6,13 +6,13 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-    background-color: #0B3048;
-    color: #F2F0E9;
+    background-color: #292966;
+    color: #FFFFFF;
   }
 
   body {
-    background-color: #0B3048;
-    color: #F2F0E9;
+    background-color: #292966;
+    color: #FFFFFF;
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
   }
@@ -23,52 +23,57 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #072132;
+    background: #1e1e4f;
   }
   ::-webkit-scrollbar-thumb {
-    background: #B9F12F;
+    background: #5C5C99;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #a6db24;
+    background: #CCCCFF;
   }
 }
 
 @layer components {
-  /* Bloxic Button Primary (Neon lime background with bold dark petrol text) */
+  /* Bloxic Button Primary (Luminous Lavender periwinkle with deep royal text & glow) */
   .bloxic-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#B9F12F] text-[#0B3048] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#a6db24] hover:shadow-[0_0_20px_rgba(185,241,47,0.35)] rounded-none active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#CCCCFF] text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:shadow-[0_0_24px_rgba(204,204,255,0.5)] rounded-none active:scale-[0.98];
   }
 
   /* Bloxic Button Outline */
   .bloxic-btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent border-2 border-[#B9F12F] text-[#B9F12F] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#B9F12F] hover:text-[#0B3048] rounded-none active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent border-2 border-[#CCCCFF] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] hover:text-[#292966] rounded-none active:scale-[0.98];
+  }
+
+  /* Bloxic Secondary Button (Medium Slate Purple with white text) */
+  .bloxic-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#5C5C99] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#6c6cb3] border border-[#CCCCFF]/40 rounded-none active:scale-[0.98];
   }
 
   /* Bloxic Accent Button */
   .bloxic-btn-accent {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#F2F0E9] text-[#0B3048] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#B9F12F] hover:text-[#0B3048] rounded-none active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] rounded-none active:scale-[0.98];
   }
 
   /* Bloxic Subtitle Badge */
   .bloxic-sub-title {
-    @apply inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#B9F12F] mb-2.5;
+    @apply inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#CCCCFF] mb-2.5;
   }
 
   /* Bloxic Section Title */
   .bloxic-heading {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F2F0E9] tracking-tight;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight;
   }
 
   /* Bloxic Clean Card */
   .bloxic-card {
-    @apply bg-[#0e3854] border border-[rgba(242,240,233,0.12)] text-[#F2F0E9] transition-all duration-300 hover:border-[#B9F12F] hover:shadow-[0_8px_30px_rgba(0,0,0,0.35)];
+    @apply bg-[#363675] border border-[rgba(163,163,204,0.25)] text-white transition-all duration-300 hover:border-[#CCCCFF] hover:shadow-[0_8px_32px_rgba(20,20,60,0.5)];
   }
 }
 
 @layer utilities {
   .text-bloxic-subtle {
-    color: rgba(242, 240, 233, 0.65);
+    color: rgba(255, 255, 255, 0.75);
   }
   
   /* Mobile native safe-area and touch utilities */

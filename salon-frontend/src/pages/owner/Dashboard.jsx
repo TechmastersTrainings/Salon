@@ -104,28 +104,28 @@ const OwnerDashboard = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#0B3048]">
-        <div className="w-10 h-10 border-2 border-[rgba(242,240,233,0.2)] border-t-[#B9F12F] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-[#B9F12F]">Loading Studio Command...</p>
+      <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#292966]">
+        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.2)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
+        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-[#CCCCFF]">Loading Studio Command...</p>
       </div>
     );
   }
 
   if (!hasSalon) {
     return (
-      <div className="min-h-[75vh] flex flex-col items-center justify-center bg-[#0B3048] px-4 text-center">
-        <div className="w-16 h-16 rounded-2xl bg-[#0e3854] border border-[#B9F12F]/40 flex items-center justify-center text-[#B9F12F] mb-6 shadow-xl">
+      <div className="min-h-[75vh] flex flex-col items-center justify-center bg-[#292966] px-4 text-center">
+        <div className="w-16 h-16 rounded-2xl bg-[#363675] border border-[#CCCCFF]/40 flex items-center justify-center text-[#CCCCFF] mb-6 shadow-xl">
           <Store size={32} />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-[#F2F0E9] mb-3">
+        <h2 className="text-2xl sm:text-3xl font-poppins font-bold text-white mb-3">
           No Studio Registered Yet
         </h2>
-        <p className="text-sm text-[#F2F0E9]/70 max-w-md mb-8">
+        <p className="text-sm text-white/70 max-w-md mb-8">
           Welcome to the Merchant Command Center. Register your salon atelier to configure specialists, treatment menus, and accept appointments.
         </p>
         <Link
           to="/salons/manage"
-          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#B9F12F] text-[#0B3048] font-poppins font-bold text-xs uppercase tracking-wider hover:bg-[#a6db24] transition-all shadow-lg"
+          className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#CCCCFF] text-[#292966] font-poppins font-bold text-xs uppercase tracking-wider hover:bg-[#b8b8f5] transition-all shadow-lg"
         >
           <PlusCircle size={16} />
           <span>Register Salon Studio</span>
@@ -135,31 +135,31 @@ const OwnerDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0B3048] text-[#F2F0E9] pb-16 antialiased font-sans">
+    <div className="min-h-screen bg-[#292966] text-white pb-16 antialiased font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
         
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-[rgba(242,240,233,0.12)]">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-6 border-b border-[rgba(163,163,204,0.12)]">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#0e3854] border border-[#B9F12F]/40 text-[#B9F12F] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-              <Sparkles size={12} className="text-[#B9F12F]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#363675] border border-[#CCCCFF]/40 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+              <Sparkles size={12} className="text-[#CCCCFF]" />
               <span>Partner Command Center</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-[#F2F0E9] tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">
               {data.activeSalon?.name || "TechMasters Salon & Grooming Atelier"}
             </h1>
-            <p className="text-xs text-[#F2F0E9]/70 font-sans mt-1">
-              {data.activeSalon?.address || 'Lavelle Road'}, {data.activeSalon?.city || 'Bangalore'} • <span className="text-[#B9F12F] font-medium">Studio Active</span>
+            <p className="text-xs text-white/70 font-sans mt-1">
+              {data.activeSalon?.address || 'Lavelle Road'}, {data.activeSalon?.city || 'Bangalore'} • <span className="text-[#CCCCFF] font-medium">Studio Active</span>
             </p>
           </div>
           
-          <div className="bg-[#0e3854] border border-[rgba(242,240,233,0.15)] px-5 py-3 rounded-xl flex items-center gap-4 shadow-lg">
-            <div className="p-2.5 rounded-lg bg-[#072132] text-[#B9F12F] border border-[#B9F12F]/30">
+          <div className="bg-[#363675] border border-[rgba(163,163,204,0.15)] px-5 py-3 rounded-xl flex items-center gap-4 shadow-lg">
+            <div className="p-2.5 rounded-lg bg-[#1e1e4f] text-[#CCCCFF] border border-[#CCCCFF]/30">
               <Calendar size={18} />
             </div>
             <div>
-              <p className="text-xl font-poppins font-bold text-[#F2F0E9] leading-none">{data.stats.todayBookings}</p>
-              <p className="text-[10px] font-poppins font-semibold text-[#F2F0E9]/50 uppercase tracking-wider mt-1">Today's Sessions</p>
+              <p className="text-xl font-poppins font-bold text-white leading-none">{data.stats.todayBookings}</p>
+              <p className="text-[10px] font-poppins font-semibold text-white/50 uppercase tracking-wider mt-1">Today's Sessions</p>
             </div>
           </div>
         </div>
@@ -175,14 +175,14 @@ const OwnerDashboard = () => {
             <div 
               key={i} 
               onClick={() => navigate(item.link)}
-              className="group bg-[#0e3854] p-6 rounded-xl border border-[rgba(242,240,233,0.12)] hover:border-[#B9F12F] shadow-sm hover:shadow-xl transition-all cursor-pointer relative overflow-hidden"
+              className="group bg-[#363675] p-6 rounded-xl border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] shadow-sm hover:shadow-xl transition-all cursor-pointer relative overflow-hidden"
             >
-              <div className="p-3 w-fit rounded-lg bg-[#072132] text-[#B9F12F] group-hover:bg-[#B9F12F] group-hover:text-[#0B3048] transition-colors mb-4 border border-[rgba(242,240,233,0.1)]">
+              <div className="p-3 w-fit rounded-lg bg-[#1e1e4f] text-[#CCCCFF] group-hover:bg-[#CCCCFF] group-hover:text-[#292966] transition-colors mb-4 border border-[rgba(163,163,204,0.1)]">
                 <item.icon size={20} />
               </div>
-              <h3 className="text-2xl font-poppins font-bold text-[#F2F0E9] tracking-tight">{item.val}</h3>
-              <p className="text-[11px] font-poppins font-medium text-[#F2F0E9]/60 uppercase tracking-wider mt-1">{item.label}</p>
-              <ArrowUpRight className="absolute top-5 right-5 text-[#F2F0E9]/30 group-hover:text-[#B9F12F] transition-colors" size={16} />
+              <h3 className="text-2xl font-poppins font-bold text-white tracking-tight">{item.val}</h3>
+              <p className="text-[11px] font-poppins font-medium text-white/60 uppercase tracking-wider mt-1">{item.label}</p>
+              <ArrowUpRight className="absolute top-5 right-5 text-white/30 group-hover:text-[#CCCCFF] transition-colors" size={16} />
             </div>
           ))}
         </div>
@@ -191,15 +191,15 @@ const OwnerDashboard = () => {
         <div className="grid lg:grid-cols-12 gap-8">
           
           {/* INCOMING QUEUE */}
-          <div className="lg:col-span-8 bg-[#0e3854] rounded-xl p-6 sm:p-8 border border-[rgba(242,240,233,0.12)] shadow-lg space-y-6">
-            <div className="flex justify-between items-center pb-4 border-b border-[rgba(242,240,233,0.1)]">
+          <div className="lg:col-span-8 bg-[#363675] rounded-xl p-6 sm:p-8 border border-[rgba(163,163,204,0.12)] shadow-lg space-y-6">
+            <div className="flex justify-between items-center pb-4 border-b border-[rgba(163,163,204,0.1)]">
               <div className="flex items-center gap-2">
-                <Clock className="text-[#B9F12F]" size={18} />
-                <h3 className="text-sm font-poppins font-bold text-[#F2F0E9] uppercase tracking-wider">
+                <Clock className="text-[#CCCCFF]" size={18} />
+                <h3 className="text-sm font-poppins font-bold text-white uppercase tracking-wider">
                   Upcoming Client Queue
                 </h3>
               </div>
-              <span className="text-[11px] font-poppins font-medium text-[#B9F12F] bg-[#072132] px-3 py-1 rounded-full border border-[#B9F12F]/30">
+              <span className="text-[11px] font-poppins font-medium text-[#CCCCFF] bg-[#1e1e4f] px-3 py-1 rounded-full border border-[#CCCCFF]/30">
                 Live Schedule
               </span>
             </div>
@@ -209,20 +209,20 @@ const OwnerDashboard = () => {
                 data.upcomingBookings.map((b) => (
                   <div 
                     key={b.id} 
-                    className="flex items-center justify-between p-4 rounded-lg border border-[rgba(242,240,233,0.1)] bg-[#072132] hover:border-[#B9F12F] transition-all"
+                    className="flex items-center justify-between p-4 rounded-lg border border-[rgba(163,163,204,0.1)] bg-[#1e1e4f] hover:border-[#CCCCFF] transition-all"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-[#0B3048] text-[#B9F12F] border border-[#B9F12F]/30 flex items-center justify-center font-poppins font-bold text-sm shadow-sm">
+                      <div className="w-10 h-10 rounded-lg bg-[#292966] text-[#CCCCFF] border border-[#CCCCFF]/30 flex items-center justify-center font-poppins font-bold text-sm shadow-sm">
                         {(b.customer_name || 'C').charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <h4 className="font-poppins font-semibold text-[#F2F0E9] text-sm">{b.customer_name || 'Client'}</h4>
-                        <p className="text-xs text-[#F2F0E9]/70 font-sans">{b.service_name || 'Service'}</p>
+                        <h4 className="font-poppins font-semibold text-white text-sm">{b.customer_name || 'Client'}</h4>
+                        <p className="text-xs text-white/70 font-sans">{b.service_name || 'Service'}</p>
                       </div>
                     </div>
 
                     <div className="text-right">
-                      <span className="text-sm font-poppins font-bold text-[#B9F12F] block">{b.appointment_time}</span>
+                      <span className="text-sm font-poppins font-bold text-[#CCCCFF] block">{b.appointment_time}</span>
                       <span className="text-[10px] font-poppins font-medium text-emerald-400 uppercase bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded">
                         {b.status}
                       </span>
@@ -230,10 +230,10 @@ const OwnerDashboard = () => {
                   </div>
                 ))
               ) : (
-                <div className="text-center py-12 px-4 rounded-lg border border-[rgba(242,240,233,0.08)] bg-[#072132]/60">
-                  <Clock className="w-10 h-10 text-[#F2F0E9]/30 mx-auto mb-3" />
-                  <p className="text-sm font-poppins font-semibold text-[#F2F0E9]">No Appointments Scheduled</p>
-                  <p className="text-xs text-[#F2F0E9]/60 mt-1">New client bookings will appear here in real-time.</p>
+                <div className="text-center py-12 px-4 rounded-lg border border-[rgba(163,163,204,0.08)] bg-[#1e1e4f]/60">
+                  <Clock className="w-10 h-10 text-white/30 mx-auto mb-3" />
+                  <p className="text-sm font-poppins font-semibold text-white">No Appointments Scheduled</p>
+                  <p className="text-xs text-white/60 mt-1">New client bookings will appear here in real-time.</p>
                 </div>
               )}
             </div>
@@ -241,10 +241,10 @@ const OwnerDashboard = () => {
 
           {/* QUICK MANAGEMENT LINKS */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-[#072132] text-[#F2F0E9] rounded-xl p-6 sm:p-8 shadow-lg border border-[rgba(242,240,233,0.12)] space-y-5">
+            <div className="bg-[#1e1e4f] text-white rounded-xl p-6 sm:p-8 shadow-lg border border-[rgba(163,163,204,0.12)] space-y-5">
               <div>
-                <span className="text-[10px] font-poppins font-semibold text-[#B9F12F] uppercase tracking-widest block mb-1">Quick Navigation</span>
-                <h3 className="text-base font-poppins font-bold text-[#F2F0E9] uppercase tracking-wider">
+                <span className="text-[10px] font-poppins font-semibold text-[#CCCCFF] uppercase tracking-widest block mb-1">Quick Navigation</span>
+                <h3 className="text-base font-poppins font-bold text-white uppercase tracking-wider">
                   Studio Operations
                 </h3>
               </div>
@@ -252,40 +252,40 @@ const OwnerDashboard = () => {
               <div className="space-y-2.5">
                 <Link 
                   to="/salons/manage"
-                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#0e3854] hover:bg-[#134567] border border-[rgba(242,240,233,0.12)] text-xs font-poppins font-medium text-[#F2F0E9] transition-colors"
+                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#363675] hover:bg-[#44448a] border border-[rgba(163,163,204,0.12)] text-xs font-poppins font-medium text-white transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <Store size={16} className="text-[#B9F12F]" />
+                    <Store size={16} className="text-[#CCCCFF]" />
                     <span>Studio Details & Photos</span>
                   </div>
-                  <ChevronRight size={14} className="text-[#F2F0E9]/40" />
+                  <ChevronRight size={14} className="text-white/40" />
                 </Link>
 
                 <Link 
                   to="/services"
-                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#0e3854] hover:bg-[#134567] border border-[rgba(242,240,233,0.12)] text-xs font-poppins font-medium text-[#F2F0E9] transition-colors"
+                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#363675] hover:bg-[#44448a] border border-[rgba(163,163,204,0.12)] text-xs font-poppins font-medium text-white transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <Scissors size={16} className="text-[#B9F12F]" />
+                    <Scissors size={16} className="text-[#CCCCFF]" />
                     <span>Manage Treatment Menu</span>
                   </div>
-                  <ChevronRight size={14} className="text-[#F2F0E9]/40" />
+                  <ChevronRight size={14} className="text-white/40" />
                 </Link>
 
                 <Link 
                   to="/staff"
-                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#0e3854] hover:bg-[#134567] border border-[rgba(242,240,233,0.12)] text-xs font-poppins font-medium text-[#F2F0E9] transition-colors"
+                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#363675] hover:bg-[#44448a] border border-[rgba(163,163,204,0.12)] text-xs font-poppins font-medium text-white transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <Users size={16} className="text-[#B9F12F]" />
+                    <Users size={16} className="text-[#CCCCFF]" />
                     <span>Specialists & Schedules</span>
                   </div>
-                  <ChevronRight size={14} className="text-[#F2F0E9]/40" />
+                  <ChevronRight size={14} className="text-white/40" />
                 </Link>
 
                 <Link 
                   to="/wallet"
-                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-xs font-poppins font-bold uppercase tracking-wider transition-all mt-4"
+                  className="w-full flex items-center justify-between p-3.5 rounded-lg bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-poppins font-bold uppercase tracking-wider transition-all mt-4"
                 >
                   <div className="flex items-center gap-2">
                     <Wallet size={15} />

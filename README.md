@@ -6,10 +6,12 @@ A modern, full-stack appointment booking and atelier management platform enginee
 
 ## 🎨 Visual Identity & Theme
 
-The user experience adopts a bespoke design system inspired by contemporary luxury design language:
-* **Background (`#0B3048`)**: Deep Navy Slate base
-* **Typography (`#F2F0E9`)**: Warm Bone / Off-White high-contrast typography
-* **Highlights (`#B9F12F`)**: Electric Lime accents for primary actions, badges, and focal points
+The user experience adopts a bespoke design system with a luminous periwinkle and deep royal indigo palette:
+* **Background (`#292966`)**: Deep Midnight Royal Indigo base canvas
+* **Surface Cards (`#5C5C99` / `#363675`)**: Elevated slate purple & indigo surface containers
+* **Borders & Soft Accents (`#A3A3CC`)**: Subtle periwinkle slate dividers and chips
+* **Highlights (`#CCCCFF`)**: Luminous lavender periwinkle accents for primary CTAs, stars, and glows
+* **Typography (`#FFFFFF`)**: Pure White high-contrast typography across all screens
 
 ---
 

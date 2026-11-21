@@ -76,21 +76,21 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#0B3048] text-[#F2F0E9]">
-      <div className="max-w-md w-full bg-[#0e3854] border border-[rgba(242,240,233,0.12)] p-8 sm:p-10 shadow-2xl">
+    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#292966] text-white">
+      <div className="max-w-md w-full bg-[#363675] border border-[rgba(163,163,204,0.12)] p-8 sm:p-10 shadow-2xl">
         
         {/* Header */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-[#072132] border border-[#B9F12F]/40 flex items-center justify-center text-white">
-              <Scissors size={20} className="text-[#B9F12F]" />
+            <div className="w-10 h-10 bg-[#1e1e4f] border border-[#CCCCFF]/40 flex items-center justify-center text-white">
+              <Scissors size={20} className="text-[#CCCCFF]" />
             </div>
-            <span className="font-extrabold text-2xl tracking-tighter text-[#F2F0E9]">
-              MAKEMY<span className="text-[#B9F12F]">HAIR</span>
+            <span className="font-extrabold text-2xl tracking-tighter text-white">
+              MAKEMY<span className="text-[#CCCCFF]">HAIR</span>
             </span>
           </Link>
-          <h2 className="text-2xl font-bold text-[#F2F0E9]">Client & Partner Sign In</h2>
-          <p className="text-xs text-[#F2F0E9]/70 mt-1">Access your bookings and studio management</p>
+          <h2 className="text-2xl font-bold text-white">Client & Partner Sign In</h2>
+          <p className="text-xs text-white/70 mt-1">Access your bookings and studio management</p>
         </div>
 
         {/* Error Notification */}
@@ -106,7 +106,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
               Email Address
             </label>
             <input
@@ -118,7 +118,7 @@ const Login = () => {
                   message: 'Invalid email address'
                 }
               })}
-              className="w-full px-4 py-3 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-3 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="name@domain.com"
             />
             {errors.email && (
@@ -128,14 +128,14 @@ const Login = () => {
 
           <div>
             <div className="flex justify-between items-center mb-1">
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#F2F0E9]/80">
+              <label className="block text-xs font-bold uppercase tracking-wider text-white/80">
                 Password
               </label>
             </div>
             <input
               type="password"
               {...register('password', { required: 'Password is required' })}
-              className="w-full px-4 py-3 bg-[#072132] border border-[rgba(242,240,233,0.15)] text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/40 focus:outline-none focus:border-[#B9F12F]"
+              className="w-full px-4 py-3 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
               placeholder="••••••••"
             />
             {errors.password && (
@@ -146,7 +146,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg"
+            className="w-full py-3.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-2 shadow-lg"
           >
             <span>{isLoading ? 'Verifying...' : 'Sign In'}</span>
             <ArrowRight size={14} />
@@ -154,26 +154,26 @@ const Login = () => {
         </form>
 
         {/* Platform Test Credentials */}
-        <div className="mt-8 pt-6 border-t border-[rgba(242,240,233,0.12)]">
-          <div className="bg-[#072132] border border-[rgba(242,240,233,0.12)] p-3.5 rounded-none mb-4 text-left">
-            <p className="text-[10px] font-poppins font-bold uppercase tracking-wider text-[#B9F12F] mb-1">
+        <div className="mt-8 pt-6 border-t border-[rgba(163,163,204,0.12)]">
+          <div className="bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] p-3.5 rounded-none mb-4 text-left">
+            <p className="text-[10px] font-poppins font-bold uppercase tracking-wider text-[#CCCCFF] mb-1">
               Verified Platform Accounts
             </p>
-            <div className="text-xs space-y-1 font-sans text-[#F2F0E9]/80">
-              <p><span className="font-semibold text-[#F2F0E9]">Merchant:</span> techmastersinnovations@gmail.com</p>
-              <p><span className="font-semibold text-[#F2F0E9]">Client:</span> sachin@email.com</p>
-              <p><span className="font-semibold text-[#F2F0E9]">Password:</span> Fri10Feb@2023</p>
+            <div className="text-xs space-y-1 font-sans text-white/80">
+              <p><span className="font-semibold text-white">Merchant:</span> techmastersinnovations@gmail.com</p>
+              <p><span className="font-semibold text-white">Client:</span> sachin@email.com</p>
+              <p><span className="font-semibold text-white">Password:</span> Fri10Feb@2023</p>
             </div>
           </div>
 
-          <span className="text-[10px] font-poppins font-semibold uppercase tracking-wider text-[#F2F0E9]/50 block mb-2.5 text-center">
+          <span className="text-[10px] font-poppins font-semibold uppercase tracking-wider text-white/50 block mb-2.5 text-center">
             One-Click Verified Sign-In
           </span>
           <div className="grid grid-cols-3 gap-2">
             <button
               type="button"
               onClick={() => handleQuickFill('customer')}
-              className="py-2 text-xs font-poppins font-semibold border border-[rgba(242,240,233,0.15)] bg-[#072132] text-[#F2F0E9] hover:bg-[#B9F12F] hover:text-[#0B3048] transition-colors flex items-center justify-center gap-1"
+              className="py-2 text-xs font-poppins font-semibold border border-[rgba(163,163,204,0.15)] bg-[#1e1e4f] text-white hover:bg-[#CCCCFF] hover:text-[#292966] transition-colors flex items-center justify-center gap-1"
             >
               <UserCheck size={12} />
               <span>Client</span>
@@ -181,7 +181,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => handleQuickFill('owner')}
-              className="py-2 text-xs font-poppins font-semibold border border-[rgba(242,240,233,0.15)] bg-[#072132] text-[#F2F0E9] hover:bg-[#B9F12F] hover:text-[#0B3048] transition-colors flex items-center justify-center gap-1"
+              className="py-2 text-xs font-poppins font-semibold border border-[rgba(163,163,204,0.15)] bg-[#1e1e4f] text-white hover:bg-[#CCCCFF] hover:text-[#292966] transition-colors flex items-center justify-center gap-1"
             >
               <Store size={12} />
               <span>Merchant</span>
@@ -189,7 +189,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => handleQuickFill('admin')}
-              className="py-2 text-xs font-poppins font-semibold border border-[rgba(242,240,233,0.15)] bg-[#072132] text-[#F2F0E9] hover:bg-[#B9F12F] hover:text-[#0B3048] transition-colors flex items-center justify-center gap-1"
+              className="py-2 text-xs font-poppins font-semibold border border-[rgba(163,163,204,0.15)] bg-[#1e1e4f] text-white hover:bg-[#CCCCFF] hover:text-[#292966] transition-colors flex items-center justify-center gap-1"
             >
               <ShieldCheck size={12} />
               <span>Admin</span>
@@ -197,9 +197,9 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="mt-6 text-center text-xs text-[#F2F0E9]/60">
+        <div className="mt-6 text-center text-xs text-white/60">
           New to MakeMyHair?{' '}
-          <Link to="/register" className="font-bold text-[#B9F12F] hover:underline">
+          <Link to="/register" className="font-bold text-[#CCCCFF] hover:underline">
             Create an Account
           </Link>
         </div>

@@ -70,12 +70,12 @@ const Home = () => {
   });
 
   return (
-    <div className="bg-[#0B3048] text-[#F2F0E9] min-h-screen">
+    <div className="bg-[#292966] text-white min-h-screen">
       
       {/* =========================================
           1. HERO BANNER
       ========================================= */}
-      <section className="bg-[#0B3048] border-b border-[rgba(242,240,233,0.12)] py-16 lg:py-24 relative overflow-hidden">
+      <section className="bg-[#292966] border-b border-[rgba(163,163,204,0.12)] py-16 lg:py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
@@ -83,18 +83,18 @@ const Home = () => {
             <div className="lg:col-span-7 space-y-6">
               
               {/* Sub-Title Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#0e3854] border border-[#B9F12F]/40 text-[#B9F12F] text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-[#363675] border border-[#CCCCFF]/40 text-[#CCCCFF] text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm">
                 <Sparkles size={13} />
                 <span>Modern Grooming Living</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#F2F0E9] tracking-tight leading-[1.15] font-sans">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] font-sans">
                 Discover Minimalist Grooming & Master Artistry
               </h1>
 
               {/* Description */}
-              <p className="text-[#F2F0E9]/75 text-sm sm:text-base leading-relaxed max-w-xl font-normal font-body">
+              <p className="text-white/75 text-sm sm:text-base leading-relaxed max-w-xl font-normal font-body">
                 Upgrade your personal style with handcrafted haircuts, straight-razor detailing, and botanical hair therapy. Certified salons with direct calendar synchronization.
               </p>
 
@@ -113,33 +113,33 @@ const Home = () => {
               <div className="pt-6">
                 <form 
                   onSubmit={handleSearch}
-                  className="bg-[#0e3854] p-2.5 border border-[rgba(242,240,233,0.15)] shadow-2xl flex flex-col sm:flex-row gap-2 max-w-2xl"
+                  className="bg-[#363675] p-2.5 border border-[rgba(163,163,204,0.15)] shadow-2xl flex flex-col sm:flex-row gap-2 max-w-2xl"
                 >
-                  <div className="flex-1 flex items-center px-4 py-3 bg-[#072132] border border-[rgba(242,240,233,0.12)] focus-within:border-[#B9F12F] transition-colors">
-                    <MapPin size={16} className="text-[#B9F12F] mr-2.5 shrink-0" />
+                  <div className="flex-1 flex items-center px-4 py-3 bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] focus-within:border-[#CCCCFF] transition-colors">
+                    <MapPin size={16} className="text-[#CCCCFF] mr-2.5 shrink-0" />
                     <input 
                       type="text"
                       placeholder="City (e.g. Bangalore, Mumbai)"
                       value={searchQuery.location}
                       onChange={(e) => setSearchQuery({ ...searchQuery, location: e.target.value })}
-                      className="w-full bg-transparent text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/45 focus:outline-none"
+                      className="w-full bg-transparent text-xs font-semibold text-white placeholder:text-white/45 focus:outline-none"
                     />
                   </div>
 
-                  <div className="flex-1 flex items-center px-4 py-3 bg-[#072132] border border-[rgba(242,240,233,0.12)] focus-within:border-[#B9F12F] transition-colors">
-                    <Scissors size={16} className="text-[#B9F12F] mr-2.5 shrink-0" />
+                  <div className="flex-1 flex items-center px-4 py-3 bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] focus-within:border-[#CCCCFF] transition-colors">
+                    <Scissors size={16} className="text-[#CCCCFF] mr-2.5 shrink-0" />
                     <input 
                       type="text"
                       placeholder="Service (e.g. Balayage, Royal Fade)"
                       value={searchQuery.service}
                       onChange={(e) => setSearchQuery({ ...searchQuery, service: e.target.value })}
-                      className="w-full bg-transparent text-xs font-semibold text-[#F2F0E9] placeholder:text-[#F2F0E9]/45 focus:outline-none"
+                      className="w-full bg-transparent text-xs font-semibold text-white placeholder:text-white/45 focus:outline-none"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="px-8 py-3.5 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-xs font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center justify-center gap-2"
+                    className="px-8 py-3.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors shrink-0 flex items-center justify-center gap-2"
                   >
                     <SearchIcon size={14} />
                     <span>Search</span>
@@ -151,32 +151,32 @@ const Home = () => {
 
             {/* Right Hero Image */}
             <div className="lg:col-span-5 relative">
-              <div className="relative z-10 bg-[#0e3854] p-3 border border-[rgba(242,240,233,0.15)] shadow-2xl">
-                <div className="relative overflow-hidden aspect-[4/5] bg-[#072132]">
+              <div className="relative z-10 bg-[#363675] p-3 border border-[rgba(163,163,204,0.15)] shadow-2xl">
+                <div className="relative overflow-hidden aspect-[4/5] bg-[#1e1e4f]">
                   <img 
                     src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" 
                     alt="Modern Grooming Living"
                     className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute top-4 left-4 bg-[#072132] border border-[#B9F12F]/40 text-[#B9F12F] text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                  <div className="absolute top-4 left-4 bg-[#1e1e4f] border border-[#CCCCFF]/40 text-[#CCCCFF] text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                     Verified Atelier
                   </div>
                 </div>
 
                 {/* Floating Trust Card */}
-                <div className="absolute -bottom-6 -left-6 bg-[#072132] p-4 border border-[rgba(242,240,233,0.15)] shadow-2xl max-w-xs flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#B9F12F] text-[#0B3048] flex items-center justify-center shrink-0">
-                    <Star size={20} className="fill-[#0B3048]" />
+                <div className="absolute -bottom-6 -left-6 bg-[#1e1e4f] p-4 border border-[rgba(163,163,204,0.15)] shadow-2xl max-w-xs flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#CCCCFF] text-[#292966] flex items-center justify-center shrink-0">
+                    <Star size={20} className="fill-[#292966]" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-[#F2F0E9] block">Verified Atelier Network</span>
-                    <span className="text-[11px] text-[#F2F0E9]/65">Direct Calendar Reservations</span>
+                    <span className="text-xs font-bold text-white block">Verified Atelier Network</span>
+                    <span className="text-[11px] text-white/65">Direct Calendar Reservations</span>
                   </div>
                 </div>
               </div>
 
               {/* Decorative accent background box */}
-              <div className="absolute -top-4 -right-4 w-full h-full bg-[#B9F12F]/15 -z-0" />
+              <div className="absolute -top-4 -right-4 w-full h-full bg-[#CCCCFF]/15 -z-0" />
             </div>
 
           </div>
@@ -186,7 +186,7 @@ const Home = () => {
       {/* =========================================
           2. 4-PILLAR SERVICE HIGHLIGHT STRIP
       ========================================= */}
-      <section className="border-b border-[rgba(242,240,233,0.12)] py-10 bg-[#072132]">
+      <section className="border-b border-[rgba(163,163,204,0.12)] py-10 bg-[#1e1e4f]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -212,14 +212,14 @@ const Home = () => {
               }
             ].map((pillar, i) => (
               <div key={i} className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#0e3854] border border-[rgba(242,240,233,0.12)] flex items-center justify-center text-[#B9F12F] shrink-0">
-                  <pillar.icon size={22} className="text-[#B9F12F]" />
+                <div className="w-12 h-12 bg-[#363675] border border-[rgba(163,163,204,0.12)] flex items-center justify-center text-[#CCCCFF] shrink-0">
+                  <pillar.icon size={22} className="text-[#CCCCFF]" />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#F2F0E9]">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-white">
                     {pillar.title}
                   </h4>
-                  <p className="text-xs text-[#F2F0E9]/65 mt-1 leading-relaxed">
+                  <p className="text-xs text-white/65 mt-1 leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
@@ -232,15 +232,15 @@ const Home = () => {
       {/* =========================================
           3. CATEGORY GRID / SERVICE SHOWCASE
       ========================================= */}
-      <section className="py-20 bg-[#0B3048]">
+      <section className="py-20 bg-[#292966]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-xl mx-auto mb-14">
             <span className="bloxic-sub-title">Signature Collections</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F2F0E9] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
               Curated Hair & Grooming Categories
             </h2>
-            <p className="text-[#F2F0E9]/70 text-xs sm:text-sm mt-2">
+            <p className="text-white/70 text-xs sm:text-sm mt-2">
               Browse by craft category and discover specialists certified in modern technique.
             </p>
           </div>
@@ -271,21 +271,21 @@ const Home = () => {
               <div 
                 key={idx}
                 onClick={() => navigate(`/search?service=${encodeURIComponent(cat.query)}`)}
-                className="group cursor-pointer bg-[#0e3854] border border-[rgba(242,240,233,0.12)] hover:border-[#B9F12F] transition-all duration-300 relative overflow-hidden"
+                className="group cursor-pointer bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] transition-all duration-300 relative overflow-hidden"
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#072132]">
+                <div className="relative aspect-[3/4] overflow-hidden bg-[#1e1e4f]">
                   <img 
                     src={cat.img} 
                     alt={cat.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#072132] via-[#072132]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e1e4f] via-[#1e1e4f]/40 to-transparent" />
                   
-                  <div className="absolute bottom-5 left-5 right-5 text-[#F2F0E9]">
-                    <h3 className="text-lg font-bold tracking-tight text-[#F2F0E9] mt-0.5 group-hover:text-[#B9F12F] transition-colors">
+                  <div className="absolute bottom-5 left-5 right-5 text-white">
+                    <h3 className="text-lg font-bold tracking-tight text-white mt-0.5 group-hover:text-[#CCCCFF] transition-colors">
                       {cat.name}
                     </h3>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#F2F0E9]/80 mt-2 uppercase tracking-wider group-hover:translate-x-1 transition-transform group-hover:text-[#B9F12F]">
+                    <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-white/80 mt-2 uppercase tracking-wider group-hover:translate-x-1 transition-transform group-hover:text-[#CCCCFF]">
                       <span>Explore Category</span>
                       <ArrowRight size={12} />
                     </span>
@@ -301,13 +301,13 @@ const Home = () => {
       {/* =========================================
           4. TABBED PRODUCT/STUDIO SHOWCASE
       ========================================= */}
-      <section className="py-20 bg-[#072132] border-y border-[rgba(242,240,233,0.12)]">
+      <section className="py-20 bg-[#1e1e4f] border-y border-[rgba(163,163,204,0.12)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
               <span className="bloxic-sub-title">Popular Studios</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F2F0E9] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
                 Trending Salons & Barbershops
               </h2>
             </div>
@@ -325,8 +325,8 @@ const Home = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-4 py-2 text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-colors border ${
                     activeTab === tab.id
-                      ? 'bg-[#B9F12F] text-[#0B3048] border-[#B9F12F]'
-                      : 'bg-[#0e3854] text-[#F2F0E9]/80 border-[rgba(242,240,233,0.15)] hover:border-[#B9F12F]'
+                      ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF]'
+                      : 'bg-[#363675] text-white/80 border-[rgba(163,163,204,0.15)] hover:border-[#CCCCFF]'
                   }`}
                 >
                   {tab.label}
@@ -341,11 +341,11 @@ const Home = () => {
               {filteredSalons.slice(0, 6).map((salon) => (
                 <div 
                   key={salon.id}
-                  className="group bg-[#0e3854] border border-[rgba(242,240,233,0.12)] hover:border-[#B9F12F] hover:shadow-bloxic-hover transition-all duration-300 relative flex flex-col justify-between"
+                  className="group bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] hover:shadow-bloxic-hover transition-all duration-300 relative flex flex-col justify-between"
                 >
                   <div>
                     {/* Card Image Container */}
-                    <div className="relative aspect-[4/3] overflow-hidden bg-[#072132]">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#1e1e4f]">
                       <img 
                         src={salon.images?.[0]?.image || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'} 
                         alt={salon.name}
@@ -353,7 +353,7 @@ const Home = () => {
                       />
 
                       {/* Badge */}
-                      <span className="absolute top-3 left-3 bg-[#072132] border border-[#B9F12F]/40 text-[#B9F12F] text-[9px] font-bold uppercase tracking-widest px-2.5 py-1">
+                      <span className="absolute top-3 left-3 bg-[#1e1e4f] border border-[#CCCCFF]/40 text-[#CCCCFF] text-[9px] font-bold uppercase tracking-widest px-2.5 py-1">
                         Verified
                       </span>
 
@@ -361,8 +361,8 @@ const Home = () => {
                       <div className="absolute -bottom-12 group-hover:bottom-3 left-3 right-3 flex items-center justify-center gap-2 transition-all duration-300 z-10">
                         <button
                           onClick={(e) => { e.preventDefault(); toggleWishlist(salon.id); }}
-                          className={`w-9 h-9 bg-[#072132] border border-[rgba(242,240,233,0.2)] shadow-md flex items-center justify-center transition-colors ${
-                            wishlist[salon.id] ? 'text-red-400' : 'text-[#F2F0E9] hover:text-[#B9F12F]'
+                          className={`w-9 h-9 bg-[#1e1e4f] border border-[rgba(163,163,204,0.2)] shadow-md flex items-center justify-center transition-colors ${
+                            wishlist[salon.id] ? 'text-red-400' : 'text-white hover:text-[#CCCCFF]'
                           }`}
                           title="Save to Wishlist"
                         >
@@ -371,14 +371,14 @@ const Home = () => {
                         
                         <Link
                           to={`/salon/${salon.id}`}
-                          className="flex-1 py-2 bg-[#B9F12F] hover:bg-[#a6db24] text-[#0B3048] text-[11px] font-bold uppercase tracking-wider text-center shadow-md transition-colors"
+                          className="flex-1 py-2 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-[11px] font-bold uppercase tracking-wider text-center shadow-md transition-colors"
                         >
                           Book Appointment
                         </Link>
 
                         <Link
                           to={`/salon/${salon.id}`}
-                          className="w-9 h-9 bg-[#072132] border border-[rgba(242,240,233,0.2)] shadow-md flex items-center justify-center text-[#F2F0E9] hover:text-[#B9F12F] transition-colors"
+                          className="w-9 h-9 bg-[#1e1e4f] border border-[rgba(163,163,204,0.2)] shadow-md flex items-center justify-center text-white hover:text-[#CCCCFF] transition-colors"
                           title="Quick View"
                         >
                           <Eye size={16} />
@@ -388,25 +388,25 @@ const Home = () => {
 
                     {/* Card Details */}
                     <div className="p-6">
-                      <div className="flex items-center justify-between text-xs text-[#F2F0E9]/60 mb-1.5 font-medium">
+                      <div className="flex items-center justify-between text-xs text-white/60 mb-1.5 font-medium">
                         <span>{salon.city || 'Bangalore'}</span>
-                        <div className="flex items-center gap-1 text-[#B9F12F] font-semibold">
-                          <Star size={13} className="fill-[#B9F12F]" />
+                        <div className="flex items-center gap-1 text-[#CCCCFF] font-semibold">
+                          <Star size={13} className="fill-[#CCCCFF]" />
                           <span>{salon.rating || 5.0}</span>
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-bold text-[#F2F0E9] mb-2 group-hover:text-[#B9F12F] transition-colors leading-snug">
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#CCCCFF] transition-colors leading-snug">
                         <Link to={`/salon/${salon.id}`}>{salon.name}</Link>
                       </h3>
 
-                      <p className="text-[#F2F0E9]/70 text-xs line-clamp-2 leading-relaxed mb-4">
+                      <p className="text-white/70 text-xs line-clamp-2 leading-relaxed mb-4">
                         {salon.description || 'Modern grooming atelier providing precision scissor cuts, hot towel shaves, and hair treatments.'}
                       </p>
 
                       <div className="flex flex-wrap gap-1.5 mb-4">
                         {(salon.tags || ['Master Stylist', 'Private Suite']).slice(0, 3).map((tag, i) => (
-                          <span key={i} className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 bg-[#072132] border border-[rgba(242,240,233,0.12)] text-[#F2F0E9]/75">
+                          <span key={i} className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] text-white/75">
                             {tag}
                           </span>
                         ))}
@@ -415,12 +415,12 @@ const Home = () => {
                   </div>
 
                   {/* Card Footer Bar */}
-                  <div className="px-6 py-4 border-t border-[rgba(242,240,233,0.12)] bg-[#072132] flex items-center justify-between text-xs text-[#F2F0E9]">
-                    <div className="flex items-center gap-1.5 text-[#F2F0E9]/65">
-                      <Clock size={13} className="text-[#B9F12F]" />
+                  <div className="px-6 py-4 border-t border-[rgba(163,163,204,0.12)] bg-[#1e1e4f] flex items-center justify-between text-xs text-white">
+                    <div className="flex items-center gap-1.5 text-white/65">
+                      <Clock size={13} className="text-[#CCCCFF]" />
                       <span>{salon.opening_time || '09:00'} - {salon.closing_time || '21:00'}</span>
                     </div>
-                    <span className="font-bold text-[#B9F12F]">
+                    <span className="font-bold text-[#CCCCFF]">
                       {salon.service_count ? `${salon.service_count} Treatments` : 'Featured'}
                     </span>
                   </div>
@@ -429,10 +429,10 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <div className="py-16 text-center border border-[rgba(242,240,233,0.12)] bg-[#0e3854] p-8 max-w-xl mx-auto">
-              <Store size={40} className="mx-auto text-[#B9F12F] mb-3 opacity-60" />
-              <h3 className="text-base font-bold text-[#F2F0E9] uppercase tracking-wider">No Studios Listed Yet</h3>
-              <p className="text-xs text-[#F2F0E9]/60 mt-1 max-w-md mx-auto">
+            <div className="py-16 text-center border border-[rgba(163,163,204,0.12)] bg-[#363675] p-8 max-w-xl mx-auto">
+              <Store size={40} className="mx-auto text-[#CCCCFF] mb-3 opacity-60" />
+              <h3 className="text-base font-bold text-white uppercase tracking-wider">No Studios Listed Yet</h3>
+              <p className="text-xs text-white/60 mt-1 max-w-md mx-auto">
                 Verified studio partners will appear here once approved by administration.
               </p>
             </div>
@@ -451,18 +451,18 @@ const Home = () => {
       {/* =========================================
           5. PROMOTIONAL SPOTLIGHT BANNER
       ========================================= */}
-      <section className="py-20 bg-[#072132] text-[#F2F0E9] border-b border-[rgba(242,240,233,0.12)]">
+      <section className="py-20 bg-[#1e1e4f] text-white border-b border-[rgba(163,163,204,0.12)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#B9F12F] block">
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#CCCCFF] block">
                 Exclusive Spotlight Offer
               </span>
-              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#F2F0E9] leading-tight">
+              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                 The Executive Royal Grooming Suite
               </h2>
-              <p className="text-[#F2F0E9]/75 text-sm leading-relaxed font-light">
+              <p className="text-white/75 text-sm leading-relaxed font-light">
                 Indulge in a bespoke transformation: signature architectural scissor cut, cedarwood hot towel straight-razor shave, and organic scalp detox therapy.
               </p>
 
@@ -475,7 +475,7 @@ const Home = () => {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative border-4 border-[#0e3854] shadow-2xl">
+              <div className="relative border-4 border-[#363675] shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" 
                   alt="Spotlight Grooming" 

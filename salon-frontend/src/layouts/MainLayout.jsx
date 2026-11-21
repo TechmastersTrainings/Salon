@@ -8,9 +8,9 @@ const MainLayout = () => {
   const { user, logout } = useAuthStore();
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B3048] text-[#F2F0E9]">
+    <div className="min-h-screen flex flex-col bg-[#292966] text-white">
       <Navbar user={user} onLogout={logout} />
-      <main className="flex-grow pb-16 md:pb-0 bg-[#0B3048]">
+      <main className="flex-grow pb-16 md:pb-0 bg-[#292966]">
         <Outlet />
       </main>
       <Footer />
