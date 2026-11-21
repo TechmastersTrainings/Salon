@@ -92,6 +92,16 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 # Database configuration
 def get_database_config():
+    database_url = os.getenv('DATABASE_URL')
+    if database_url:
+        import dj_database_url
+        return dj_database_url.config(
+            default=database_url,
+            conn_max_age=600,
+            conn_health_checks=True,
+            ssl_require=True
+        )
+
     import socket
     db_engine = os.getenv('DB_ENGINE', '').lower()
     use_sqlite = os.getenv('USE_SQLITE', '').lower() in ('true', '1') or db_engine == 'sqlite'

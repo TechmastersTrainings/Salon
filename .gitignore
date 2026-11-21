@@ -76,3 +76,4 @@ mobile-builds/*.keystore
 *.suo
 .DS_Store
 Thumbs.db
+.neon
