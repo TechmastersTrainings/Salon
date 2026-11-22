@@ -4,7 +4,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
-from django.db.models import Count, Q
 from datetime import timedelta
 from apps.bookings.models import Appointment
 from .models import Staff
@@ -71,21 +70,21 @@ class StaffDashboardView(APIView):
             staff=staff,
             appointment_date__gte=today,
             status__in=["pending", "confirmed"]
-        ).order_by('appointment_date', 'appointment_time')[:10]
+        ).select_related('customer', 'service').order_by('appointment_date', 'appointment_time')[:10]
 
         upcoming_data = [{
             'id': a.id,
-            'customer': a.customer.username,
-            'service': a.service.name,
-            'date': a.appointment_date,
-            'time': a.appointment_time,
+            'customer': (a.customer.get_full_name() or a.customer.username or a.customer.email) if a.customer else 'Guest',
+            'service': a.service.name if a.service else 'Service',
+            'date': str(a.appointment_date),
+            'time': str(a.appointment_time),
             'status': a.status
         } for a in upcoming]
 
         return Response({
             "staff_id": staff.id,
-            "staff_name": staff.user.username,
-            "salon_name": staff.salon.name,
+            "staff_name": (staff.user.get_full_name() or staff.user.username or staff.user.email) if staff.user else "Staff",
+            "salon_name": staff.salon.name if staff.salon else "Salon",
             "total_bookings": total_bookings,
             "pending_bookings": pending_bookings,
             "confirmed_bookings": confirmed_bookings,

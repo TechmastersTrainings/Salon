@@ -18,15 +18,17 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('makemyhair-release.keystore')
-            storePassword 'MakeMyHair2026!'
-            keyAlias 'makemyhair'
-            keyPassword 'MakeMyHair2026!'
+            storeFile file(System.getenv('KEYSTORE_FILE') ?: 'makemyhair-release.keystore')
+            storePassword System.getenv('KEYSTORE_PASSWORD') ?: ''
+            keyAlias System.getenv('KEY_ALIAS') ?: 'makemyhair'
+            keyPassword System.getenv('KEY_PASSWORD') ?: ''
         }
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            if (file('makemyhair-release.keystore').exists() && System.getenv('KEYSTORE_PASSWORD')) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
