@@ -23,8 +23,8 @@ export default {
         mauve,
         taupe,
         champagne,
-        // Legacy scales used throughout existing pages are remapped onto the
-        // brand palette so every screen shares one colour system.
+        // Guard: legacy/cool Tailwind scales resolve to the warm brand palette,
+        // so no blue, indigo or violet can render even if a class is added later.
         purple: rose,
         pink: mauve,
         fuchsia: mauve,
@@ -46,10 +46,6 @@ export default {
         line: token('border'),
         footer: token('footer'),
         // Legacy theme names kept so older markup still resolves to the new palette
-        periwinkle: {
-          light: rose[200], slate: mauve[400], mid: rose[500],
-          dark: neutral[900], deep: neutral[950], surface: token('surface'),
-        },
         bloxic: {
           bg: token('bg'), surface: token('surface'), surfaceHover: rose[50], deep: token('bg-alt'),
           text: token('heading'), textMuted: token('muted'), highlight: rose[500], highlightHover: rose[600],
@@ -79,7 +75,7 @@ export default {
         bloxic: '0 1px 2px rgb(60 40 30 / 0.04), 0 10px 28px -12px rgb(60 40 30 / 0.16)',
         'bloxic-hover': '0 2px 4px rgb(60 40 30 / 0.04), 0 24px 48px -20px rgb(60 40 30 / 0.22)',
         'bloxic-card': '0 1px 2px rgb(60 40 30 / 0.04), 0 8px 24px -12px rgb(60 40 30 / 0.12)',
-        'periwinkle-glow': '0 0 0 4px rgb(var(--rose-100))',
+        'rose-glow': '0 0 0 4px rgb(var(--rose-100))',
       },
       letterSpacing: {
         label: '0.22em',
