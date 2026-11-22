@@ -1,0 +1,19 @@
+{
+  "appId": "com.makemyhair.app",
+  "appName": "MakeMyHair",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1500,
+      "backgroundColor": "#0B3048",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#0B3048"
+    }
+  }
+}

@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    background-color: #292966;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #292966;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Bloxic clean scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1e4f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #5C5C99;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #CCCCFF;
+  }
+}
+
+@layer components {
+  /* Bloxic Button Primary (Luminous Lavender periwinkle with deep royal text & glow) */
+  .bloxic-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#CCCCFF] text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:shadow-[0_0_24px_rgba(204,204,255,0.5)] rounded-none active:scale-[0.98];
+  }
+
+  /* Bloxic Button Outline */
+  .bloxic-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent border-2 border-[#CCCCFF] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] hover:text-[#292966] rounded-none active:scale-[0.98];
+  }
+
+  /* Bloxic Secondary Button (Medium Slate Purple with white text) */
+  .bloxic-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#5C5C99] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#6c6cb3] border border-[#CCCCFF]/40 rounded-none active:scale-[0.98];
+  }
+
+  /* Bloxic Accent Button */
+  .bloxic-btn-accent {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] rounded-none active:scale-[0.98];
+  }
+
+  /* Bloxic Subtitle Badge */
+  .bloxic-sub-title {
+    @apply inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#CCCCFF] mb-2.5;
+  }
+
+  /* Bloxic Section Title */
+  .bloxic-heading {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight;
+  }
+
+  /* Bloxic Clean Card */
+  .bloxic-card {
+    @apply bg-[#363675] border border-[rgba(163,163,204,0.25)] text-white transition-all duration-300 hover:border-[#CCCCFF] hover:shadow-[0_8px_32px_rgba(20,20,60,0.5)];
+  }
+}
+
+@layer utilities {
+  .text-bloxic-subtle {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  
+  /* Mobile native safe-area and touch utilities */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom), 16px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out forwards;
+}

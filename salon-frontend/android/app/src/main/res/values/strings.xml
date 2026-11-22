@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MakeMyHair</string>
+    <string name="title_activity_main">MakeMyHair</string>
+    <string name="package_name">com.makemyhair.app</string>
+    <string name="custom_url_scheme">com.makemyhair.app</string>
+</resources>
