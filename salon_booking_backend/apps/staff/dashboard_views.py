@@ -21,6 +21,8 @@ class StaffDashboardView(APIView):
             staff = get_object_or_404(Staff, id=staff_id, user=user)
         elif user.role == "owner":
             staff = get_object_or_404(Staff, id=staff_id, salon__owner=user)
+        elif user.role == "admin" or user.is_staff or user.is_superuser:
+            staff = get_object_or_404(Staff, id=staff_id)
         else:
             return Response(
                 {"error": "Permission denied"},

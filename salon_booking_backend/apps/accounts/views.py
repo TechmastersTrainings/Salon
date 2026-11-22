@@ -2,6 +2,7 @@ from rest_framework import generics, status, mixins
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from core.security import AuthAnonThrottle
 from .models import User
 from .serializers import UserSerializer
 from .auth_serializers import RegisterSerializer, LoginSerializer
@@ -30,10 +31,12 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
     permission_classes = [AllowAny]
+    throttle_classes = [AuthAnonThrottle]
 
 class LoginView(generics.GenericAPIView):
     serializer_class = LoginSerializer
     permission_classes = [AllowAny]
+    throttle_classes = [AuthAnonThrottle]
 
     def post(self, request):
         serializer = self.get_serializer(data=request.data)

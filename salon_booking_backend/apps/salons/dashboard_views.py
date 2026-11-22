@@ -17,7 +17,10 @@ class SalonDashboardView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, salon_id):
-        salon = get_object_or_404(Salon, id=salon_id, owner=request.user)
+        if request.user.role == 'admin' or request.user.is_staff or request.user.is_superuser:
+            salon = get_object_or_404(Salon, id=salon_id)
+        else:
+            salon = get_object_or_404(Salon, id=salon_id, owner=request.user)
 
         # Basic counts
         total_staff = Staff.objects.filter(salon=salon).count()

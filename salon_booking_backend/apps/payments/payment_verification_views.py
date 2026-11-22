@@ -108,6 +108,15 @@ class VerifyPaymentView(APIView):
                 appointment__customer=request.user
             )
 
+            # Idempotency check: if already success, return immediately
+            if payment.status == 'success':
+                return Response({
+                    "message": "Payment already verified and appointment confirmed",
+                    "payment_id": payment.id,
+                    "transaction_id": payment.transaction_id,
+                    "appointment_id": payment.appointment.id
+                })
+
             # Initialize Razorpay client
             client = razorpay.Client(
                 auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)

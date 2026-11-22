@@ -91,3 +91,4 @@ const CancellationRefundPolicy = () => {
 };
 
 export default CancellationRefundPolicy;
+

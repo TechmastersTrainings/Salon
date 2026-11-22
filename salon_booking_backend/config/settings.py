@@ -25,7 +25,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-7xk2z8v9q1m4t6r8y3p5a7c9d1f4h6j8k2l5n9q1m3t7v')
+SECRET_KEY = os.getenv('SECRET_KEY', 'makemyhair-production-grade-sec-auth-key-c839f28a927b4e857c30a84d291e0582')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
@@ -202,9 +202,10 @@ REST_FRAMEWORK = {
         "rest_framework.throttling.UserRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "anon": "50/hour",
-        "user": "500/hour",
+        "anon": "100/hour",
+        "user": "1000/hour",
         "booking": "20/min",
+        "auth": "10/min",
     },
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,

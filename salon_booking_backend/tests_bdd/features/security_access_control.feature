@@ -27,3 +27,4 @@ Feature: MakeMyHair Atelier Security and Access Control Enforcement
     When the customer directly invokes the refund payment endpoint
     Then the platform returns HTTP 403 Forbidden
     And the payment status remains "success"
+
