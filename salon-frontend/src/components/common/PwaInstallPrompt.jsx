@@ -48,28 +48,28 @@ const PwaInstallPrompt = () => {
 
   return (
     <div className="fixed top-3 left-4 right-4 z-50 md:hidden animate-slideDown">
-      <div className="bg-[#363675] text-white p-3.5 shadow-2xl border border-[#CCCCFF]/40 flex items-center justify-between gap-3">
+      <div className="bg-surface text-ink p-3.5 shadow-2xl border border-rose-300 flex items-center justify-between gap-3">
         <div className="flex items-center gap-3 min-w-0">
-          <div className="w-9 h-9 bg-[#CCCCFF] flex items-center justify-center shrink-0">
-            <Download size={18} className="text-[#292966]" />
+          <div className="w-9 h-9 bg-ink flex items-center justify-center shrink-0">
+            <Download size={18} className="text-ivory" />
           </div>
           <div className="min-w-0">
             <p className="text-xs font-bold truncate">Install MakeMyHair</p>
-            <p className="text-[10px] text-white/70 truncate">Fast appointments right from your home screen</p>
+            <p className="text-[10px] text-body truncate">Fast appointments right from your home screen</p>
           </div>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={handleInstall}
-            className="px-3 py-1.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-[10px] font-bold uppercase tracking-wider transition-colors active:scale-95"
+            className="px-3 py-1.5 bg-ink hover:bg-rose-600 text-ivory text-[10px] font-bold uppercase tracking-wider transition-colors active:scale-95"
           >
             Install
           </button>
           <button
             onClick={handleDismiss}
             aria-label="Dismiss install banner"
-            className="p-1 text-white/70 hover:text-white"
+            className="p-1 text-body hover:text-ink"
           >
             <X size={16} />
           </button>

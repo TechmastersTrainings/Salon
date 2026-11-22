@@ -1,82 +1,245 @@
+@import './styles/tokens.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   Base
+   ========================================================================== */
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-    background-color: #292966;
-    color: #FFFFFF;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background-color: #292966;
-    color: #FFFFFF;
+    @apply bg-ivory text-body font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.7;
     overflow-x: hidden;
-    font-family: 'Poppins', sans-serif;
   }
 
-  /* Bloxic clean scrollbars */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
   }
-  ::-webkit-scrollbar-track {
-    background: #1e1e4f;
+
+  /* Marcellus ships one weight — keep Tailwind bold classes from faux-bolding it */
+  h1.font-bold, h2.font-bold, h3.font-bold, h4.font-bold,
+  h1.font-semibold, h2.font-semibold, h3.font-semibold, h4.font-semibold {
+    font-weight: 400;
   }
-  ::-webkit-scrollbar-thumb {
-    background: #5C5C99;
-    border-radius: 4px;
+
+  h5, h6 {
+    @apply font-sans text-ink font-medium;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #CCCCFF;
+
+  ::selection {
+    background: rgb(var(--rose-200));
+    color: rgb(var(--color-heading));
   }
+
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--rose-500));
+    outline-offset: 3px;
+  }
+
+  input, select, textarea {
+    @apply text-ink;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: rgb(var(--neutral-400));
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--color-bg-alt)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--rose-300)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--rose-500)); }
 }
 
+/* ==========================================================================
+   Components — reusable design-system classes
+   ========================================================================== */
 @layer components {
-  /* Bloxic Button Primary (Luminous Lavender periwinkle with deep royal text & glow) */
-  .bloxic-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#CCCCFF] text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-white hover:shadow-[0_0_24px_rgba(204,204,255,0.5)] rounded-none active:scale-[0.98];
+  /* Layout */
+  .container-lux {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+  .section {
+    @apply py-20 md:py-28;
   }
 
-  /* Bloxic Button Outline */
-  .bloxic-btn-outline {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent border-2 border-[#CCCCFF] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] hover:text-[#292966] rounded-none active:scale-[0.98];
+  /* Typography */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-sans text-[0.7rem] font-medium uppercase tracking-label text-rose-600;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-8 bg-rose-400;
+  }
+  .eyebrow-center::after {
+    content: '';
+    @apply block h-px w-8 bg-rose-400;
+  }
+  .display-hero {
+    font-family: var(--font-display);
+    font-size: var(--fs-hero);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+  .heading-xl {
+    font-family: var(--font-display);
+    font-size: var(--fs-h1);
+    line-height: 1.1;
+  }
+  .heading-lg {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+  }
+  .heading-md {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    line-height: 1.25;
+  }
+  .lede {
+    @apply text-base md:text-lg leading-relaxed text-muted;
+  }
+  .editorial {
+    font-family: var(--font-editorial);
+    font-style: italic;
   }
 
-  /* Bloxic Secondary Button (Medium Slate Purple with white text) */
-  .bloxic-btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#5C5C99] text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#6c6cb3] border border-[#CCCCFF]/40 rounded-none active:scale-[0.98];
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-[0.8rem] font-medium uppercase tracking-[0.14em] transition-all duration-300 ease-lux disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-ivory hover:bg-rose-600;
+  }
+  .btn-rose {
+    @apply btn bg-rose-500 text-white hover:bg-rose-700;
+  }
+  .btn-outline {
+    @apply btn border border-ink/80 text-ink hover:bg-ink hover:text-ivory;
+  }
+  .btn-light {
+    @apply btn bg-ivory text-ink hover:bg-white;
+  }
+  .btn-ghost-light {
+    @apply btn border border-ivory/40 text-ivory hover:bg-ivory hover:text-ink;
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-[0.72rem];
+  }
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5 text-[0.78rem] font-medium uppercase tracking-[0.14em] text-ink;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 h-px w-full origin-left scale-x-100 bg-current transition-transform duration-500 ease-lux;
+  }
+  .link-underline:hover::after {
+    @apply origin-right scale-x-0;
   }
 
-  /* Bloxic Accent Button */
-  .bloxic-btn-accent {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#292966] text-xs font-bold uppercase tracking-wider transition-all duration-300 hover:bg-[#CCCCFF] rounded-none active:scale-[0.98];
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+    box-shadow: var(--shadow-soft);
+  }
+  .card-hover {
+    @apply transition-all duration-500 ease-lux hover:-translate-y-1;
+  }
+  .card-hover:hover {
+    box-shadow: var(--shadow-lift);
   }
 
-  /* Bloxic Subtitle Badge */
-  .bloxic-sub-title {
-    @apply inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#CCCCFF] mb-2.5;
+  /* Forms */
+  .field-label {
+    @apply mb-2 block text-[0.7rem] font-medium uppercase tracking-[0.16em] text-body;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-white/70 px-4 py-3.5 text-[0.95rem] text-ink transition-all duration-300 placeholder:text-neutral-400 focus:border-rose-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-rose-100;
+  }
+  .field-error {
+    @apply mt-1.5 text-sm text-red-700;
   }
 
-  /* Bloxic Section Title */
+  /* Decorative */
+  .ornament {
+    @apply flex items-center justify-center gap-3 text-rose-400;
+  }
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    @apply block h-px w-12 bg-current opacity-60;
+  }
+  .arch {
+    border-radius: 999px 999px 0 0;
+  }
+  .grain {
+    background-image: radial-gradient(rgb(var(--rose-300) / 0.25) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  /* ---- Legacy component names, restyled onto the new system ---- */
+  .bloxic-btn-primary { @apply btn-primary; }
+  .bloxic-btn-outline { @apply btn-outline; }
+  .bloxic-btn-secondary { @apply btn-rose; }
+  .bloxic-btn-accent { @apply btn-light border border-line; }
+  .bloxic-sub-title { @apply eyebrow mb-3; }
   .bloxic-heading {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight;
+    @apply font-display text-ink;
+    font-size: var(--fs-h2);
+    line-height: 1.15;
+    font-weight: 400;
   }
-
-  /* Bloxic Clean Card */
   .bloxic-card {
-    @apply bg-[#363675] border border-[rgba(163,163,204,0.25)] text-white transition-all duration-300 hover:border-[#CCCCFF] hover:shadow-[0_8px_32px_rgba(20,20,60,0.5)];
+    @apply rounded-2xl border border-line bg-surface text-body transition-all duration-500 ease-lux hover:border-rose-200;
+    box-shadow: var(--shadow-soft);
   }
+  .bloxic-card:hover { box-shadow: var(--shadow-lift); }
 }
 
+
+/* ==========================================================================
+   Motion
+   ========================================================================== */
 @layer utilities {
-  .text-bloxic-subtle {
-    color: rgba(255, 255, 255, 0.75);
+  .animate-fadeIn {
+    animation: fadeIn 0.35s var(--ease) both;
   }
-  
-  /* Mobile native safe-area and touch utilities */
+  .animate-slideDown {
+    animation: slideDown 0.35s var(--ease) both;
+  }
+  .animate-rise {
+    animation: rise 1s var(--ease) both;
+  }
+  .animate-reveal {
+    animation: reveal 1.2s var(--ease) both;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+
+  .text-bloxic-subtle {
+    color: rgb(var(--color-body));
+  }
+
+  /* Mobile native safe-area utilities */
   .pb-safe {
     padding-bottom: max(env(safe-area-inset-bottom), 16px);
   }
@@ -85,36 +248,40 @@
   }
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+/* Scroll reveal (driven by src/hooks/useReveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes reveal {
+  from { clip-path: inset(100% 0 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-.animate-slideDown {
-  animation: slideDown 0.3s ease-out forwards;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
 }

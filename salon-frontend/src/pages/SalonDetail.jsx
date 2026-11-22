@@ -118,18 +118,18 @@ const SalonDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[75vh] flex flex-col items-center justify-center bg-[#292966]">
-        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.2)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-bold uppercase tracking-widest text-[#CCCCFF]">Entering Atelier Suite...</p>
+      <div className="min-h-[75vh] flex flex-col items-center justify-center bg-ivory">
+        <div className="w-10 h-10 border-2 border-line border-t-rose-500 rounded-full animate-spin mb-4" />
+        <p className="text-xs font-bold uppercase tracking-widest text-rose-600">Entering Atelier Suite...</p>
       </div>
     );
   }
 
   if (!salon) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4 bg-[#292966] text-white">
-        <h2 className="text-2xl font-bold text-white mb-2">Studio Not Found</h2>
-        <p className="text-white/70 text-xs mb-6">The salon you are seeking has relocated or is temporarily offline.</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-4 bg-ivory text-ink">
+        <h2 className="text-2xl font-bold text-ink mb-2">Studio Not Found</h2>
+        <p className="text-body text-xs mb-6">The salon you are seeking has relocated or is temporarily offline.</p>
         <Link to="/search" className="bloxic-btn-primary">Browse Studios</Link>
       </div>
     );
@@ -144,17 +144,17 @@ const SalonDetail = () => {
       ];
 
   return (
-    <div className="bg-[#292966] text-white min-h-screen pb-16">
+    <div className="bg-ivory text-ink min-h-screen pb-16">
       
       {/* 1. BREADCRUMBS */}
-      <div className="bg-[#1e1e4f] border-b border-[rgba(163,163,204,0.12)] py-4">
+      <div className="bg-blush border-b border-line py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-xs text-white/60 uppercase tracking-wider">
-            <Link to="/" className="hover:text-[#CCCCFF]">Home</Link>
+          <nav className="flex items-center gap-2 text-xs text-muted uppercase tracking-wider">
+            <Link to="/" className="hover:text-rose-600">Home</Link>
             <span>/</span>
-            <Link to="/search" className="hover:text-[#CCCCFF]">Studios</Link>
+            <Link to="/search" className="hover:text-rose-600">Studios</Link>
             <span>/</span>
-            <span className="text-white font-bold">{salon.name}</span>
+            <span className="text-ink font-bold">{salon.name}</span>
           </nav>
         </div>
       </div>
@@ -166,13 +166,13 @@ const SalonDetail = () => {
           {/* LEFT 7 COLS: PHOTO GALLERY */}
           <div className="lg:col-span-7 space-y-4">
             {/* Active Feature View */}
-            <div className="relative aspect-[4/3] bg-[#1e1e4f] overflow-hidden border border-[rgba(163,163,204,0.15)] shadow-2xl">
+            <div className="relative aspect-[4/3] bg-blush overflow-hidden border border-line shadow-2xl">
               <img 
                 src={galleryImages[activeImage]?.image} 
                 alt={salon.name} 
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 left-4 bg-[#1e1e4f] border border-[#CCCCFF]/40 text-[#CCCCFF] px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
+              <div className="absolute top-4 left-4 bg-blush border border-rose-300 text-rose-600 px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                 Certified Atelier
               </div>
             </div>
@@ -184,7 +184,7 @@ const SalonDetail = () => {
                   key={img.id || idx}
                   onClick={() => setActiveImage(idx)}
                   className={`relative aspect-[4/3] overflow-hidden border transition-all ${
-                    activeImage === idx ? 'border-2 border-[#CCCCFF]' : 'border-[rgba(163,163,204,0.2)] opacity-70 hover:opacity-100'
+                    activeImage === idx ? 'border-2 border-rose-400' : 'border-line opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={img.image} alt="Thumbnail" className="w-full h-full object-cover" />
@@ -196,64 +196,64 @@ const SalonDetail = () => {
           {/* RIGHT 5 COLS: STUDIO SPECIFICATIONS & DIRECT BOOKING CARD */}
           <div className="lg:col-span-5 space-y-6">
             <div>
-              <div className="flex items-center gap-2 text-xs text-[#CCCCFF] font-bold uppercase tracking-widest mb-1.5">
+              <div className="flex items-center gap-2 text-xs text-rose-600 font-bold uppercase tracking-widest mb-1.5">
                 <Sparkles size={13} />
                 <span>Luxury Grooming Partner</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+              <h1 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
                 {salon.name}
               </h1>
               
               {/* Rating and Reviews Counter */}
-              <div className="flex items-center gap-3 mt-3 pb-4 border-b border-[rgba(163,163,204,0.12)]">
-                <div className="flex items-center gap-1 text-[#CCCCFF]">
+              <div className="flex items-center gap-3 mt-3 pb-4 border-b border-line">
+                <div className="flex items-center gap-1 text-rose-600">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-[#CCCCFF]" />
+                    <Star key={i} size={14} className="fill-rose-500" />
                   ))}
                 </div>
-                <span className="text-xs font-bold text-white">4.98</span>
-                <span className="text-xs text-white/60">({reviews.length} verified reviews)</span>
+                <span className="text-xs font-bold text-ink">4.98</span>
+                <span className="text-xs text-muted">({reviews.length} verified reviews)</span>
               </div>
             </div>
 
             {/* Description */}
-            <p className="text-white/75 text-xs sm:text-sm leading-relaxed font-body">
+            <p className="text-body text-xs sm:text-sm leading-relaxed font-body">
               {salon.description || 'Modern artisan atelier combining classical shear craft with botanical scalp rituals and precision detailing.'}
             </p>
 
             {/* Meta Specifications */}
-            <div className="bg-[#363675] border border-[rgba(163,163,204,0.12)] p-5 space-y-3 text-xs">
+            <div className="bg-surface border border-line p-5 space-y-3 text-xs">
               <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-[#CCCCFF] shrink-0" />
-                <span className="text-white font-medium">{salon.address}, {salon.city}</span>
+                <MapPin size={16} className="text-rose-600 shrink-0" />
+                <span className="text-ink font-medium">{salon.address}, {salon.city}</span>
               </div>
               <div className="flex items-center gap-3">
-                <Clock size={16} className="text-[#CCCCFF] shrink-0" />
-                <span className="text-white font-medium">Daily {salon.opening_time} – {salon.closing_time}</span>
+                <Clock size={16} className="text-rose-600 shrink-0" />
+                <span className="text-ink font-medium">Daily {salon.opening_time} – {salon.closing_time}</span>
               </div>
               <div className="flex items-center gap-3">
-                <Phone size={16} className="text-[#CCCCFF] shrink-0" />
-                <span className="text-white font-medium">{salon.phone}</span>
+                <Phone size={16} className="text-rose-600 shrink-0" />
+                <span className="text-ink font-medium">{salon.phone}</span>
               </div>
             </div>
 
             {/* Feature Checklist */}
-            <div className="space-y-2 pt-2 text-xs text-white/80">
+            <div className="space-y-2 pt-2 text-xs text-body">
               {['Guaranteed Punctual Chair Seating', 'Sanitized Hospital-Grade Instruments', 'Complimentary Consult & Beverage'].map((f, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <Check size={14} className="text-[#CCCCFF] shrink-0" />
+                  <Check size={14} className="text-rose-600 shrink-0" />
                   <span>{f}</span>
                 </div>
               ))}
             </div>
 
             {/* Instant Booking Action */}
-            <div className="pt-4 border-t border-[rgba(163,163,204,0.12)] space-y-3">
+            <div className="pt-4 border-t border-line space-y-3">
               <button
                 onClick={() => handleBookingClick(services[0]?.id)}
-                className="w-full py-4 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-4 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-lg"
               >
-                <Calendar size={16} className="text-[#292966]" />
+                <Calendar size={16} className="text-ivory" />
                 <span>Book Appointment Session</span>
               </button>
             </div>
@@ -265,7 +265,7 @@ const SalonDetail = () => {
 
       {/* 3. TABS SECTION */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <div className="border-b border-[rgba(163,163,204,0.12)] flex items-center justify-center gap-4 sm:gap-10 text-xs sm:text-sm font-bold uppercase tracking-wider">
+        <div className="border-b border-line flex items-center justify-center gap-4 sm:gap-10 text-xs sm:text-sm font-bold uppercase tracking-wider">
           {[
             { id: 'services', label: 'Treatment Menu', count: services.length },
             { id: 'staff', label: 'Specialists', count: staff.length },
@@ -277,13 +277,13 @@ const SalonDetail = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`pb-4 border-b-2 transition-colors relative ${
                 activeTab === tab.id 
-                  ? 'border-[#CCCCFF] text-[#CCCCFF]' 
-                  : 'border-transparent text-white/60 hover:text-white'
+                  ? 'border-rose-400 text-rose-600' 
+                  : 'border-transparent text-muted hover:text-ink'
               }`}
             >
               <span>{tab.label}</span>
               {tab.count !== null && (
-                <span className="ml-1.5 text-[10px] font-semibold text-[#CCCCFF]">({tab.count})</span>
+                <span className="ml-1.5 text-[10px] font-semibold text-rose-600">({tab.count})</span>
               )}
             </button>
           ))}
@@ -298,27 +298,27 @@ const SalonDetail = () => {
               {services.map(srv => (
                 <div 
                   key={srv.id}
-                  className="bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] p-6 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
+                  className="bg-surface border border-line hover:border-rose-400 p-6 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <Scissors size={15} className="text-[#CCCCFF]" />
-                      <h4 className="font-bold text-base text-white">{srv.name}</h4>
+                      <Scissors size={15} className="text-rose-600" />
+                      <h4 className="font-bold text-base text-ink">{srv.name}</h4>
                     </div>
-                    <p className="text-white/70 text-xs max-w-xl font-body leading-relaxed">{srv.description}</p>
-                    <div className="flex items-center gap-3 text-[11px] text-white/60 font-semibold pt-1">
+                    <p className="text-body text-xs max-w-xl font-body leading-relaxed">{srv.description}</p>
+                    <div className="flex items-center gap-3 text-[11px] text-muted font-semibold pt-1">
                       <span className="flex items-center gap-1">
-                        <Clock size={12} className="text-[#CCCCFF]" />
+                        <Clock size={12} className="text-rose-600" />
                         {srv.duration_minutes} Mins
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-3 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-[rgba(163,163,204,0.12)]">
-                    <span className="text-xl font-extrabold text-[#CCCCFF]">₹{srv.price}</span>
+                  <div className="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-3 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-line">
+                    <span className="text-xl font-bold text-rose-600">₹{srv.price}</span>
                     <button
                       onClick={() => handleBookingClick(srv.id)}
-                      className="px-5 py-2.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors"
+                      className="px-5 py-2.5 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors"
                     >
                       Reserve Slot
                     </button>
@@ -334,9 +334,9 @@ const SalonDetail = () => {
               {staff.map(person => (
                 <div 
                   key={person.id}
-                  className="bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] p-6 text-center space-y-4 transition-all shadow-sm"
+                  className="bg-surface border border-line hover:border-rose-400 p-6 text-center space-y-4 transition-all shadow-sm"
                 >
-                  <div className="w-24 h-24 mx-auto overflow-hidden bg-[#1e1e4f] rounded-full border-2 border-[#CCCCFF]">
+                  <div className="w-24 h-24 mx-auto overflow-hidden bg-blush rounded-full border-2 border-rose-400">
                     <img 
                       src={person.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80'} 
                       alt={person.name} 
@@ -344,9 +344,9 @@ const SalonDetail = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold text-base text-white">{person.name || person.user_details?.first_name}</h4>
-                    <p className="text-xs text-[#CCCCFF] font-semibold mt-0.5">{person.role || person.bio || 'Master Stylist'}</p>
-                    <span className="inline-block mt-2 px-3 py-1 bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] text-[10px] font-bold uppercase tracking-wider text-white/70">
+                    <h4 className="font-bold text-base text-ink">{person.name || person.user_details?.first_name}</h4>
+                    <p className="text-xs text-rose-600 font-semibold mt-0.5">{person.role || person.bio || 'Master Stylist'}</p>
+                    <span className="inline-block mt-2 px-3 py-1 bg-blush border border-line text-[10px] font-bold uppercase tracking-wider text-body">
                       {person.experience_years || 5} Years Experience
                     </span>
                   </div>
@@ -360,13 +360,13 @@ const SalonDetail = () => {
             <div className="max-w-4xl mx-auto space-y-8">
               
               {/* Write Review Box */}
-              <div className="bg-[#363675] border border-[rgba(163,163,204,0.12)] p-6 sm:p-8">
-                <h4 className="text-base font-bold text-white mb-2">Leave Verified Patron Feedback</h4>
-                <p className="text-xs text-white/70 mb-6">Your honest experience helps our master stylists maintain standards.</p>
+              <div className="bg-surface border border-line p-6 sm:p-8">
+                <h4 className="text-base font-bold text-ink mb-2">Leave Verified Patron Feedback</h4>
+                <p className="text-xs text-body mb-6">Your honest experience helps our master stylists maintain standards.</p>
 
                 <form onSubmit={handleSubmitReview} className="space-y-4">
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider text-white/70 block mb-2">Rating</label>
+                    <label className="text-xs font-bold uppercase tracking-wider text-body block mb-2">Rating</label>
                     <div className="flex gap-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <button
@@ -375,24 +375,24 @@ const SalonDetail = () => {
                           onClick={() => setNewRating(star)}
                           className={`p-2 border transition-all ${
                             newRating >= star 
-                              ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF]' 
-                              : 'bg-[#1e1e4f] text-white/40 border-[rgba(163,163,204,0.15)]'
+                              ? 'bg-ink text-ivory border-ivory/40' 
+                              : 'bg-blush text-neutral-400 border-line'
                           }`}
                         >
-                          <Star size={16} className={newRating >= star ? 'fill-[#292966]' : ''} />
+                          <Star size={16} className={newRating >= star ? 'fill-ivory' : ''} />
                         </button>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs font-bold uppercase tracking-wider text-white/70 block mb-2">Review Remarks</label>
+                    <label className="text-xs font-bold uppercase tracking-wider text-body block mb-2">Review Remarks</label>
                     <textarea
                       rows="3"
                       value={newComment}
                       onChange={(e) => setNewComment(e.target.value)}
                       placeholder="Detail the consultation, treatment accuracy, and ambiance..."
-                      className="w-full p-4 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-medium text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
+                      className="w-full p-4 bg-white border border-line text-xs font-medium text-ink placeholder:text-neutral-400 focus:outline-none focus:border-rose-400"
                       required
                     />
                   </div>
@@ -400,7 +400,7 @@ const SalonDetail = () => {
                   <button
                     type="submit"
                     disabled={submittingReview}
-                    className="px-7 py-3 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50"
+                    className="px-7 py-3 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors disabled:opacity-50"
                   >
                     <span>{submittingReview ? 'Publishing...' : 'Submit Review'}</span>
                   </button>
@@ -410,25 +410,25 @@ const SalonDetail = () => {
               {/* Reviews List */}
               <div className="space-y-4">
                 {reviews.map((rev, i) => (
-                  <div key={rev.id || i} className="bg-[#363675] border border-[rgba(163,163,204,0.12)] p-6 shadow-sm">
+                  <div key={rev.id || i} className="bg-surface border border-line p-6 shadow-sm">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 bg-[#1e1e4f] border border-[#CCCCFF]/40 text-[#CCCCFF] flex items-center justify-center text-xs font-bold">
+                        <div className="w-8 h-8 bg-blush border border-rose-300 text-rose-600 flex items-center justify-center text-xs font-bold">
                           {(rev.customer?.username || 'C').charAt(0).toUpperCase()}
                         </div>
                         <div>
-                          <h5 className="font-bold text-xs text-white">{rev.customer?.username || 'Verified Client'}</h5>
-                          <span className="text-[10px] text-white/50">Verified Appointment</span>
+                          <h5 className="font-bold text-xs text-ink">{rev.customer?.username || 'Verified Client'}</h5>
+                          <span className="text-[10px] text-muted">Verified Appointment</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-0.5 text-[#CCCCFF]">
+                      <div className="flex items-center gap-0.5 text-rose-600">
                         {[...Array(rev.rating || 5)].map((_, s) => (
-                          <Star key={s} size={12} className="fill-[#CCCCFF]" />
+                          <Star key={s} size={12} className="fill-rose-500" />
                         ))}
                       </div>
                     </div>
-                    <p className="text-white/80 text-xs leading-relaxed mt-2 font-body">
+                    <p className="text-body text-xs leading-relaxed mt-2 font-body">
                       "{rev.comment}"
                     </p>
                   </div>
@@ -440,16 +440,16 @@ const SalonDetail = () => {
 
           {/* TAB 4: AMENITIES */}
           {activeTab === 'amenities' && (
-            <div className="max-w-4xl mx-auto bg-[#363675] border border-[rgba(163,163,204,0.12)] p-8 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-white">Studio Standards & Policies</h3>
+            <div className="max-w-4xl mx-auto bg-surface border border-line p-8 shadow-sm space-y-6">
+              <h3 className="text-xl font-bold text-ink">Studio Standards & Policies</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {[
                   'Air Conditioned Suite', 'High Speed Wi-Fi',
                   'Complimentary Beverage Bar', 'Valet Parking Available',
                   'Digital UPI / Cards Accepted', 'Private Styling Rooms'
                 ].map((item, idx) => (
-                  <div key={idx} className="p-3 bg-[#1e1e4f] border border-[rgba(163,163,204,0.12)] flex items-center gap-2 text-xs font-semibold text-white">
-                    <Check size={14} className="text-[#CCCCFF]" />
+                  <div key={idx} className="p-3 bg-blush border border-line flex items-center gap-2 text-xs font-semibold text-ink">
+                    <Check size={14} className="text-rose-600" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -461,19 +461,19 @@ const SalonDetail = () => {
       </div>
 
       {/* 4. MOBILE FLOATING ACTION BAR */}
-      <div className="fixed bottom-12 left-0 right-0 z-30 md:hidden bg-[#292966]/95 backdrop-blur-md border-t border-[rgba(163,163,204,0.15)] px-4 py-2.5 flex items-center justify-between shadow-2xl">
+      <div className="fixed bottom-12 left-0 right-0 z-30 md:hidden bg-ivory/95 backdrop-blur-md border-t border-line px-4 py-2.5 flex items-center justify-between shadow-2xl">
         <div>
-          <span className="text-[10px] uppercase font-bold text-white/60 block tracking-wider">Starts From</span>
-          <span className="text-base font-extrabold text-[#CCCCFF]">
+          <span className="text-[10px] uppercase font-bold text-muted block tracking-wider">Starts From</span>
+          <span className="text-base font-bold text-rose-600">
             ₹{services[0]?.price || '650'}
           </span>
         </div>
 
         <button
           onClick={() => handleBookingClick(services[0]?.id)}
-          className="px-6 py-2.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-sm"
+          className="px-6 py-2.5 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-sm"
         >
-          <Calendar size={13} className="text-[#292966]" />
+          <Calendar size={13} className="text-ivory" />
           <span>Book Session</span>
         </button>
       </div>

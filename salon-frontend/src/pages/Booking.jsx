@@ -147,31 +147,31 @@ const Booking = () => {
   const formatPrice = (p) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', minimumFractionDigits: 0 }).format(p || 0);
 
   if (ui.loading) return (
-    <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#292966]">
-      <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.2)] border-t-[#CCCCFF] rounded-full animate-spin mb-4"></div>
-      <p className="text-xs font-bold uppercase tracking-widest text-[#CCCCFF]">Loading Studio Scheduling...</p>
+    <div className="min-h-[70vh] flex flex-col items-center justify-center bg-ivory">
+      <div className="w-10 h-10 border-2 border-line border-t-rose-500 rounded-full animate-spin mb-4"></div>
+      <p className="text-xs font-bold uppercase tracking-widest text-rose-600">Loading Studio Scheduling...</p>
     </div>
   );
 
   return (
-    <div className="bg-[#292966] text-white min-h-screen py-10 px-4 sm:px-6">
+    <div className="bg-ivory text-ink min-h-screen py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto">
         
         {/* Breadcrumb Header */}
         <div className="mb-8 text-center">
-          <nav className="flex items-center justify-center gap-2 text-xs text-white/60 uppercase tracking-wider mb-2">
-            <Link to="/" className="hover:text-[#CCCCFF]">Home</Link>
+          <nav className="flex items-center justify-center gap-2 text-xs text-muted uppercase tracking-wider mb-2">
+            <Link to="/" className="hover:text-rose-600">Home</Link>
             <span>/</span>
-            <Link to={`/salon/${salonId}`} className="hover:text-[#CCCCFF]">{data.salon?.name || 'Studio'}</Link>
+            <Link to={`/salon/${salonId}`} className="hover:text-rose-600">{data.salon?.name || 'Studio'}</Link>
             <span>/</span>
-            <span className="text-white font-bold">Checkout</span>
+            <span className="text-ink font-bold">Checkout</span>
           </nav>
           <span className="bloxic-sub-title">Reservation</span>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl font-bold text-ink tracking-tight">
             Book Appointment
           </h1>
-          <p className="text-white/70 text-xs mt-1">
-            Studio: <strong className="text-[#CCCCFF]">{data.salon?.name}</strong> • {data.salon?.city}
+          <p className="text-body text-xs mt-1">
+            Studio: <strong className="text-rose-600">{data.salon?.name}</strong> • {data.salon?.city}
           </p>
         </div>
 
@@ -187,10 +187,10 @@ const Booking = () => {
               key={item.step}
               className={`py-2.5 px-1 sm:px-2 border-b-2 text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors ${
                 ui.step === item.step
-                  ? 'border-[#CCCCFF] text-[#CCCCFF]'
+                  ? 'border-rose-400 text-rose-600'
                   : ui.step > item.step
-                  ? 'border-[#CCCCFF]/50 text-[#CCCCFF]/70'
-                  : 'border-[rgba(163,163,204,0.15)] text-white/40'
+                  ? 'border-rose-300 text-rose-500'
+                  : 'border-line text-neutral-400'
               }`}
             >
               <span className="sm:hidden">{item.step}. {item.short}</span>
@@ -202,7 +202,7 @@ const Booking = () => {
         {/* STEP 1: SERVICE SELECTION */}
         {ui.step === 1 && (
           <div className="space-y-4 animate-fadeIn">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-white mb-4">
+            <h2 className="text-sm font-bold uppercase tracking-wider text-ink mb-4">
               Select Your Required Service
             </h2>
 
@@ -215,19 +215,19 @@ const Booking = () => {
                     setSelection(p => ({ ...p, service: srv, date: p.date || format(startOfToday(), 'yyyy-MM-dd') }));
                     setUi(p => ({ ...p, step: 2 }));
                   }}
-                  className="p-4 sm:p-5 bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] hover:shadow-bloxic cursor-pointer transition-all flex items-center justify-between"
+                  className="p-4 sm:p-5 bg-surface border border-line hover:border-rose-400 hover:shadow-bloxic cursor-pointer transition-all flex items-center justify-between"
                 >
                   <div className="pr-4">
-                    <h3 className="font-bold text-sm text-white">{srv.name}</h3>
-                    <p className="text-xs text-white/70 mt-1 line-clamp-1">{srv.description || 'Professional salon treatment'}</p>
-                    <span className="text-xs text-[#CCCCFF] mt-2 block font-medium">
+                    <h3 className="font-bold text-sm text-ink">{srv.name}</h3>
+                    <p className="text-xs text-body mt-1 line-clamp-1">{srv.description || 'Professional salon treatment'}</p>
+                    <span className="text-xs text-rose-600 mt-2 block font-medium">
                       Duration: {srv.duration_minutes} Minutes
                     </span>
                   </div>
 
                   <div className="text-right shrink-0">
-                    <span className="text-base font-extrabold text-[#CCCCFF] block mb-2">{formatPrice(srv.price)}</span>
-                    <span className="px-3 py-1 bg-[#CCCCFF] text-[#292966] text-[10px] font-bold uppercase tracking-wider">
+                    <span className="text-base font-bold text-rose-600 block mb-2">{formatPrice(srv.price)}</span>
+                    <span className="px-3 py-1 bg-ink text-ivory text-[10px] font-bold uppercase tracking-wider">
                       Select
                     </span>
                   </div>
@@ -242,17 +242,17 @@ const Booking = () => {
           <div className="space-y-6 animate-fadeIn">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-ink">
                   Choose Date & Time Slot
                 </h2>
-                <p className="text-xs text-white/70 mt-0.5">Selected: <strong className="text-[#CCCCFF]">{selection.service?.name}</strong> ({formatPrice(selection.service?.price)})</p>
+                <p className="text-xs text-body mt-0.5">Selected: <strong className="text-rose-600">{selection.service?.name}</strong> ({formatPrice(selection.service?.price)})</p>
               </div>
               <button
                 onClick={() => {
                   triggerHaptic();
                   setUi(p => ({ ...p, step: 1 }));
                 }}
-                className="text-xs font-bold uppercase tracking-wider text-[#CCCCFF] hover:underline"
+                className="text-xs font-bold uppercase tracking-wider text-rose-600 hover:underline"
               >
                 Change Service
               </button>
@@ -260,7 +260,7 @@ const Booking = () => {
 
             {/* Date Pickers */}
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-white/60 block mb-2">Available Dates</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-muted block mb-2">Available Dates</span>
               <div className="grid grid-cols-4 sm:grid-cols-7 gap-2">
                 {dateOptions.map(d => (
                   <button
@@ -271,11 +271,11 @@ const Booking = () => {
                     }}
                     className={`py-3 px-2 text-center border transition-all text-xs ${
                       selection.date === d.value
-                        ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
-                        : 'bg-[#363675] border-[rgba(163,163,204,0.12)] text-white hover:border-[#CCCCFF]'
+                        ? 'bg-ink text-ivory border-ivory/40 font-bold'
+                        : 'bg-surface border-line text-ink hover:border-rose-400'
                     }`}
                   >
-                    <span className={`block text-[10px] uppercase font-semibold ${selection.date === d.value ? 'text-[#292966]/70' : 'text-white/50'}`}>{d.dayName}</span>
+                    <span className={`block text-[10px] uppercase font-semibold ${selection.date === d.value ? 'text-ivory/70' : 'text-muted'}`}>{d.dayName}</span>
                     <span className="block font-bold mt-0.5">{d.dateNum}</span>
                   </button>
                 ))}
@@ -285,7 +285,7 @@ const Booking = () => {
             {/* Time Slot Pickers */}
             {selection.date && (
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-white/60 block mb-2">Select Preferred Hour</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-muted block mb-2">Select Preferred Hour</span>
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                   {availability.slots.map(s => (
                     <button
@@ -298,12 +298,12 @@ const Booking = () => {
                       }}
                       className={`py-3 px-2 text-xs font-bold border transition-colors ${
                         s.conflict
-                          ? 'bg-red-950/40 text-red-400 border-red-800/40 cursor-not-allowed'
+                          ? 'bg-red-50 text-red-700 border-red-800/40 cursor-not-allowed'
                           : s.disabled
-                          ? 'bg-[#1e1e4f] text-white/25 border-[rgba(163,163,204,0.06)] cursor-not-allowed'
+                          ? 'bg-blush text-neutral-400 border-line cursor-not-allowed'
                           : selection.time === s.time
-                          ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
-                          : 'bg-[#363675] border-[rgba(163,163,204,0.12)] text-white hover:border-[#CCCCFF]'
+                          ? 'bg-ink text-ivory border-ivory/40 font-bold'
+                          : 'bg-surface border-line text-ink hover:border-rose-400'
                       }`}
                     >
                       {s.time}
@@ -320,17 +320,17 @@ const Booking = () => {
           <div className="space-y-6 animate-fadeIn">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-ink">
                   Choose Stylist / Specialist
                 </h2>
-                <p className="text-xs text-white/70 mt-0.5">Slot: {selection.date} at {selection.time}</p>
+                <p className="text-xs text-body mt-0.5">Slot: {selection.date} at {selection.time}</p>
               </div>
               <button
                 onClick={() => {
                   triggerHaptic();
                   setUi(p => ({ ...p, step: 2 }));
                 }}
-                className="text-xs font-bold uppercase tracking-wider text-[#CCCCFF] hover:underline"
+                className="text-xs font-bold uppercase tracking-wider text-rose-600 hover:underline"
               >
                 Change Time
               </button>
@@ -345,20 +345,20 @@ const Booking = () => {
                     setSelection(p => ({ ...p, staff: m }));
                     setUi(p => ({ ...p, step: 4 }));
                   }}
-                  className="p-4 bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] cursor-pointer transition-all flex items-center justify-between"
+                  className="p-4 bg-surface border border-line hover:border-rose-400 cursor-pointer transition-all flex items-center justify-between"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-[#1e1e4f] border border-[#CCCCFF]/40 flex items-center justify-center font-bold text-sm text-[#CCCCFF]">
+                    <div className="w-12 h-12 bg-blush border border-rose-300 flex items-center justify-center font-bold text-sm text-rose-600">
                       {m.name.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm text-white">{m.name}</h4>
-                      <p className="text-xs text-[#CCCCFF] font-semibold">{m.role || 'Senior Specialist'}</p>
-                      <span className="text-[10px] text-white/60">{m.experience_years || 5}+ Years Experience</span>
+                      <h4 className="font-bold text-sm text-ink">{m.name}</h4>
+                      <p className="text-xs text-rose-600 font-semibold">{m.role || 'Senior Specialist'}</p>
+                      <span className="text-[10px] text-muted">{m.experience_years || 5}+ Years Experience</span>
                     </div>
                   </div>
 
-                  <span className="px-3 py-1 bg-[#CCCCFF] text-[#292966] text-[10px] font-bold uppercase tracking-wider">
+                  <span className="px-3 py-1 bg-ink text-ivory text-[10px] font-bold uppercase tracking-wider">
                     Select
                   </span>
                 </div>
@@ -370,40 +370,40 @@ const Booking = () => {
         {/* STEP 4: ORDER SUMMARY & CONFIRMATION */}
         {ui.step === 4 && (
           <div className="space-y-6 animate-fadeIn">
-            <div className="bg-[#363675] border border-[rgba(163,163,204,0.12)] p-8 shadow-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#CCCCFF] block mb-1">
+            <div className="bg-surface border border-line p-8 shadow-2xl">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-rose-600 block mb-1">
                 Order Review
               </span>
-              <h2 className="text-2xl font-extrabold text-white mb-6">
+              <h2 className="text-2xl font-bold text-ink mb-6">
                 Appointment Summary
               </h2>
 
-              <div className="space-y-3 py-4 border-y border-[rgba(163,163,204,0.12)] text-xs">
+              <div className="space-y-3 py-4 border-y border-line text-xs">
                 <div className="flex justify-between">
-                  <span className="text-white/70">Salon Studio:</span>
-                  <span className="font-bold text-white">{data.salon?.name}</span>
+                  <span className="text-body">Salon Studio:</span>
+                  <span className="font-bold text-ink">{data.salon?.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white/70">Treatment:</span>
-                  <span className="font-bold text-white">{selection.service?.name}</span>
+                  <span className="text-body">Treatment:</span>
+                  <span className="font-bold text-ink">{selection.service?.name}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white/70">Specialist:</span>
-                  <span className="font-bold text-white">{selection.staff?.name || 'Assigned Senior Stylist'}</span>
+                  <span className="text-body">Specialist:</span>
+                  <span className="font-bold text-ink">{selection.staff?.name || 'Assigned Senior Stylist'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white/70">Date & Slot:</span>
-                  <span className="font-bold text-[#CCCCFF]">{selection.date} at {selection.time}</span>
+                  <span className="text-body">Date & Slot:</span>
+                  <span className="font-bold text-rose-600">{selection.date} at {selection.time}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white/70">Payment Option:</span>
-                  <span className="font-semibold text-white">Pay at Studio (Cash, Card, UPI)</span>
+                  <span className="text-body">Payment Option:</span>
+                  <span className="font-semibold text-ink">Pay at Studio (Cash, Card, UPI)</span>
                 </div>
               </div>
 
               <div className="pt-4 flex justify-between items-center mb-6">
-                <span className="text-sm font-bold text-white/80">Total Treatment Price</span>
-                <span className="text-2xl font-black text-[#CCCCFF]">
+                <span className="text-sm font-bold text-body">Total Treatment Price</span>
+                <span className="text-2xl font-bold text-rose-600">
                   {formatPrice(selection.service?.price)}
                 </span>
               </div>
@@ -420,7 +420,7 @@ const Booking = () => {
             <div className="text-center">
               <button
                 onClick={() => setUi(p => ({ ...p, step: 1 }))}
-                className="text-xs font-bold uppercase tracking-wider text-white/50 hover:text-[#CCCCFF] transition-colors"
+                className="text-xs font-bold uppercase tracking-wider text-muted hover:text-rose-600 transition-colors"
               >
                 Restart Booking
               </button>

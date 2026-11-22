@@ -13,8 +13,8 @@ export const initNativeApp = (navigate) => {
 
   // 1. Configure Status Bar
   try {
-    StatusBar.setStyle({ style: Style.Dark });
-    StatusBar.setBackgroundColor({ color: '#292966' });
+    StatusBar.setStyle({ style: Style.Light });
+    StatusBar.setBackgroundColor({ color: '#FAF6F2' });
     StatusBar.setOverlaysWebView({ overlay: false });
   } catch (err) {
     console.debug('StatusBar configuration error:', err);

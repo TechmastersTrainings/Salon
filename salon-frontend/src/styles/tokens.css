@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Design tokens — warm ivory / blush / dusty-rose editorial palette.
+   Colour values are stored as space-separated RGB channels so Tailwind can
+   apply opacity modifiers (e.g. bg-rose-500/20). Use them in plain CSS as
+   rgb(var(--token)).
+   ========================================================================== */
+:root {
+  /* ---- Dusty rose (primary brand) ---- */
+  --rose-50: 251 246 243;
+  --rose-100: 245 234 228;
+  --rose-200: 236 214 204;
+  --rose-300: 222 189 176;
+  --rose-400: 203 158 143;
+  --rose-500: 183 134 118;
+  --rose-600: 158 111 97;
+  --rose-700: 128 89 78;
+  --rose-800: 99 70 62;
+  --rose-900: 72 52 47;
+  --rose-950: 46 33 30;
+
+  /* ---- Mauve (secondary brand) ---- */
+  --mauve-50: 249 245 245;
+  --mauve-100: 242 233 234;
+  --mauve-200: 228 211 213;
+  --mauve-300: 209 182 186;
+  --mauve-400: 186 152 158;
+  --mauve-500: 163 126 133;
+  --mauve-600: 139 104 111;
+  --mauve-700: 113 84 90;
+  --mauve-800: 89 67 72;
+  --mauve-900: 65 50 54;
+  --mauve-950: 41 31 34;
+
+  /* ---- Taupe (supporting neutral accent) ---- */
+  --taupe-50: 248 245 242;
+  --taupe-100: 239 233 227;
+  --taupe-200: 222 211 201;
+  --taupe-300: 199 184 171;
+  --taupe-400: 170 152 138;
+  --taupe-500: 142 124 111;
+  --taupe-600: 117 101 90;
+  --taupe-700: 94 81 73;
+  --taupe-800: 74 64 58;
+  --taupe-900: 54 47 43;
+  --taupe-950: 34 29 26;
+
+  /* ---- Champagne (fine gold accent) ---- */
+  --champagne-50: 252 248 241;
+  --champagne-100: 246 238 222;
+  --champagne-200: 236 221 192;
+  --champagne-300: 222 199 157;
+  --champagne-400: 206 175 122;
+  --champagne-500: 189 152 96;
+  --champagne-600: 160 124 74;
+  --champagne-700: 128 98 59;
+  --champagne-800: 99 76 47;
+  --champagne-900: 74 57 36;
+  --champagne-950: 46 35 22;
+
+  /* ---- Warm neutrals (replace cool grays) ---- */
+  --neutral-50: 250 247 244;
+  --neutral-100: 244 239 234;
+  --neutral-200: 233 226 219;
+  --neutral-300: 216 206 197;
+  --neutral-400: 174 163 154;
+  --neutral-500: 134 123 115;
+  --neutral-600: 103 94 88;
+  --neutral-700: 77 70 65;
+  --neutral-800: 53 48 45;
+  --neutral-900: 33 29 27;
+  --neutral-950: 22 19 17;
+
+  /* ---- Semantic tokens ---- */
+  --color-bg: 250 246 242;            /* primary background — warm ivory   */
+  --color-bg-alt: 244 236 230;        /* secondary background — blush cream */
+  --color-surface: 255 253 251;       /* cards / panels                     */
+  --color-primary: var(--rose-500);   /* primary brand — dusty rose         */
+  --color-primary-strong: var(--rose-700);
+  --color-secondary: var(--mauve-500);
+  --color-accent: var(--champagne-400);
+  --color-heading: 33 29 27;          /* deep charcoal                      */
+  --color-body: 77 70 65;             /* warm charcoal body text            */
+  --color-muted: 134 123 115;         /* warm grey                          */
+  --color-border: 233 223 215;
+  --color-btn: 33 29 27;              /* primary button — charcoal          */
+  --color-btn-hover: var(--rose-600);
+  --color-footer: 30 26 24;
+
+  /* ---- Typography ---- */
+  --font-display: 'Marcellus', 'Times New Roman', serif;
+  --font-editorial: 'Brawler', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-hero: clamp(2.75rem, 1.6rem + 4.6vw, 5.5rem);
+  --fs-h1: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+  --fs-h2: clamp(1.875rem, 1.4rem + 1.9vw, 3rem);
+  --fs-h3: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+
+  /* ---- Shape, depth, motion ---- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-soft: 0 1px 2px rgb(60 40 30 / 0.04), 0 8px 24px -12px rgb(60 40 30 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(60 40 30 / 0.04), 0 24px 48px -20px rgb(60 40 30 / 0.22);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --header-h: 5.5rem;
+}
