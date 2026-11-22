@@ -137,11 +137,12 @@ const Footer = () => {
       {/* 3. BOTTOM COPYRIGHT STRIP */}
       <div className="border-t border-[rgba(163,163,204,0.1)] py-6 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© 2026 MakeMyHair Digital Network. Designed in Bloxic Aesthetic.</p>
-          <div className="flex items-center gap-6">
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Privacy Policy</Link>
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Terms of Service</Link>
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Security & Trust</Link>
+          <p>© 2026 MakeMyHair Digital Network Pvt. Ltd. All Rights Reserved. Reg. under Companies Act 2013.</p>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link to="/privacy" className="hover:text-[#CCCCFF] transition-colors">Privacy Policy (DPDP Act)</Link>
+            <Link to="/terms" className="hover:text-[#CCCCFF] transition-colors">Terms of Service</Link>
+            <Link to="/cancellation-policy" className="hover:text-[#CCCCFF] transition-colors">Refund & Cancellation</Link>
+            <Link to="/security" className="hover:text-[#CCCCFF] transition-colors">Security & Trust</Link>
           </div>
         </div>
       </div>

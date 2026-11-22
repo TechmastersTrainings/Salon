@@ -35,7 +35,16 @@ class AppointmentDetailView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Appointment.objects.all()
+        user = self.request.user
+        if user.role == "admin" or user.is_staff or user.is_superuser:
+            return Appointment.objects.all()
+        elif user.role == "customer":
+            return Appointment.objects.filter(customer=user)
+        elif user.role == "owner":
+            return Appointment.objects.filter(salon__owner=user)
+        elif user.role == "staff":
+            return Appointment.objects.filter(staff__user=user)
+        return Appointment.objects.none()
 
 class CancelAppointmentView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]

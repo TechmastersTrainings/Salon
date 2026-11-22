@@ -7,19 +7,23 @@ from .serializers import UserSerializer
 from .auth_serializers import RegisterSerializer, LoginSerializer
 
 class UserListView(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated]
-
-# FIXED: Change from RetrieveAPIView to RetrieveUpdateAPIView
-class UserDetailView(generics.RetrieveUpdateAPIView):
-    queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
-        if user.role == 'admin':
+        if user.role != 'admin' and not user.is_staff and not user.is_superuser:
+            return User.objects.none()
+        return User.objects.all()
+
+# FIXED: Change from RetrieveAPIView to RetrieveUpdateAPIView
+class UserDetailView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.role == 'admin' or user.is_staff or user.is_superuser:
             return User.objects.all()
         return User.objects.filter(id=user.id)
 

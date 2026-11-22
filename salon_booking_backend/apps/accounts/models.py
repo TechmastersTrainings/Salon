@@ -64,6 +64,7 @@ class User(AbstractUser):
     objects = UserManager()
 
     class Meta:
+        ordering = ['-created_at']
         indexes = [
             models.Index(fields=['email']),
             models.Index(fields=['role']),

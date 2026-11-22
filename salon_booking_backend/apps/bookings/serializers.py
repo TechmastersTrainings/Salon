@@ -37,6 +37,15 @@ class AppointmentSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
 
+    def validate_status(self, value):
+        request = self.context.get('request')
+        if request and hasattr(request, 'user'):
+            user = request.user
+            if user.role == 'customer' and value not in ['cancelled']:
+                if self.instance and self.instance.status != value:
+                    raise serializers.ValidationError("Customers cannot modify appointment status except by cancellation.")
+        return value
+
     def validate(self, data):
         salon = data.get("salon")
         staff = data.get("staff")

@@ -15,5 +15,5 @@ class UserSerializer(serializers.ModelSerializer):
             "is_owner_approved",
             "created_at",
         ]
-        # REMOVED "is_owner_approved" from here
-        read_only_fields = ["id", "username", "created_at"]
+        # Prevent mass assignment of privileged flags
+        read_only_fields = ["id", "username", "role", "is_owner_approved", "is_phone_verified", "created_at"]

@@ -22,6 +22,12 @@ import Booking from './pages/Booking';
 import Profile from './pages/Profile';
 import BookingHistory from './pages/customer/BookingHistory';
 
+// Legal & Compliance Pages
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import TermsOfService from './pages/legal/TermsOfService';
+import CancellationRefundPolicy from './pages/legal/CancellationRefundPolicy';
+import SecurityTrust from './pages/legal/SecurityTrust';
+
 // Owner Pages
 import OwnerDashboard from './pages/owner/Dashboard';
 import OwnerSalonManagement from './pages/owner/SalonManagement';
@@ -89,6 +95,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="search" element={<Search />} />
           <Route path="salon/:id" element={<SalonDetail />} />
+          <Route path="privacy" element={<PrivacyPolicy />} />
+          <Route path="terms" element={<TermsOfService />} />
+          <Route path="cancellation-policy" element={<CancellationRefundPolicy />} />
+          <Route path="security" element={<SecurityTrust />} />
           
           <Route path="login" element={
             <AuthRedirect>
