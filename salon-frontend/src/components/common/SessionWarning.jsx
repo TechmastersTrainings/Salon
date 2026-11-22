@@ -43,31 +43,31 @@ const SessionWarning = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50 animate-slideUp">
-      <div className="bg-[#363675] border-l-4 border-[#CCCCFF] rounded-2xl shadow-2xl p-4 max-w-md border border-[rgba(163,163,204,0.15)]">
+      <div className="bg-surface border-l-4 border-rose-400 rounded-2xl shadow-2xl p-4 max-w-md border border-line">
         <div className="flex items-start">
           <div className="flex-shrink-0">
-            <AlertTriangle className="h-5 w-5 text-[#CCCCFF]" />
+            <AlertTriangle className="h-5 w-5 text-rose-600" />
           </div>
           <div className="ml-3 flex-1">
-            <p className="text-sm font-poppins font-bold text-white">
+            <p className="text-sm font-poppins font-bold text-ink">
               Session expiring soon
             </p>
-            <div className="mt-1 text-xs text-white/70 font-sans">
+            <div className="mt-1 text-xs text-body font-sans">
               <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4 text-[#CCCCFF]" />
+                <Clock className="h-4 w-4 text-rose-600" />
                 <span>Your session will expire in {timeLeft} minutes</span>
               </div>
             </div>
             <div className="mt-3 flex space-x-3">
               <button
                 onClick={handleStayLoggedIn}
-                className="bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] px-4 py-2 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all"
+                className="bg-ink hover:bg-rose-600 text-ivory px-4 py-2 rounded-xl text-xs font-poppins font-bold uppercase tracking-wider transition-all"
               >
                 Stay Logged In
               </button>
               <button
                 onClick={() => window.location.href = '/login'}
-                className="bg-[#1e1e4f] hover:bg-[#1e1e4f]/80 text-white px-4 py-2 rounded-xl text-xs font-poppins font-semibold uppercase tracking-wider border border-[rgba(163,163,204,0.2)] transition-colors"
+                className="bg-blush hover:bg-blush/80 text-ink px-4 py-2 rounded-xl text-xs font-poppins font-semibold uppercase tracking-wider border border-line transition-colors"
               >
                 Logout Now
               </button>

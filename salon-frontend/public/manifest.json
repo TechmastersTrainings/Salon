@@ -11,8 +11,8 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#0B3048",
-  "theme_color": "#0B3048",
+  "background_color": "#FAF6F2",
+  "theme_color": "#FAF6F2",
   "display": "standalone",
   "orientation": "portrait",
   "categories": ["lifestyle", "beauty", "shopping"]

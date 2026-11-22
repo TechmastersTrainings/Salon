@@ -66,79 +66,79 @@ const SalonManagement = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#292966]">
-        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.15)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-white">Loading Salons...</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-ivory">
+        <div className="w-10 h-10 border-2 border-line border-t-rose-500 rounded-full animate-spin mb-4" />
+        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-ink">Loading Salons...</p>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6 font-sans antialiased text-white">
+    <div className="space-y-6 font-sans antialiased text-ink">
       {/* Header */}
-      <div className="flex justify-between items-center pb-6 border-b border-[rgba(163,163,204,0.12)]">
+      <div className="flex justify-between items-center pb-6 border-b border-line">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#CCCCFF]/10 border border-[#CCCCFF]/30 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-            <Sparkles size={12} className="text-[#CCCCFF]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-200 text-rose-600 text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+            <Sparkles size={12} className="text-rose-600" />
             Studio Network
           </div>
-          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">Salon Management</h1>
-          <p className="text-white/60 text-xs font-sans mt-0.5">Directory overview of all registered salons</p>
+          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-ink tracking-tight">Salon Management</h1>
+          <p className="text-muted text-xs font-sans mt-0.5">Directory overview of all registered salons</p>
         </div>
       </div>
 
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" />
+        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
         <input
           type="text"
           placeholder="Search salons by name, city, or phone..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full pl-10 pr-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-xl text-xs font-medium focus:outline-none focus:border-[#CCCCFF] text-white placeholder:text-white/40"
+          className="w-full pl-10 pr-4 py-2.5 bg-white border border-line rounded-xl text-xs font-medium focus:outline-none focus:border-rose-400 text-ink placeholder:text-neutral-400"
         />
       </div>
 
       {/* Salons Table */}
-      <div className="bg-[#363675] rounded-2xl shadow-md border border-[rgba(163,163,204,0.12)] overflow-hidden">
-        <table className="min-w-full divide-y divide-[rgba(163,163,204,0.08)]">
-          <thead className="bg-[#1e1e4f]">
+      <div className="bg-surface rounded-2xl shadow-md border border-line overflow-hidden">
+        <table className="min-w-full divide-y divide-line">
+          <thead className="bg-blush">
             <tr>
-              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-white/60 uppercase tracking-wider">Salon</th>
-              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-white/60 uppercase tracking-wider">Location</th>
-              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-white/60 uppercase tracking-wider">Contact</th>
-              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-white/60 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-4 text-right text-[11px] font-poppins font-bold text-white/60 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-muted uppercase tracking-wider">Salon</th>
+              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-muted uppercase tracking-wider">Location</th>
+              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-muted uppercase tracking-wider">Contact</th>
+              <th className="px-6 py-4 text-left text-[11px] font-poppins font-bold text-muted uppercase tracking-wider">Status</th>
+              <th className="px-6 py-4 text-right text-[11px] font-poppins font-bold text-muted uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[rgba(163,163,204,0.06)] bg-[#363675]">
+          <tbody className="divide-y divide-line bg-surface">
             {filteredSalons.map((salon) => (
-              <tr key={salon.id} className="hover:bg-[#1e1e4f]/50 transition-colors">
+              <tr key={salon.id} className="hover:bg-blush/50 transition-colors">
                 <td className="px-6 py-4">
                   <div className="flex items-center">
-                    <div className="w-10 h-10 bg-[#1e1e4f] text-[#CCCCFF] border border-[rgba(163,163,204,0.15)] rounded-xl flex items-center justify-center font-poppins font-bold text-xs shrink-0">
+                    <div className="w-10 h-10 bg-blush text-rose-600 border border-line rounded-xl flex items-center justify-center font-poppins font-bold text-xs shrink-0">
                       <Store className="h-5 w-5" />
                     </div>
                     <div className="ml-3">
-                      <div className="font-poppins font-bold text-xs text-white">{salon.name}</div>
-                      <div className="text-[11px] text-white/40 font-sans">ID #{salon.id}</div>
+                      <div className="font-poppins font-bold text-xs text-ink">{salon.name}</div>
+                      <div className="text-[11px] text-neutral-400 font-sans">ID #{salon.id}</div>
                     </div>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="flex items-center text-xs text-white/70 font-sans">
-                    <MapPin className="h-3.5 w-3.5 text-[#CCCCFF] mr-1.5 shrink-0" />
+                  <div className="flex items-center text-xs text-body font-sans">
+                    <MapPin className="h-3.5 w-3.5 text-rose-600 mr-1.5 shrink-0" />
                     <span>{salon.city || 'N/A'}</span>
                   </div>
                 </td>
                 <td className="px-6 py-4">
-                  <div className="space-y-0.5 text-xs text-white/70 font-sans">
+                  <div className="space-y-0.5 text-xs text-body font-sans">
                     <div className="flex items-center">
-                      <Phone className="h-3 w-3 text-white/40 mr-1.5 shrink-0" />
+                      <Phone className="h-3 w-3 text-neutral-400 mr-1.5 shrink-0" />
                       <span>{salon.phone || 'N/A'}</span>
                     </div>
                     <div className="flex items-center">
-                      <Mail className="h-3 w-3 text-white/40 mr-1.5 shrink-0" />
+                      <Mail className="h-3 w-3 text-neutral-400 mr-1.5 shrink-0" />
                       <span className="truncate max-w-[200px]">{salon.email || 'N/A'}</span>
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const SalonManagement = () => {
                     onClick={() => handleToggleStatus(salon.id, salon.is_active)}
                     className={`px-2.5 py-0.5 rounded-full text-[10px] font-poppins font-bold uppercase tracking-wider border ${
                       salon.is_active 
-                        ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' 
+                        ? 'bg-emerald-500/15 text-emerald-700 border-emerald-500/30' 
                         : 'bg-rose-500/15 text-rose-300 border-rose-500/30'
                     }`}
                   >
@@ -156,12 +156,12 @@ const SalonManagement = () => {
                   </button>
                 </td>
                 <td className="px-6 py-4 text-right space-x-1.5">
-                  <button onClick={() => window.open(`/salon/${salon.id}`, '_blank')} className="p-2 rounded-xl bg-[#1e1e4f] text-white/70 hover:text-[#CCCCFF] border border-[rgba(163,163,204,0.1)] transition-colors" title="View">
+                  <button onClick={() => window.open(`/salon/${salon.id}`, '_blank')} className="p-2 rounded-xl bg-blush text-body hover:text-rose-600 border border-line transition-colors" title="View">
                     <Eye className="h-4 w-4" />
                   </button>
                   <button
                     onClick={() => handleDelete(salon.id, salon.name)}
-                    className="p-2 rounded-xl bg-[#1e1e4f] text-rose-400 hover:text-rose-300 border border-[rgba(163,163,204,0.1)] transition-colors"
+                    className="p-2 rounded-xl bg-blush text-rose-400 hover:text-rose-300 border border-line transition-colors"
                     title="Delete"
                   >
                     <Trash2 className="h-4 w-4" />

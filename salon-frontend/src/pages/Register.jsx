@@ -32,28 +32,28 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#292966] text-white">
-      <div className="max-w-md w-full bg-[#363675] border border-[rgba(163,163,204,0.12)] p-8 sm:p-10 shadow-2xl">
+    <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-ivory text-ink">
+      <div className="max-w-md w-full bg-surface border border-line p-8 sm:p-10 shadow-2xl">
         
         {/* Header */}
         <div className="text-center mb-6">
           <Link to="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 bg-[#1e1e4f] border border-[#CCCCFF]/40 flex items-center justify-center text-white">
-              <Scissors size={20} className="text-[#CCCCFF]" />
+            <div className="w-10 h-10 rounded-full bg-blush border border-rose-300 flex items-center justify-center text-ink">
+              <Scissors size={20} className="text-rose-600" />
             </div>
-            <span className="font-extrabold text-2xl tracking-tighter text-white">
-              MAKEMY<span className="text-[#CCCCFF]">HAIR</span>
+            <span className="font-display text-[1.7rem] tracking-[0.06em] text-ink">
+              MAKEMY<span className="text-rose-600">HAIR</span>
             </span>
           </Link>
-          <h2 className="text-2xl font-bold text-white">Create Account</h2>
-          <p className="text-xs text-white/70 mt-1">Join the premier salon & grooming network</p>
+          <h2 className="text-2xl font-bold text-ink">Create Account</h2>
+          <p className="text-xs text-body mt-1">Join the premier salon & grooming network</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           
           {/* Role Tabs */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1.5">
+            <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1.5">
               Account Type
             </label>
             <div className="grid grid-cols-2 gap-2">
@@ -62,8 +62,8 @@ const Register = () => {
                 onClick={() => setRole('customer')}
                 className={`py-2.5 text-xs font-bold uppercase tracking-wider border flex items-center justify-center gap-1.5 transition-colors ${
                   role === 'customer'
-                    ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
-                    : 'bg-[#1e1e4f] text-white/70 border-[rgba(163,163,204,0.15)] hover:border-[#CCCCFF]'
+                    ? 'bg-ink text-ivory border-ivory/40 font-bold'
+                    : 'bg-blush text-body border-line hover:border-rose-400'
                 }`}
               >
                 <UserCheck size={14} />
@@ -74,8 +74,8 @@ const Register = () => {
                 onClick={() => setRole('owner')}
                 className={`py-2.5 text-xs font-bold uppercase tracking-wider border flex items-center justify-center gap-1.5 transition-colors ${
                   role === 'owner'
-                    ? 'bg-[#CCCCFF] text-[#292966] border-[#CCCCFF] font-bold'
-                    : 'bg-[#1e1e4f] text-white/70 border-[rgba(163,163,204,0.15)] hover:border-[#CCCCFF]'
+                    ? 'bg-ink text-ivory border-ivory/40 font-bold'
+                    : 'bg-blush text-body border-line hover:border-rose-400'
                 }`}
               >
                 <Store size={14} />
@@ -86,7 +86,7 @@ const Register = () => {
 
           {/* Email */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1">
               Email Address
             </label>
             <input
@@ -98,33 +98,33 @@ const Register = () => {
                   message: 'Invalid email address'
                 }
               })}
-              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
+              className="w-full px-4 py-2.5 bg-white border border-line text-xs font-semibold text-ink placeholder:text-neutral-400 focus:outline-none focus:border-rose-400"
               placeholder="you@domain.com"
             />
             {errors.email && (
-              <p className="mt-1 text-xs text-red-400 font-semibold">{errors.email.message}</p>
+              <p className="mt-1 text-xs text-red-700 font-semibold">{errors.email.message}</p>
             )}
           </div>
 
           {/* Phone */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1">
               Telephone
             </label>
             <input
               type="tel"
               {...register('phone', { required: 'Phone number is required' })}
-              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
+              className="w-full px-4 py-2.5 bg-white border border-line text-xs font-semibold text-ink placeholder:text-neutral-400 focus:outline-none focus:border-rose-400"
               placeholder="+91 98807 68222"
             />
             {errors.phone && (
-              <p className="mt-1 text-xs text-red-400 font-semibold">{errors.phone.message}</p>
+              <p className="mt-1 text-xs text-red-700 font-semibold">{errors.phone.message}</p>
             )}
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1">
               Password
             </label>
             <input
@@ -136,17 +136,17 @@ const Register = () => {
                   message: 'Password must be at least 6 characters'
                 }
               })}
-              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
+              className="w-full px-4 py-2.5 bg-white border border-line text-xs font-semibold text-ink placeholder:text-neutral-400 focus:outline-none focus:border-rose-400"
               placeholder="••••••••"
             />
             {errors.password && (
-              <p className="mt-1 text-xs text-red-400 font-semibold">{errors.password.message}</p>
+              <p className="mt-1 text-xs text-red-700 font-semibold">{errors.password.message}</p>
             )}
           </div>
 
           {/* Confirm Password */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-white/80 mb-1">
+            <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1">
               Confirm Password
             </label>
             <input
@@ -155,27 +155,27 @@ const Register = () => {
                 required: 'Please confirm your password',
                 validate: value => value === password || 'Passwords do not match'
               })}
-              className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] text-xs font-semibold text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF]"
+              className="w-full px-4 py-2.5 bg-white border border-line text-xs font-semibold text-ink placeholder:text-neutral-400 focus:outline-none focus:border-rose-400"
               placeholder="••••••••"
             />
             {errors.confirmPassword && (
-              <p className="mt-1 text-xs text-red-400 font-semibold">{errors.confirmPassword.message}</p>
+              <p className="mt-1 text-xs text-red-700 font-semibold">{errors.confirmPassword.message}</p>
             )}
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-4 shadow-lg"
+            className="w-full py-3.5 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 mt-4 shadow-lg"
           >
             <span>{isLoading ? 'Creating Account...' : 'Complete Registration'}</span>
             <ArrowRight size={14} />
           </button>
         </form>
 
-        <div className="mt-6 text-center text-xs text-white/60">
+        <div className="mt-6 text-center text-xs text-muted">
           Already have an account?{' '}
-          <Link to="/login" className="font-bold text-[#CCCCFF] hover:underline">
+          <Link to="/login" className="font-bold text-rose-600 hover:underline">
             Sign In Here
           </Link>
         </div>

@@ -1,55 +1,89 @@
 /** @type {import('tailwindcss').Config} */
+
+// Builds a Tailwind colour scale from the CSS variables in src/styles/tokens.css
+const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+const scale = (name) =>
+  Object.fromEntries(steps.map((s) => [s, `rgb(var(--${name}-${s}) / <alpha-value>)`]));
+const token = (name) => `rgb(var(--color-${name}) / <alpha-value>)`;
+
+const rose = scale('rose');
+const mauve = scale('mauve');
+const taupe = scale('taupe');
+const champagne = scale('champagne');
+const neutral = scale('neutral');
+
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        periwinkle: {
-          light: '#CCCCFF',
-          slate: '#A3A3CC',
-          mid: '#5C5C99',
-          dark: '#292966',
-          deep: '#1e1e4f',
-          surface: '#363675',
-        },
+        // Brand scales
+        rose,
+        mauve,
+        taupe,
+        champagne,
+        // Guard: legacy/cool Tailwind scales resolve to the warm brand palette,
+        // so no blue, indigo or violet can render even if a class is added later.
+        purple: rose,
+        pink: mauve,
+        fuchsia: mauve,
+        violet: taupe,
+        indigo: taupe,
+        blue: taupe,
+        sky: taupe,
+        gray: neutral,
+        slate: neutral,
+        zinc: neutral,
+        stone: neutral,
+        // Semantic tokens
+        ivory: token('bg'),
+        blush: token('bg-alt'),
+        surface: token('surface'),
+        ink: token('heading'),
+        body: token('body'),
+        muted: token('muted'),
+        line: token('border'),
+        footer: token('footer'),
+        // Legacy theme names kept so older markup still resolves to the new palette
         bloxic: {
-          bg: '#292966',
-          surface: '#363675',
-          surfaceHover: '#44448a',
-          deep: '#1e1e4f',
-          text: '#FFFFFF',
-          textMuted: 'rgba(255, 255, 255, 0.75)',
-          highlight: '#CCCCFF',
-          highlightHover: '#b8b8f5',
-          border: 'rgba(163, 163, 204, 0.25)',
-          borderLight: 'rgba(204, 204, 255, 0.35)',
-          primary: '#CCCCFF',
-          primaryDark: '#5C5C99',
-          primaryLight: '#e0e0ff',
-          accent: '#A3A3CC',
-          dark: '#1e1e4f',
-          charcoal: '#242459',
-          footer: '#1a1a4a',
-          subtle: 'rgba(255, 255, 255, 0.70)',
-          canvas: '#292966',
-          light: '#363675',
-        }
+          bg: token('bg'), surface: token('surface'), surfaceHover: rose[50], deep: token('bg-alt'),
+          text: token('heading'), textMuted: token('muted'), highlight: rose[500], highlightHover: rose[600],
+          border: token('border'), borderLight: rose[200], primary: rose[500], primaryDark: rose[700],
+          primaryLight: rose[100], accent: mauve[500], dark: neutral[900], charcoal: neutral[800],
+          footer: token('footer'), subtle: token('muted'), canvas: token('bg'), light: token('surface'),
+        },
       },
       fontFamily: {
-        sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
-        body: ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['Marcellus', 'Times New Roman', 'serif'],
+        editorial: ['Brawler', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        // Softer, more refined corners than Tailwind's defaults
+        xl: '0.5rem',
+        '2xl': '0.75rem',
+        '3xl': '1rem',
+        arch: '999px 999px 0 0',
       },
       boxShadow: {
-        'bloxic': '0 4px 20px rgba(15,15,40,0.3)',
-        'bloxic-hover': '0 16px 36px rgba(15,15,40,0.5)',
-        'bloxic-card': '0 2px 10px rgba(15,15,40,0.25)',
-        'periwinkle-glow': '0 0 25px rgba(204, 204, 255, 0.35)',
-      }
+        md: '0 1px 2px rgb(60 40 30 / 0.04), 0 6px 16px -8px rgb(60 40 30 / 0.12)',
+        lg: '0 1px 2px rgb(60 40 30 / 0.04), 0 10px 28px -12px rgb(60 40 30 / 0.16)',
+        xl: '0 1px 2px rgb(60 40 30 / 0.04), 0 16px 36px -16px rgb(60 40 30 / 0.18)',
+        '2xl': '0 2px 4px rgb(60 40 30 / 0.04), 0 28px 56px -24px rgb(60 40 30 / 0.24)',
+        bloxic: '0 1px 2px rgb(60 40 30 / 0.04), 0 10px 28px -12px rgb(60 40 30 / 0.16)',
+        'bloxic-hover': '0 2px 4px rgb(60 40 30 / 0.04), 0 24px 48px -20px rgb(60 40 30 / 0.22)',
+        'bloxic-card': '0 1px 2px rgb(60 40 30 / 0.04), 0 8px 24px -12px rgb(60 40 30 / 0.12)',
+        'rose-glow': '0 0 0 4px rgb(var(--rose-100))',
+      },
+      letterSpacing: {
+        label: '0.22em',
+      },
+      transitionTimingFunction: {
+        lux: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+      },
     },
   },
   plugins: [],
-}
+};

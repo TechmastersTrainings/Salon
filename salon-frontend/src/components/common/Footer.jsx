@@ -17,19 +17,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#1e1e4f] text-white border-t border-[rgba(163,163,204,0.12)] mt-auto">
+    <footer className="bg-footer text-ivory mt-auto">
       
       {/* 1. NEWSLETTER STRIP */}
-      <div className="border-b border-[rgba(163,163,204,0.1)] py-12 px-4 sm:px-6 lg:px-8">
+      <div className="border-b border-white/10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="max-w-xl text-center lg:text-left">
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#CCCCFF] block mb-2">
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-rose-300 block mb-2">
               Stay in the Know
             </span>
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-sans">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-ivory">
               Subscribe to Our Seasonal Newsletter
             </h3>
-            <p className="text-white/70 text-xs sm:text-sm mt-1 font-light">
+            <p className="text-neutral-400 text-xs sm:text-sm mt-1 font-light">
               Get secret promotional codes, curated styling guides, and early access to salon chairs.
             </p>
           </div>
@@ -41,11 +41,11 @@ const Footer = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="flex-1 px-5 py-3.5 bg-[#292966] border border-[rgba(163,163,204,0.18)] text-white placeholder:text-white/40 focus:outline-none focus:border-[#CCCCFF] text-xs font-medium"
+              className="flex-1 px-5 py-3.5 bg-white/5 border border-white/10 text-ivory placeholder:text-neutral-400 focus:outline-none focus:border-rose-400 text-xs font-medium"
             />
             <button 
               type="submit" 
-              className="px-7 py-3.5 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
+              className="px-7 py-3.5 bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs uppercase tracking-wider transition-colors shrink-0"
             >
               Subscribe
             </button>
@@ -60,25 +60,25 @@ const Footer = () => {
           {/* Column 1: Brand & Contact */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 bg-[#292966] border border-[#CCCCFF]/40 flex items-center justify-center text-[#CCCCFF]">
+              <div className="w-9 h-9 bg-white/5 border border-rose-300/50 rounded-full flex items-center justify-center text-rose-300">
                 <Scissors size={18} />
               </div>
-              <span className="font-extrabold text-xl tracking-tight text-white uppercase font-sans">
-                MAKEMY<span className="text-[#CCCCFF]">HAIR</span>
+              <span className="font-display text-2xl tracking-[0.06em] text-ivory uppercase">
+                MAKEMY<span className="text-rose-300">HAIR</span>
               </span>
             </Link>
 
-            <p className="text-white/70 text-xs leading-relaxed">
+            <p className="text-neutral-400 text-xs leading-relaxed">
               India's premier digital salon network. Connect with master barbers, award-winning hair architects, and certified stylists in top cities.
             </p>
 
-            <div className="space-y-2 pt-2 text-xs text-white/80">
+            <div className="space-y-2 pt-2 text-xs text-neutral-400">
               <div className="flex items-center gap-2">
-                <Phone size={14} className="text-[#CCCCFF]" />
-                <span className="text-white font-semibold">+91 98807 68222</span>
+                <Phone size={14} className="text-rose-300" />
+                <span className="text-ivory font-semibold">+91 98807 68222</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={14} className="text-[#CCCCFF]" />
+                <Mail size={14} className="text-rose-300" />
                 <span>Techmasterstrainings@gmail.com</span>
               </div>
             </div>
@@ -86,44 +86,44 @@ const Footer = () => {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white pb-1 border-b border-[rgba(163,163,204,0.12)]">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-ivory pb-1 border-b border-white/10">
               Quick Exploration
             </h4>
-            <ul className="space-y-2 text-xs text-white/70 font-medium">
-              <li><Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Find a Studio</Link></li>
-              <li><Link to="/search?category=Haircut" className="hover:text-[#CCCCFF] transition-colors">Precision Haircraft</Link></li>
-              <li><Link to="/search?category=Beard" className="hover:text-[#CCCCFF] transition-colors">Beard Sculpting & Shave</Link></li>
-              <li><Link to="/search?category=Color" className="hover:text-[#CCCCFF] transition-colors">Balayage & Hair Color</Link></li>
-              <li><Link to="/search?category=Spa" className="hover:text-[#CCCCFF] transition-colors">Scalp Reflexology Spa</Link></li>
+            <ul className="space-y-2 text-xs text-neutral-400 font-medium">
+              <li><Link to="/search" className="hover:text-ivory transition-colors">Find a Studio</Link></li>
+              <li><Link to="/search?category=Haircut" className="hover:text-ivory transition-colors">Precision Haircraft</Link></li>
+              <li><Link to="/search?category=Beard" className="hover:text-ivory transition-colors">Beard Sculpting & Shave</Link></li>
+              <li><Link to="/search?category=Color" className="hover:text-ivory transition-colors">Balayage & Hair Color</Link></li>
+              <li><Link to="/search?category=Spa" className="hover:text-ivory transition-colors">Scalp Reflexology Spa</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Atelier Studios */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white pb-1 border-b border-[rgba(163,163,204,0.12)]">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-ivory pb-1 border-b border-white/10">
               Atelier Cities
             </h4>
-            <ul className="space-y-2 text-xs text-white/70 font-medium">
-              <li><Link to="/search?location=Bangalore" className="hover:text-[#CCCCFF] transition-colors">Bangalore (Lavelle Road, Indiranagar)</Link></li>
-              <li><Link to="/search?location=Mumbai" className="hover:text-[#CCCCFF] transition-colors">Mumbai (Bandra West, Colaba)</Link></li>
-              <li><Link to="/search?location=Delhi" className="hover:text-[#CCCCFF] transition-colors">New Delhi (Connaught Place, GK II)</Link></li>
-              <li><Link to="/search?location=Hyderabad" className="hover:text-[#CCCCFF] transition-colors">Hyderabad (Jubilee Hills)</Link></li>
-              <li><Link to="/search?location=Chennai" className="hover:text-[#CCCCFF] transition-colors">Chennai (Nungambakkam)</Link></li>
+            <ul className="space-y-2 text-xs text-neutral-400 font-medium">
+              <li><Link to="/search?location=Bangalore" className="hover:text-ivory transition-colors">Bangalore (Lavelle Road, Indiranagar)</Link></li>
+              <li><Link to="/search?location=Mumbai" className="hover:text-ivory transition-colors">Mumbai (Bandra West, Colaba)</Link></li>
+              <li><Link to="/search?location=Delhi" className="hover:text-ivory transition-colors">New Delhi (Connaught Place, GK II)</Link></li>
+              <li><Link to="/search?location=Hyderabad" className="hover:text-ivory transition-colors">Hyderabad (Jubilee Hills)</Link></li>
+              <li><Link to="/search?location=Chennai" className="hover:text-ivory transition-colors">Chennai (Nungambakkam)</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Salon Partners & Trust */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white pb-1 border-b border-[rgba(163,163,204,0.12)]">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-ivory pb-1 border-b border-white/10">
               Partner With Us
             </h4>
-            <p className="text-xs text-white/70 leading-relaxed">
+            <p className="text-xs text-neutral-400 leading-relaxed">
               Are you a salon owner or independent hair artist? List your business on MakeMyHair and receive booking guarantees.
             </p>
             <div className="pt-2">
               <Link 
                 to="/register" 
-                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#CCCCFF] hover:underline"
+                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-300 hover:underline"
               >
                 <span>Salon Owner Registration</span>
                 <ArrowRight size={13} />
@@ -135,13 +135,13 @@ const Footer = () => {
       </div>
 
       {/* 3. BOTTOM COPYRIGHT STRIP */}
-      <div className="border-t border-[rgba(163,163,204,0.1)] py-6 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
+      <div className="border-t border-white/10 py-6 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <p>© 2026 MakeMyHair Digital Network. Designed in Bloxic Aesthetic.</p>
           <div className="flex items-center gap-6">
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Privacy Policy</Link>
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Terms of Service</Link>
-            <Link to="/search" className="hover:text-[#CCCCFF] transition-colors">Security & Trust</Link>
+            <Link to="/search" className="hover:text-ivory transition-colors">Privacy Policy</Link>
+            <Link to="/search" className="hover:text-ivory transition-colors">Terms of Service</Link>
+            <Link to="/search" className="hover:text-ivory transition-colors">Security & Trust</Link>
           </div>
         </div>
       </div>

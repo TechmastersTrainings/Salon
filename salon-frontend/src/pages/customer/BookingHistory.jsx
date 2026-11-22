@@ -67,15 +67,15 @@ const BookingHistory = () => {
   const getStatusBadge = (status) => {
     switch(status) {
       case 'confirmed':
-        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-950/60 text-emerald-400 border border-emerald-800/60">Confirmed</span>;
+        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-800/60">Confirmed</span>;
       case 'en_route':
-        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-amber-950/60 text-amber-400 border border-amber-800/60 flex items-center gap-1"><Navigation size={11} /> En Route</span>;
+        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 border border-amber-800/60 flex items-center gap-1"><Navigation size={11} /> En Route</span>;
       case 'completed':
-        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-[#1e1e4f] text-white/70 border border-[rgba(163,163,204,0.15)]">Completed</span>;
+        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-blush text-body border border-line">Completed</span>;
       case 'cancelled':
-        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-red-950/60 text-red-400 border border-red-800/60">Cancelled</span>;
+        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-700 border border-red-800/60">Cancelled</span>;
       default:
-        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-yellow-950/60 text-yellow-300 border border-yellow-800/60">Pending</span>;
+        return <span className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider bg-yellow-50 text-yellow-700 border border-yellow-800/60">Pending</span>;
     }
   };
 
@@ -89,27 +89,27 @@ const BookingHistory = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#292966]">
-        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.2)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-bold uppercase tracking-wider text-[#CCCCFF]">Loading Reservations...</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-ivory">
+        <div className="w-10 h-10 border-2 border-line border-t-rose-500 rounded-full animate-spin mb-4" />
+        <p className="text-xs font-bold uppercase tracking-wider text-rose-600">Loading Reservations...</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-[#292966] text-white min-h-screen py-10 px-4 sm:px-6">
+    <div className="bg-ivory text-ink min-h-screen py-10 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[rgba(163,163,204,0.12)] mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-line mb-8">
           <div>
-            <nav className="flex items-center gap-2 text-xs text-white/60 uppercase tracking-wider mb-2">
-              <Link to="/" className="hover:text-[#CCCCFF]">Home</Link>
+            <nav className="flex items-center gap-2 text-xs text-muted uppercase tracking-wider mb-2">
+              <Link to="/" className="hover:text-rose-600">Home</Link>
               <span>/</span>
-              <span className="text-white font-bold">Client Account</span>
+              <span className="text-ink font-bold">Client Account</span>
             </nav>
             <span className="bloxic-sub-title">Reservations</span>
-            <h1 className="text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl font-bold text-ink tracking-tight">
               My Appointments
             </h1>
           </div>
@@ -125,10 +125,10 @@ const BookingHistory = () => {
 
         {/* Bookings List */}
         {bookings.length === 0 ? (
-          <div className="bg-[#363675] border border-[rgba(163,163,204,0.12)] p-12 text-center">
-            <Calendar className="h-12 w-12 text-[#CCCCFF]/40 mx-auto mb-3" />
-            <h3 className="text-xl font-bold text-white mb-1">No Active Reservations</h3>
-            <p className="text-white/70 text-xs max-w-sm mx-auto mb-6">
+          <div className="bg-surface border border-line p-12 text-center">
+            <Calendar className="h-12 w-12 text-rose-300 mx-auto mb-3" />
+            <h3 className="text-xl font-bold text-ink mb-1">No Active Reservations</h3>
+            <p className="text-body text-xs max-w-sm mx-auto mb-6">
               You haven't scheduled any salon visits yet. Explore top studios in your city.
             </p>
             <Link to="/search" className="bloxic-btn-primary text-xs py-2.5 px-6">
@@ -140,14 +140,14 @@ const BookingHistory = () => {
             {bookings.map((b) => (
               <div
                 key={b.id}
-                className="bg-[#363675] border border-[rgba(163,163,204,0.12)] hover:border-[#CCCCFF] transition-all p-6 shadow-sm"
+                className="bg-surface border border-line hover:border-rose-400 transition-all p-6 shadow-sm"
               >
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-lg font-bold text-white">
+                    <h3 className="text-lg font-bold text-ink">
                       {b.salon_name || b.salon?.name || 'TechMasters Salon & Grooming Atelier'}
                     </h3>
-                    <p className="text-xs text-[#CCCCFF] font-semibold mt-0.5">
+                    <p className="text-xs text-rose-600 font-semibold mt-0.5">
                       {b.service_name || b.service?.name || 'Signature Grooming Treatment'}
                     </p>
                   </div>
@@ -155,22 +155,22 @@ const BookingHistory = () => {
                 </div>
 
                 {/* Details Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[rgba(163,163,204,0.12)] text-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-line text-xs">
                   <div>
-                    <span className="text-white/60 block uppercase tracking-wider text-[10px]">Date</span>
-                    <span className="font-bold text-white mt-0.5 block">{formatDate(b.appointment_date)}</span>
+                    <span className="text-muted block uppercase tracking-wider text-[10px]">Date</span>
+                    <span className="font-bold text-ink mt-0.5 block">{formatDate(b.appointment_date)}</span>
                   </div>
                   <div>
-                    <span className="text-white/60 block uppercase tracking-wider text-[10px]">Slot Time</span>
-                    <span className="font-bold text-[#CCCCFF] mt-0.5 block">{b.appointment_time}</span>
+                    <span className="text-muted block uppercase tracking-wider text-[10px]">Slot Time</span>
+                    <span className="font-bold text-rose-600 mt-0.5 block">{b.appointment_time}</span>
                   </div>
                   <div>
-                    <span className="text-white/60 block uppercase tracking-wider text-[10px]">Stylist</span>
-                    <span className="font-bold text-white mt-0.5 block">{b.staff_name || b.staff?.name || 'Senior Stylist'}</span>
+                    <span className="text-muted block uppercase tracking-wider text-[10px]">Stylist</span>
+                    <span className="font-bold text-ink mt-0.5 block">{b.staff_name || b.staff?.name || 'Senior Stylist'}</span>
                   </div>
                   <div>
-                    <span className="text-white/60 block uppercase tracking-wider text-[10px]">Treatment Fee</span>
-                    <span className="font-black text-sm text-[#CCCCFF] mt-0.5 block">
+                    <span className="text-muted block uppercase tracking-wider text-[10px]">Treatment Fee</span>
+                    <span className="font-bold text-sm text-rose-600 mt-0.5 block">
                       ₹{b.service_price || b.service?.price || '1,450'}
                     </span>
                   </div>
@@ -182,7 +182,7 @@ const BookingHistory = () => {
                     <button
                       onClick={() => handleStatusUpdate(b.id, 'en_route')}
                       disabled={updating === b.id}
-                      className="px-4 py-2 bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
+                      className="px-4 py-2 bg-ink hover:bg-rose-600 text-ivory text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5"
                     >
                       <Navigation size={12} className={updating === b.id ? 'animate-spin' : ''} />
                       <span>I'm On My Way</span>
@@ -193,14 +193,14 @@ const BookingHistory = () => {
                     <button
                       onClick={() => handleCancel(b.id)}
                       disabled={cancelling === b.id}
-                      className="px-3 py-1.5 text-xs font-semibold text-red-400 hover:underline disabled:opacity-50"
+                      className="px-3 py-1.5 text-xs font-semibold text-red-700 hover:underline disabled:opacity-50"
                     >
                       {cancelling === b.id ? 'Cancelling...' : 'Cancel Appointment'}
                     </button>
                   )}
 
                   {b.status === 'en_route' && (
-                    <span className="text-xs font-bold text-amber-400 bg-amber-950/60 px-3 py-1 border border-amber-800/60 flex items-center gap-1">
+                    <span className="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 border border-amber-800/60 flex items-center gap-1">
                       <Navigation size={12} />
                       Barber Notified: Heading to Studio
                     </span>

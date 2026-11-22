@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colours (dusty rose) — override Capacitor's default indigo theme colours -->
+    <color name="colorPrimary">#B78676</color>
+    <color name="colorPrimaryDark">#9E6F61</color>
+    <color name="colorAccent">#B78676</color>
+</resources>

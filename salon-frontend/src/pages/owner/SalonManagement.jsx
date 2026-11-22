@@ -116,45 +116,45 @@ const SalonManagement = () => {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-[#292966]">
-        <div className="w-10 h-10 border-2 border-[rgba(163,163,204,0.2)] border-t-[#CCCCFF] rounded-full animate-spin mb-4" />
-        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-[#CCCCFF]">Loading Studio Dossier...</p>
+      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-ivory">
+        <div className="w-10 h-10 border-2 border-line border-t-rose-500 rounded-full animate-spin mb-4" />
+        <p className="text-xs font-poppins font-medium uppercase tracking-widest text-rose-600">Loading Studio Dossier...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#292966] pb-16 font-sans antialiased text-white">
+    <div className="min-h-screen bg-ivory pb-16 font-sans antialiased text-ink">
       <div className="max-w-4xl mx-auto px-4 pt-8">
         
         {/* Header */}
-        <div className="mb-8 pb-6 border-b border-[rgba(163,163,204,0.12)]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[#363675] border border-[#CCCCFF]/40 text-[#CCCCFF] text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
-            <Sparkles size={12} className="text-[#CCCCFF]" />
+        <div className="mb-8 pb-6 border-b border-line">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-surface border border-rose-300 text-rose-600 text-[11px] font-poppins font-semibold uppercase tracking-wider mb-2">
+            <Sparkles size={12} className="text-rose-600" />
             Studio Architecture
           </div>
-          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-poppins font-bold text-ink tracking-tight">
             {hasSalon ? 'Studio Details & Operating Profile' : 'Establish New Salon Studio'}
           </h1>
-          <p className="text-xs text-white/70 font-sans mt-1">
+          <p className="text-xs text-body font-sans mt-1">
             Update your public listing, consultation hours, and geographic coordinates
           </p>
         </div>
         
-        <form onSubmit={handleSubmit} className="bg-[#363675] rounded-xl shadow-lg p-6 sm:p-8 space-y-8 border border-[rgba(163,163,204,0.12)]">
+        <form onSubmit={handleSubmit} className="bg-surface rounded-xl shadow-lg p-6 sm:p-8 space-y-8 border border-line">
           
           {/* Basic Information */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2 pb-2 border-b border-[rgba(163,163,204,0.1)]">
-              <Store className="h-5 w-5 text-[#CCCCFF]" />
-              <h2 className="text-base font-poppins font-bold text-white uppercase tracking-wider">
+            <div className="flex items-center gap-2 pb-2 border-b border-line">
+              <Store className="h-5 w-5 text-rose-600" />
+              <h2 className="text-base font-poppins font-bold text-ink uppercase tracking-wider">
                 Basic Credentials
               </h2>
             </div>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Salon Brand Name *
                 </label>
                 <input
@@ -162,13 +162,13 @@ const SalonManagement = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Direct Contact Number *
                 </label>
                 <input
@@ -176,13 +176,13 @@ const SalonManagement = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Official Email
                 </label>
                 <input
@@ -190,12 +190,12 @@ const SalonManagement = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   City *
                 </label>
                 <input
@@ -203,13 +203,13 @@ const SalonManagement = () => {
                   name="city"
                   value={formData.city}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   State / Region
                 </label>
                 <input
@@ -217,12 +217,12 @@ const SalonManagement = () => {
                   name="state"
                   value={formData.state}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Postal Code
                 </label>
                 <input
@@ -230,13 +230,13 @@ const SalonManagement = () => {
                   name="postal_code"
                   value={formData.postal_code}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+              <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                 Studio Philosophy & Description
               </label>
               <textarea
@@ -244,23 +244,23 @@ const SalonManagement = () => {
                 value={formData.description}
                 onChange={handleChange}
                 rows="3"
-                className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                 placeholder="Highlight your studio ambiance, signature expertise, and guest hospitality..."
               />
             </div>
           </div>
 
           {/* Address */}
-          <div className="space-y-4 pt-4 border-t border-[rgba(163,163,204,0.1)]">
-            <div className="flex items-center gap-2 pb-2 border-b border-[rgba(163,163,204,0.1)]">
-              <MapPin className="h-5 w-5 text-[#CCCCFF]" />
-              <h2 className="text-base font-poppins font-bold text-white uppercase tracking-wider">
+          <div className="space-y-4 pt-4 border-t border-line">
+            <div className="flex items-center gap-2 pb-2 border-b border-line">
+              <MapPin className="h-5 w-5 text-rose-600" />
+              <h2 className="text-base font-poppins font-bold text-ink uppercase tracking-wider">
                 Location & Coordinates
               </h2>
             </div>
             
             <div>
-              <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+              <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                 Physical Street Address *
               </label>
               <textarea
@@ -268,30 +268,30 @@ const SalonManagement = () => {
                 value={formData.address}
                 onChange={handleChange}
                 rows="2"
-                className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                 required
               />
             </div>
             {formData.latitude && formData.longitude && (
-              <p className="text-xs text-[#CCCCFF] font-medium flex items-center gap-1.5 bg-[#1e1e4f] border border-[#CCCCFF]/40 p-2.5 rounded-lg w-fit">
-                <CheckCircle2 size={14} className="text-[#CCCCFF]" />
+              <p className="text-xs text-rose-600 font-medium flex items-center gap-1.5 bg-blush border border-rose-300 p-2.5 rounded-lg w-fit">
+                <CheckCircle2 size={14} className="text-rose-600" />
                 <span>Exact GPS Coordinates locked: {formData.latitude.toFixed(4)}, {formData.longitude.toFixed(4)}</span>
               </p>
             )}
           </div>
 
           {/* Working Hours */}
-          <div className="space-y-4 pt-4 border-t border-[rgba(163,163,204,0.1)]">
-            <div className="flex items-center gap-2 pb-2 border-b border-[rgba(163,163,204,0.1)]">
-              <Clock className="h-5 w-5 text-[#CCCCFF]" />
-              <h2 className="text-base font-poppins font-bold text-white uppercase tracking-wider">
+          <div className="space-y-4 pt-4 border-t border-line">
+            <div className="flex items-center gap-2 pb-2 border-b border-line">
+              <Clock className="h-5 w-5 text-rose-600" />
+              <h2 className="text-base font-poppins font-bold text-ink uppercase tracking-wider">
                 Operating Schedule
               </h2>
             </div>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Opening Time *
                 </label>
                 <input
@@ -299,13 +299,13 @@ const SalonManagement = () => {
                   name="opening_time"
                   value={formData.opening_time}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-white/80 mb-1.5">
+                <label className="block text-xs font-poppins font-medium uppercase tracking-wider text-body mb-1.5">
                   Closing Time *
                 </label>
                 <input
@@ -313,7 +313,7 @@ const SalonManagement = () => {
                   name="closing_time"
                   value={formData.closing_time}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 bg-[#1e1e4f] border border-[rgba(163,163,204,0.15)] rounded-lg text-sm font-sans focus:outline-none focus:border-[#CCCCFF] text-white"
+                  className="w-full px-4 py-2.5 bg-white border border-line rounded-lg text-sm font-sans focus:outline-none focus:border-rose-400 text-ink"
                   required
                 />
               </div>
@@ -323,10 +323,10 @@ const SalonManagement = () => {
           <button
             type="submit"
             disabled={saving}
-            className="flex items-center justify-center space-x-2 w-full bg-[#CCCCFF] hover:bg-[#b8b8f5] text-[#292966] py-3.5 px-4 rounded-lg text-xs font-poppins font-bold uppercase tracking-wider disabled:opacity-50 transition-colors shadow-lg"
+            className="flex items-center justify-center space-x-2 w-full bg-ink hover:bg-rose-600 text-ivory py-3.5 px-4 rounded-lg text-xs font-poppins font-bold uppercase tracking-wider disabled:opacity-50 transition-colors shadow-lg"
           >
             {saving ? (
-              <Loader className="h-4 w-4 animate-spin text-[#292966]" />
+              <Loader className="h-4 w-4 animate-spin text-ivory" />
             ) : (
               <Save className="h-4 w-4" />
             )}
