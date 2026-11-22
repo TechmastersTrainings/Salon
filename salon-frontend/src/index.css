@@ -248,16 +248,145 @@
   }
 }
 
-/* Scroll reveal (driven by src/hooks/useReveal.js) */
-.reveal {
+/* ==========================================================================
+   Scroll-driven reveals — toggled by src/hooks/useScrollReveal.js, which adds
+   .is-visible when an element enters the viewport.
+   ========================================================================== */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
   opacity: 0;
-  transform: translateY(24px);
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
 }
-.reveal.is-visible {
+.reveal       { transform: translateY(28px); }
+.reveal-left  { transform: translateX(-36px); }
+.reveal-right { transform: translateX(36px); }
+.reveal-scale { transform: scale(0.96); }
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
   opacity: 1;
   transform: none;
 }
+
+/* Children of .reveal-stagger rise one after another. Keyframes with
+   `backwards` fill so the children's own hover transforms keep working. */
+.reveal-stagger > * { opacity: 0; }
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  animation: rise 0.85s var(--ease) backwards;
+}
+.reveal-stagger.is-visible > *:nth-child(2) { animation-delay: 0.08s; }
+.reveal-stagger.is-visible > *:nth-child(3) { animation-delay: 0.16s; }
+.reveal-stagger.is-visible > *:nth-child(4) { animation-delay: 0.24s; }
+.reveal-stagger.is-visible > *:nth-child(5) { animation-delay: 0.32s; }
+.reveal-stagger.is-visible > *:nth-child(6) { animation-delay: 0.40s; }
+.reveal-stagger.is-visible > *:nth-child(n+7) { animation-delay: 0.48s; }
+
+/* Keyframe stagger for elements that mount already visible (menus, lists) */
+.stagger-in > * { animation: rise 0.6s var(--ease) backwards; }
+.stagger-in > *:nth-child(2) { animation-delay: 0.05s; }
+.stagger-in > *:nth-child(3) { animation-delay: 0.10s; }
+.stagger-in > *:nth-child(4) { animation-delay: 0.15s; }
+.stagger-in > *:nth-child(5) { animation-delay: 0.20s; }
+.stagger-in > *:nth-child(n+6) { animation-delay: 0.25s; }
+
+/* Image curtain reveal. The observed wrapper is never clipped itself
+   (IntersectionObserver ignores fully clipped targets); its child wipes open
+   while the photo settles from a slight zoom. */
+.img-reveal { overflow: hidden; }
+.img-reveal > * {
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.15);
+  transition: clip-path 1.3s var(--ease), transform 1.8s var(--ease);
+}
+.img-reveal-side > * { clip-path: inset(0 100% 0 0); }
+.img-reveal.is-visible > * {
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+
+/* Gentle zoom on hover for photography inside a .group */
+.img-zoom {
+  transition: transform 1.4s var(--ease);
+}
+.group:hover .img-zoom { transform: scale(1.06); }
+
+/* Slow settle for the hero photograph */
+.ken-burns {
+  animation: kenBurns 2.6s var(--ease) both;
+}
+
+/* Page entrance on route change */
+.animate-page {
+  animation: pageIn 0.6s var(--ease) both;
+}
+
+/* Floating accent (very subtle) */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Button arrow nudge */
+.btn svg:last-child,
+.bloxic-btn-primary svg:last-child,
+.bloxic-btn-outline svg:last-child,
+.bloxic-btn-secondary svg:last-child,
+.bloxic-btn-accent svg:last-child {
+  transition: transform 0.35s var(--ease);
+}
+.btn:hover svg:last-child,
+.bloxic-btn-primary:hover svg:last-child,
+.bloxic-btn-outline:hover svg:last-child,
+.bloxic-btn-secondary:hover svg:last-child,
+.bloxic-btn-accent:hover svg:last-child {
+  transform: translateX(4px);
+}
+.btn:active,
+[class*='bloxic-btn-']:active { transform: scale(0.98); }
+
+/* Card lift */
+.bloxic-card,
+.card-lift {
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.bloxic-card:hover,
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lift);
+}
+
+/* Navigation underline that draws in from the left */
+.nav-underline { position: relative; }
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: rgb(var(--rose-500));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+.nav-underline:hover::after,
+.nav-underline.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Collapsible header pieces */
+.collapse-y {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.5s var(--ease), opacity 0.4s var(--ease);
+}
+.collapse-y > * { overflow: hidden; min-height: 0; }
+.collapse-y.is-collapsed { grid-template-rows: 0fr; opacity: 0; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-6px); }
@@ -271,6 +400,18 @@
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes kenBurns {
+  from { transform: scale(1.1); }
+  to   { transform: scale(1); }
+}
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
 @keyframes reveal {
   from { clip-path: inset(100% 0 0 0); }
   to   { clip-path: inset(0 0 0 0); }
@@ -283,5 +424,11 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale,
+  .reveal-stagger > *, .img-reveal > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .img-reveal > * { clip-path: none !important; }
+  .ken-burns, .animate-float { animation: none !important; }
 }

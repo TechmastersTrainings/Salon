@@ -83,23 +83,23 @@ const Home = () => {
             <div className="lg:col-span-7 space-y-6">
               
               {/* Sub-Title Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-surface border border-rose-300 text-rose-600 text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-surface border border-rose-300 text-rose-600 text-[11px] font-bold uppercase tracking-[0.2em] shadow-sm animate-rise">
                 <Sparkles size={13} />
                 <span>Modern Grooming Living</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="display-hero text-ink">
+              <h1 className="display-hero text-ink animate-rise delay-100">
                 Discover Minimalist Grooming & Master Artistry
               </h1>
 
               {/* Description */}
-              <p className="text-body text-sm sm:text-base leading-relaxed max-w-xl font-normal font-body">
+              <p className="text-body text-sm sm:text-base leading-relaxed max-w-xl font-normal font-body animate-rise delay-200">
                 Upgrade your personal style with handcrafted haircuts, straight-razor detailing, and botanical hair therapy. Certified salons with direct calendar synchronization.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-4 pt-2 animate-rise delay-300">
                 <Link to="/search" className="bloxic-btn-primary">
                   <span>Explore Studios</span>
                   <ArrowRight size={15} />
@@ -110,7 +110,7 @@ const Home = () => {
               </div>
 
               {/* Integrated Search Widget */}
-              <div className="pt-6">
+              <div className="pt-6 animate-rise delay-500">
                 <form 
                   onSubmit={handleSearch}
                   className="bg-surface p-2.5 border border-line shadow-2xl flex flex-col sm:flex-row gap-2 max-w-2xl"
@@ -151,12 +151,12 @@ const Home = () => {
 
             {/* Right Hero Image */}
             <div className="lg:col-span-5 relative">
-              <div className="relative z-10 bg-surface p-3 border border-line shadow-2xl">
-                <div className="relative overflow-hidden aspect-[4/5] bg-blush">
+              <div className="relative z-10 bg-surface p-3 border border-line shadow-2xl animate-rise delay-200">
+                <div className="relative overflow-hidden aspect-[4/5] bg-blush animate-reveal delay-300">
                   <img 
                     src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80" 
                     alt="Modern Grooming Living"
-                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    className="w-full h-full object-cover ken-burns"
                   />
                   <div className="absolute top-4 left-4 bg-blush border border-rose-300 text-rose-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                     Verified Atelier
@@ -164,7 +164,7 @@ const Home = () => {
                 </div>
 
                 {/* Floating Trust Card */}
-                <div className="absolute -bottom-6 -left-6 bg-blush p-4 border border-line shadow-2xl max-w-xs flex items-center gap-3">
+                <div className="absolute -bottom-6 -left-6 bg-blush p-4 border border-line shadow-2xl max-w-xs flex items-center gap-3 animate-float">
                   <div className="w-10 h-10 bg-ink text-ivory flex items-center justify-center shrink-0">
                     <Star size={20} className="fill-ivory" />
                   </div>
@@ -176,7 +176,7 @@ const Home = () => {
               </div>
 
               {/* Decorative accent background box */}
-              <div className="absolute -top-4 -right-4 w-full h-full bg-rose-500/15 -z-0" />
+              <div className="absolute -top-4 -right-4 w-full h-full bg-rose-500/15 -z-0 animate-fadeIn delay-500" />
             </div>
 
           </div>
@@ -188,7 +188,7 @@ const Home = () => {
       ========================================= */}
       <section className="border-b border-line py-10 bg-blush">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 reveal-stagger">
             {[
               {
                 icon: Scissors,
@@ -211,9 +211,9 @@ const Home = () => {
                 desc: "Instant booking assistance 7 days a week."
               }
             ].map((pillar, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-surface border border-line flex items-center justify-center text-rose-600 shrink-0">
-                  <pillar.icon size={22} className="text-rose-600" />
+              <div key={i} className="group flex items-start gap-4">
+                <div className="w-12 h-12 bg-surface border border-line flex items-center justify-center text-rose-600 shrink-0 transition-all duration-500 ease-lux group-hover:bg-ink group-hover:border-ink">
+                  <pillar.icon size={22} className="text-rose-600 transition-colors duration-500 group-hover:text-ivory" />
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-ink">
@@ -235,7 +235,7 @@ const Home = () => {
       <section className="py-20 bg-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center max-w-xl mx-auto mb-14">
+          <div className="text-center max-w-xl mx-auto mb-14 reveal">
             <span className="bloxic-sub-title">Signature Collections</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
               Curated Hair & Grooming Categories
@@ -245,7 +245,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-stagger">
             {[
               {
                 name: "Precision Haircraft",
@@ -271,17 +271,17 @@ const Home = () => {
               <div 
                 key={idx}
                 onClick={() => navigate(`/search?service=${encodeURIComponent(cat.query)}`)}
-                className="group cursor-pointer bg-surface border border-line hover:border-rose-400 transition-all duration-300 relative overflow-hidden"
+                className="group cursor-pointer bg-surface border border-line hover:border-rose-400 relative overflow-hidden card-lift"
               >
                 <div className="relative aspect-[3/4] overflow-hidden bg-blush">
                   <img 
                     src={cat.img} 
                     alt={cat.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                    className="w-full h-full object-cover img-zoom" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/30 to-transparent transition-opacity duration-700 group-hover:opacity-90" />
                   
-                  <div className="absolute bottom-5 left-5 right-5 text-ivory">
+                  <div className="absolute bottom-5 left-5 right-5 text-ivory transition-transform duration-700 ease-lux group-hover:-translate-y-1">
                     <h3 className="text-2xl text-ivory mt-0.5 group-hover:text-rose-200 transition-colors">
                       {cat.name}
                     </h3>
@@ -304,7 +304,7 @@ const Home = () => {
       <section className="py-20 bg-blush border-y border-line">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
             <div>
               <span className="bloxic-sub-title">Popular Studios</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight">
@@ -337,11 +337,11 @@ const Home = () => {
 
           {/* Cards Grid */}
           {filteredSalons.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal-stagger" key={activeTab}>
               {filteredSalons.slice(0, 6).map((salon) => (
                 <div 
                   key={salon.id}
-                  className="group bg-surface border border-line hover:border-rose-400 hover:shadow-bloxic-hover transition-all duration-300 relative flex flex-col justify-between"
+                  className="group bg-surface border border-line hover:border-rose-400 relative flex flex-col justify-between card-lift"
                 >
                   <div>
                     {/* Card Image Container */}
@@ -349,7 +349,7 @@ const Home = () => {
                       <img 
                         src={salon.images?.[0]?.image || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'} 
                         alt={salon.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="w-full h-full object-cover img-zoom"
                       />
 
                       {/* Badge */}
@@ -358,7 +358,7 @@ const Home = () => {
                       </span>
 
                       {/* Floating Hover Action Bar */}
-                      <div className="absolute -bottom-12 group-hover:bottom-3 left-3 right-3 flex items-center justify-center gap-2 transition-all duration-300 z-10">
+                      <div className="absolute -bottom-12 group-hover:bottom-3 left-3 right-3 flex items-center justify-center gap-2 transition-all duration-500 ease-lux z-10">
                         <button
                           onClick={(e) => { e.preventDefault(); toggleWishlist(salon.id); }}
                           className={`w-9 h-9 bg-blush border border-line shadow-md flex items-center justify-center transition-colors ${
@@ -429,7 +429,7 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <div className="py-16 text-center border border-line bg-surface p-8 max-w-xl mx-auto">
+            <div className="py-16 text-center border border-line bg-surface p-8 max-w-xl mx-auto reveal-scale">
               <Store size={40} className="mx-auto text-rose-600 mb-3 opacity-60" />
               <h3 className="text-base font-bold text-ink uppercase tracking-wider">No Studios Listed Yet</h3>
               <p className="text-xs text-muted mt-1 max-w-md mx-auto">
@@ -438,7 +438,7 @@ const Home = () => {
             </div>
           )}
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 text-center reveal">
             <Link to="/search" className="bloxic-btn-outline">
               <span>Explore All Studios</span>
               <ArrowRight size={14} />
@@ -455,7 +455,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-6 reveal-stagger">
               <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-rose-600 block">
                 Exclusive Spotlight Offer
               </span>
@@ -475,7 +475,7 @@ const Home = () => {
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative border-4 border-line shadow-2xl">
+              <div className="relative border-4 border-line shadow-2xl img-reveal img-reveal-side overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=80" 
                   alt="Spotlight Grooming" 

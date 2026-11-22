@@ -77,7 +77,7 @@ const Login = () => {
 
   return (
     <div className="min-h-[85vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-ivory text-ink">
-      <div className="max-w-md w-full bg-surface border border-line p-8 sm:p-10 shadow-2xl">
+      <div className="max-w-md w-full bg-surface border border-line p-8 sm:p-10 shadow-2xl animate-rise">
         
         {/* Header */}
         <div className="text-center mb-8">
@@ -104,7 +104,7 @@ const Login = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 stagger-in">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-body mb-1">
               Email Address

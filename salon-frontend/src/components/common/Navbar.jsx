@@ -15,6 +15,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [roleSwitcherOpen, setRoleSwitcherOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const roleRef = useRef(null);
 
@@ -29,6 +30,14 @@ const Navbar = () => {
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Condense the header once the page scrolls
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   const handleLogout = () => {
@@ -47,9 +56,15 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 left-0 w-full z-50 bg-ivory shadow-lg transition-all duration-300">
+    <header
+      className={`sticky top-0 left-0 w-full z-50 transition-all duration-500 ease-lux ${
+        scrolled ? 'bg-ivory/90 backdrop-blur-md shadow-lg' : 'bg-ivory shadow-none'
+      }`}
+    >
       
-      {/* 1. TOP ANNOUNCEMENT BAR */}
+      {/* 1. TOP ANNOUNCEMENT BAR — collapses on scroll */}
+      <div className={`collapse-y ${scrolled && !roleSwitcherOpen ? 'is-collapsed' : ''}`}>
+      <div>
       <div className="bg-blush text-ink text-[11px] py-2 px-4 border-b border-line">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           
@@ -117,15 +132,18 @@ const Navbar = () => {
         </div>
       </div>
 
+      </div>
+      </div>
+
       {/* 2. MAIN HEADER */}
-      <div className="border-b border-line bg-ivory">
+      <div className={`border-b border-line transition-colors duration-500 ${scrolled ? 'bg-transparent' : 'bg-ivory'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className={`flex justify-between items-center transition-[height] duration-500 ease-lux ${scrolled ? 'h-16' : 'h-20'}`}>
             
             {/* BRAND LOGO */}
             <Link to="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-full bg-blush border border-line flex items-center justify-center text-ink transition-colors group-hover:border-rose-400">
-                <Scissors size={20} className="text-rose-600 group-hover:scale-110 transition-transform" />
+                <Scissors size={20} className="text-rose-600 transition-transform duration-500 ease-lux group-hover:rotate-[-20deg] group-hover:scale-110" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-[1.55rem] tracking-[0.06em] text-ink">
@@ -290,7 +308,7 @@ const Navbar = () => {
       {/* MOBILE MENU DRAWER */}
       {isOpen && (
         <div className="lg:hidden bg-ivory border-b border-line px-4 py-5 shadow-2xl animate-slideDown text-ink">
-          <div className="space-y-3">
+          <div className="space-y-3 stagger-in">
             <Link to="/" className="block py-2 text-xs font-bold uppercase tracking-wider text-rose-600" onClick={() => setIsOpen(false)}>Home</Link>
             <Link to="/search" className="block py-2 text-xs font-bold uppercase tracking-wider text-body hover:text-rose-600" onClick={() => setIsOpen(false)}>Explore Studios</Link>
             <Link to="/search?category=Haircut" className="block py-2 text-xs font-bold uppercase tracking-wider text-body hover:text-rose-600" onClick={() => setIsOpen(false)}>Haircraft</Link>
@@ -348,10 +366,8 @@ const NavLink = ({ to, children }) => {
   return (
     <Link
       to={to}
-      className={`text-xs font-bold uppercase tracking-wider transition-colors py-2 border-b-2 ${
-        isActive 
-          ? 'border-rose-400 text-rose-600' 
-          : 'border-transparent text-body hover:text-rose-600 hover:border-rose-300'
+      className={`nav-underline text-xs font-bold uppercase tracking-wider transition-colors duration-300 py-2 ${
+        isActive ? 'is-active text-rose-600' : 'text-body hover:text-rose-600'
       }`}
     >
       {children}

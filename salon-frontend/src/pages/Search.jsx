@@ -205,7 +205,7 @@ const Search = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           
           {/* DESKTOP FILTER SIDEBAR */}
-          <aside className="hidden lg:block space-y-8">
+          <aside className="hidden lg:block space-y-8 reveal-left">
             
             {/* Category Filter */}
             <div className="bg-surface p-6 border border-line">
@@ -271,11 +271,11 @@ const Search = () => {
 
             {/* Salons Grid */}
             {salons.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
                 {salons.map((salon) => (
                   <div 
                     key={salon.id}
-                    className="group bg-surface border border-line hover:border-rose-400 hover:shadow-bloxic-hover transition-all duration-300 relative flex flex-col justify-between"
+                    className="group bg-surface border border-line hover:border-rose-400 relative flex flex-col justify-between card-lift"
                   >
                     <div>
                       {/* Card Photo Container */}
@@ -283,7 +283,7 @@ const Search = () => {
                         <img 
                           src={salon.images?.[0]?.image || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80'} 
                           alt={salon.name}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-full object-cover img-zoom"
                         />
 
                         <span className="absolute top-3 left-3 bg-blush border border-rose-300 text-rose-600 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5">

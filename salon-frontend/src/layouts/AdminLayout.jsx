@@ -157,7 +157,9 @@ const AdminLayout = () => {
 
         {/* Outlet Content */}
         <main className="p-6 sm:p-8 flex-1 pb-24 lg:pb-8 bg-ivory text-ink">
-          <Outlet />
+          <div key={location.pathname} className="animate-page">
+            <Outlet />
+          </div>
         </main>
         <MobileBottomBar />
       </div>

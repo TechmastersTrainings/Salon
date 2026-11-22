@@ -164,13 +164,14 @@ const SalonDetail = () => {
         <div className="grid lg:grid-cols-12 gap-10">
           
           {/* LEFT 7 COLS: PHOTO GALLERY */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-7 space-y-4 reveal-left">
             {/* Active Feature View */}
-            <div className="relative aspect-[4/3] bg-blush overflow-hidden border border-line shadow-2xl">
+            <div className="group relative aspect-[4/3] bg-blush overflow-hidden border border-line shadow-2xl">
               <img 
+                key={activeImage}
                 src={galleryImages[activeImage]?.image} 
                 alt={salon.name} 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover img-zoom animate-fadeIn"
               />
               <div className="absolute top-4 left-4 bg-blush border border-rose-300 text-rose-600 px-3 py-1 text-[10px] font-bold uppercase tracking-widest">
                 Certified Atelier
@@ -184,7 +185,7 @@ const SalonDetail = () => {
                   key={img.id || idx}
                   onClick={() => setActiveImage(idx)}
                   className={`relative aspect-[4/3] overflow-hidden border transition-all ${
-                    activeImage === idx ? 'border-2 border-rose-400' : 'border-line opacity-70 hover:opacity-100'
+                    activeImage === idx ? 'border-2 border-rose-400' : 'border-line opacity-70 hover:opacity-100 hover:-translate-y-0.5'
                   }`}
                 >
                   <img src={img.image} alt="Thumbnail" className="w-full h-full object-cover" />
@@ -194,7 +195,7 @@ const SalonDetail = () => {
           </div>
 
           {/* RIGHT 5 COLS: STUDIO SPECIFICATIONS & DIRECT BOOKING CARD */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 reveal-right">
             <div>
               <div className="flex items-center gap-2 text-xs text-rose-600 font-bold uppercase tracking-widest mb-1.5">
                 <Sparkles size={13} />
@@ -294,11 +295,11 @@ const SalonDetail = () => {
           
           {/* TAB 1: SERVICES MENU */}
           {activeTab === 'services' && (
-            <div className="max-w-4xl mx-auto space-y-4">
+            <div className="max-w-4xl mx-auto space-y-4 reveal-stagger">
               {services.map(srv => (
                 <div 
                   key={srv.id}
-                  className="bg-surface border border-line hover:border-rose-400 p-6 transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm"
+                  className="bg-surface border border-line hover:border-rose-400 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm card-lift"
                 >
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
@@ -330,11 +331,11 @@ const SalonDetail = () => {
 
           {/* TAB 2: SPECIALISTS */}
           {activeTab === 'staff' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto reveal-stagger">
               {staff.map(person => (
                 <div 
                   key={person.id}
-                  className="bg-surface border border-line hover:border-rose-400 p-6 text-center space-y-4 transition-all shadow-sm"
+                  className="bg-surface border border-line hover:border-rose-400 p-6 text-center space-y-4 shadow-sm card-lift"
                 >
                   <div className="w-24 h-24 mx-auto overflow-hidden bg-blush rounded-full border-2 border-rose-400">
                     <img 
@@ -410,7 +411,7 @@ const SalonDetail = () => {
               {/* Reviews List */}
               <div className="space-y-4">
                 {reviews.map((rev, i) => (
-                  <div key={rev.id || i} className="bg-surface border border-line p-6 shadow-sm">
+                  <div key={rev.id || i} className="bg-surface border border-line p-6 shadow-sm reveal">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 bg-blush border border-rose-300 text-rose-600 flex items-center justify-center text-xs font-bold">

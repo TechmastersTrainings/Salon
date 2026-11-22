@@ -21,7 +21,7 @@ const Footer = () => {
       
       {/* 1. NEWSLETTER STRIP */}
       <div className="border-b border-white/10 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 reveal">
           <div className="max-w-xl text-center lg:text-left">
             <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-rose-300 block mb-2">
               Stay in the Know
@@ -55,7 +55,7 @@ const Footer = () => {
 
       {/* 2. MAIN 4-COLUMN FOOTER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 reveal-stagger">
           
           {/* Column 1: Brand & Contact */}
           <div className="space-y-4">
