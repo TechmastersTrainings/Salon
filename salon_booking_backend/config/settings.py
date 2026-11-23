@@ -107,13 +107,36 @@ def get_database_config():
 
     database_url = os.getenv('DATABASE_URL')
     if database_url:
-        import dj_database_url
-        return dj_database_url.config(
-            default=database_url,
-            conn_max_age=600,
-            conn_health_checks=True,
-            ssl_require=True
-        )
+        try:
+            import dj_database_url
+            return dj_database_url.config(
+                default=database_url,
+                conn_max_age=600,
+                conn_health_checks=True,
+                ssl_require=True
+            )
+        except ImportError:
+            from urllib.parse import urlparse, parse_qs, unquote
+            parsed = urlparse(database_url)
+            query_params = parse_qs(parsed.query)
+            sslmode = query_params.get('sslmode', ['require'])[0]
+            options = {}
+            if sslmode:
+                options['sslmode'] = sslmode
+            if 'channel_binding' in query_params:
+                options['channel_binding'] = query_params['channel_binding'][0]
+
+            return {
+                "ENGINE": "django.db.backends.postgresql",
+                "NAME": unquote(parsed.path.lstrip("/")),
+                "USER": unquote(parsed.username or ""),
+                "PASSWORD": unquote(parsed.password or ""),
+                "HOST": parsed.hostname or "",
+                "PORT": parsed.port or 5432,
+                "CONN_MAX_AGE": 600,
+                "CONN_HEALTH_CHECKS": True,
+                "OPTIONS": options,
+            }
 
     import socket
     db_engine = os.getenv('DB_ENGINE', '').lower()
